@@ -1,5 +1,50 @@
-Project 3
-=========
+=============
+= Project 3 =
+=============
 
+
+--------------------------
 3.1 Built-in Thread Tests:
-	
+--------------------------
+- mi_switch() == when debugging with GDB, should step through to call this and see exactly where the current thread changes.
+
+- Thread test 1 ( " tt1 " at the prompt or tt1 on the kernel command line) prints the numbers 0 through 7 each time each thread loops. 
+- Thread test 2 (" tt2 ") prints only when each thread starts and exits. The latter is intended to show that the scheduler doesn't cause any starvation (e.g., the threads should all start together, run for a while, and then end together).
+
+
+---------------------------------
+3.2 Debugging Concurrent Programs
+---------------------------------
+- thread_yield() == automatically called for you at intervals that vary randomly.
+    - random # generator uses the same seed as the random device in sys/161
+    - can reproduce a specific execution sequence by using a fixed seed for the random # generator
+
+- how to pass explicit seed 
+    == edit the "random" line in ~/cs161/sys161.conf
+    - example for seed 1 == 28 random seed=1
+
+    - STRONGLY RECOMMENDED TO PICK AND SEED AND USE CONSISTENTLY
+        -when confident that threads work right, set the rand device to autoseed
+       
+       
+--------------------------------------------------          
+5.1 Synchronization Primitives: Implementing Locks
+--------------------------------------------------
+- In the first programming exercise of this project, you will implement locks for OS/161. 
+    - The interface for the lock structure is defined in kern/include/synch.h. 
+    - Stub code is provided in kern/thread/synch.c. 
+
+- Important! You may use the implementation of semaphores as a model, but do NOT build your lock implementation on top of semaphores.
+
+
+---------------------------------------------------------------------
+5.2 Synchronization Primitives: Implementing Condition Variables (cv)
+---------------------------------------------------------------------
+Implement condition variables for OS/161. The interface for the cv structure is also defined in synch.h and stub code is provided in synch.c.
+
+
+-------------------------------------
+5.3 Solving a Synchronization Problem
+-------------------------------------
+- We have provided you with basic driver code that starts a predefined number of threads. You are responsible for what those threads do.
+- SPECIFY A SEED (setting to 
