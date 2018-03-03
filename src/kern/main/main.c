@@ -159,6 +159,9 @@ int
 kmain(char *arguments)
 {
 	boot();
+	
+	locktest(1, "lock test");
+	cvtest(1, "cv test");
 
 	menu(arguments);
 

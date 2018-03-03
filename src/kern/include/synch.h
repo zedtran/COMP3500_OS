@@ -52,6 +52,11 @@ struct lock {
 	char *name;
 	// add what you need here
 	// (don't forget to mark things volatile as needed)
+	
+	volatile int is_locked;
+	
+	// address of thread holding lock
+	struct thread *holder;
 };
 
 struct lock *lock_create(const char *name);
@@ -91,6 +96,8 @@ struct cv {
 	char *name;
 	// add what you need here
 	// (don't forget to mark things volatile as needed)
+	
+	//struct lock *this_lock;
 };
 
 struct cv *cv_create(const char *name);

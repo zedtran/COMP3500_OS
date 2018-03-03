@@ -27,6 +27,11 @@
         -when confident that threads work right, set the rand device to autoseed
        
        
+       
+       
+       
+
+       
 --------------------------------------------------          
 5.1 Synchronization Primitives: Implementing Locks
 --------------------------------------------------
@@ -35,6 +40,14 @@
     - Stub code is provided in kern/thread/synch.c. 
 
 - Important! You may use the implementation of semaphores as a model, but do NOT build your lock implementation on top of semaphores.
+    
+    //creates a semaphore
+    struct semaphore *
+    sem_create(const char *namearg, int initial_count)
+    
+    
+    void
+    sem_destroy(struct semaphore *sem)
 
 
 ---------------------------------------------------------------------
