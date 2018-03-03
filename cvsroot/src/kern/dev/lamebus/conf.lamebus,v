@@ -1,0 +1,99 @@
+head	1.1;
+branch	1.1.1;
+access;
+symbols
+	asst0-end:1.1.1.1
+	os161-1_10:1.1.1.1
+	os161:1.1.1;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2018.02.04.22.23.30;	author blakedonzac;	state Exp;
+branches
+	1.1.1.1;
+next	;
+
+1.1.1.1
+date	2018.02.04.22.23.30;	author blakedonzac;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#
+# Kernel config definitions for LAMEbus devices.
+#
+# See conf/conf.kern for more information.
+#
+
+# System main bus.
+defdevice	lamebus			dev/lamebus/lamebus.c
+
+# Timer.
+defdevice	ltimer			dev/lamebus/ltimer.c
+defattach	ltimer* lamebus*	dev/lamebus/ltimer_att.c
+
+# Random.
+defdevice	lrandom			dev/lamebus/lrandom.c
+defattach	lrandom* lamebus*	dev/lamebus/lrandom_att.c
+
+# Disk.
+defdevice	lhd			dev/lamebus/lhd.c
+defattach	lhd* lamebus*		dev/lamebus/lhd_att.c
+
+# Serial port.
+defdevice	lser			dev/lamebus/lser.c
+defattach	lser* lamebus*		dev/lamebus/lser_att.c
+
+# Text screen.
+defdevice	lscreen			dev/lamebus/lscreen.c
+defattach	lscreen* lamebus*	dev/lamebus/lscreen_att.c
+
+# Network interface.
+defdevice	lnet			dev/lamebus/lnet.c
+defattach	lnet* lamebus*		dev/lamebus/lnet_att.c
+
+# Trace control device.
+defdevice	ltrace			dev/lamebus/ltrace.c
+defattach	ltrace* lamebus*	dev/lamebus/ltrace_att.c
+
+# Emulator passthrough filesystem.
+defdevice	emu			dev/lamebus/emu.c
+defattach	emu* lamebus*		dev/lamebus/emu_att.c
+
+#
+# Attachments to generic interface devices
+#
+
+# Consoles.
+defattach	con0 lser*		dev/lamebus/con_lser.c
+defattach	con0 lscreen*		dev/lamebus/con_lscreen.c
+
+# Beeper.
+defattach	beep* ltimer*		dev/lamebus/beep_ltimer.c
+
+# Clock.
+defattach       rtclock* ltimer*        dev/lamebus/rtclock_ltimer.c
+
+# Random.
+defattach	random0 lrandom*	dev/lamebus/random_lrandom.c
+@
+
+
+1.1.1.1
+log
+@Import of os161
+@
+text
+@@

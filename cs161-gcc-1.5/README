@@ -1,0 +1,113 @@
+The MIPS toolchain for OS/161
+-----------------------------
+
+Release 1.5 of the OS161 toolchain uses gcc 4.1.2, gdb 6.6, and GNU
+binutils 2.17.
+
+These versions are in some cases slightly patched:
+   binutils - no patches.
+   gcc - one patch:
+	asmdebug.patch          - enables debug information for
+				  assembler source files (helpful but
+				  not required)
+   gdb - two patches:
+	gdb-unixsock.patch	- allows debugging over AF_UNIX
+				  (filesystem) sockets (required)
+	gdb-reconfig.patch	- the second half of these changes
+			     
+The source trees included in the tarfiles are prepatched; copies of
+the patches are included for reference. Do _not_ apply the patches a
+second time.
+
+The original versions can be downloaded from ftp.gnu.org.
+
+The OS161 toolchain is distributed as three separate components, one
+for each of the above packages. Each includes a copy of this README
+file. To install the complete toolchain, you need all three tarfiles.
+
+Install in this order: binutils first, then gcc, then gdb. If you try
+to install gcc before binutils, it won't work. The build script checks
+this for you.
+
+When you've built and installed all three packages, you get a complete
+mips cross-development toolchain, including gcc, as, ld, nm, objdump,
+gdb, etc. It does not include make. If for some reason you need a copy
+of make, or other non-target-specific Unix development tools, get them
+from ftp.gnu.org.
+
+
+Note
+----
+
+While this is the toolchain for OS/161, quite a few things refer to
+"CS161". That is the class we teach using OS/161; it got wired into
+the setup of the toolchain because this toolchain package was
+originally intended to be only for our students, and I haven't wanted
+to rock the boat by changing it.
+
+
+Building
+--------
+
+This section describes how to build a single package. If you're short
+on disk space, you can download, build, and install the packages one
+at a time, and delete each source tree once you're done with it. If
+you don't do this, the total disk space requirement exceeds 300
+megabytes. This is no longer a huge amount, but it can still be
+problematic in some cases.
+
+First you need to unpack the package. To do this, you type (for
+example)
+
+	tar -xvzf cs161-gcc-1.5.tar.gz
+
+Presumably you've already done this, because you're reading this file.
+It creates a directory called cs161-gcc-1.5 (or -binutils-, or -gdb-). 
+In this directory are the following things:
+
+	- This README file.
+	- A script called "toolbuild.sh".
+	- The source for gcc, binutils, or gdb, in a subdirectory.
+	- Reference copies of any patches to the sources.
+
+You do not need to do anything with the patches; the source tree is
+already patched. The patches are for reference, or if you desire for
+recreating the source tree we ship from the official releases.
+
+***NOTE*** The gcc download is the "gcc-core" release. That is, g++
+(the gcc C++ compiler) and the other miscellaneous gcc frontends are
+not included, as we don't use them with OS/161. If you want any of
+these components, you can download them from ftp.gnu.org and unpack
+them into the gcc subdirectory of cs161-gcc-1.5 before building, and
+it should all Just Work. Contact your course staff if you need help,
+or read the FSF installation instructions.
+
+Now, run the script "toolbuild.sh". This will configure, compile, and
+install the package. By default it puts things in $HOME/cs161/tools,
+and creates symlinks in $HOME/cs161/bin that have the names assumed by
+the OS/161 makefiles (cs161-gcc, cs161-ld, etc.) You can then put this
+directory on your $PATH.
+
+As of gcc 4.0, gcc *requires* GNU make to build correctly. If you are
+building cs161-gcc on a system where GNU make is not the default make
+you get when you run "make", you will need to set the MAKE environment
+variable to the name of GNU make, such as like this:
+
+	env MAKE=gmake ./toolbuild.sh
+
+If you want to put the cs161 directory somewhere other than
+$HOME/cs161, you can give the script the argument --cs161dir=DIR; for
+instance, someone who likes a small homedir might use
+--cs161dir=$HOME/classes/cs161.  (The directory gets compiled in, so
+if you want to move it later, you need to recompile.)
+
+If you need more control than this, you can configure and build the
+GNU source tree directly in its subdirectory. This README assumes that
+if this case pertains you probably already know what you're doing;
+just check the top of toolbuild.sh to see what values you need for the
+target argument and stuff like that. If you need help, contact the
+course staff.
+
+Likewise, if toolbuild.sh pukes and you can't figure out what went
+wrong, contact your course staff.
+

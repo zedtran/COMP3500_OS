@@ -1,0 +1,8 @@
+# serdep.tmp
+configure-libiberty: configure-intl
+configure-opcodes: configure-libiberty
+configure-bfd: configure-opcodes
+configure-binutils: configure-bfd
+configure-gas: configure-binutils
+configure-ld: configure-gas
+configure-etc: configure-ld

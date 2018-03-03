@@ -1,0 +1,1534 @@
+Script started on Sun 04 Feb 2018 05:17:52 PM EST
+]777;notify;Command completed;mv os161-1.10 os161]0;blakedonzac@localhost:~/cs161]7;file://localhost.localdomain/home/blakedonzac/cs161[?1034h[blakedonzac@localhost cs161]$ mkdir ~/cs161/cvsroot
+]777;notify;Command completed;mkdir ~/cs161/cvsroot]0;blakedonzac@localhost:~/cs161]7;file://localhost.localdomain/home/blakedonzac/cs161[blakedonzac@localhost cs161]$ ls
+[0m[38;5;27masst0[0m                   [38;5;27mcs161-gdb-1.5[0m                [38;5;27mroot[0m
+[38;5;27mbin[0m                     [38;5;9mcs161-gdb-1.5.tgz[0m            [38;5;27msys161-1.14[0m
+[38;5;27mcs161-binutils-1.4[0m      [38;5;27mcvsroot[0m                      [38;5;9msys161-1.14.tar.gz[0m
+[38;5;9mcs161-binutils-1.4.tar[0m  [38;5;27mos161[0m                        sys161.conf
+[38;5;27mcs161-gcc-1.5[0m           [38;5;9mos161-1.10.tar.gz[0m            [38;5;27mtools[0m
+[38;5;9mcs161-gcc-1.5.tgz[0m       Project 2 Specification.pdf  typescript
+]777;notify;Command completed;ls]0;blakedonzac@localhost:~/cs161]7;file://localhost.localdomain/home/blakedonzac/cs161[blakedonzac@localhost cs161]$ export CVSROOT=~/cs161/cvsroot
+]777;notify;Command completed;export CVSROOT=~/cs161/cvsroot]0;blakedonzac@localhost:~/cs161]7;file://localhost.localdomain/home/blakedonzac/cs161[blakedonzac@localhost cs161]$ echo $V[KCVSROOT
+/home/blakedonzac/cs161/cvsroot
+]777;notify;Command completed;echo $CVSROOT]0;blakedonzac@localhost:~/cs161]7;file://localhost.localdomain/home/blakedonzac/cs161[blakedonzac@localhost cs161]$ v[Kc[Kcd v[Kcvsroot/
+]777;notify;Command completed;cd cvsroot/]0;blakedonzac@localhost:~/cs161/cvsroot]7;file://localhost.localdomain/home/blakedonzac/cs161/cvsroot[blakedonzac@localhost cvsroot]$ cvs init
+]777;notify;Command completed;cvs init]0;blakedonzac@localhost:~/cs161/cvsroot]7;file://localhost.localdomain/home/blakedonzac/cs161/cvsroot[blakedonzac@localhost cvsroot]$ cd ~/cs161/os161/
+]777;notify;Command completed;cd ~/cs161/os161/]0;blakedonzac@localhost:~/cs161/os161]7;file://localhost.localdomain/home/blakedonzac/cs161/os161[blakedonzac@localhost os161]$ cvs import -m "Import of osrs[K[K161" src os161  os161-1+[K_10[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kcvs import -m "Import of os161" src os161  os161-1_10
+N src/.cvsignore
+N src/CHANGES
+N src/COPYING
+N src/Makefile
+N src/configure
+N src/defs.mk.sample
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/bin
+N src/bin/Makefile
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/bin/cat
+N src/bin/cat/.cvsignore
+N src/bin/cat/Makefile
+N src/bin/cat/cat.c
+N src/bin/cat/depend.mk
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/bin/cp
+N src/bin/cp/.cvsignore
+N src/bin/cp/Makefile
+N src/bin/cp/cp.c
+N src/bin/cp/depend.mk
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/bin/false
+N src/bin/false/.cvsignore
+N src/bin/false/Makefile
+N src/bin/false/depend.mk
+N src/bin/false/false.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/bin/ln
+N src/bin/ln/.cvsignore
+N src/bin/ln/Makefile
+N src/bin/ln/depend.mk
+N src/bin/ln/ln.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/bin/ls
+N src/bin/ls/.cvsignore
+N src/bin/ls/Makefile
+N src/bin/ls/depend.mk
+N src/bin/ls/ls.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/bin/mkdir
+N src/bin/mkdir/.cvsignore
+N src/bin/mkdir/Makefile
+N src/bin/mkdir/depend.mk
+N src/bin/mkdir/mkdir.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/bin/mv
+N src/bin/mv/.cvsignore
+N src/bin/mv/Makefile
+N src/bin/mv/depend.mk
+N src/bin/mv/mv.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/bin/pwd
+N src/bin/pwd/.cvsignore
+N src/bin/pwd/Makefile
+N src/bin/pwd/depend.mk
+N src/bin/pwd/pwd.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/bin/rm
+N src/bin/rm/.cvsignore
+N src/bin/rm/Makefile
+N src/bin/rm/depend.mk
+N src/bin/rm/rm.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/bin/rmdir
+N src/bin/rmdir/.cvsignore
+N src/bin/rmdir/Makefile
+N src/bin/rmdir/depend.mk
+N src/bin/rmdir/rmdir.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/bin/sh
+N src/bin/sh/.cvsignore
+N src/bin/sh/Makefile
+N src/bin/sh/depend.mk
+N src/bin/sh/dependh.mk
+N src/bin/sh/sh.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/bin/sync
+N src/bin/sync/.cvsignore
+N src/bin/sync/Makefile
+N src/bin/sync/depend.mk
+N src/bin/sync/sync.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/bin/true
+N src/bin/true/.cvsignore
+N src/bin/true/Makefile
+N src/bin/true/depend.mk
+N src/bin/true/true.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/include
+N src/include/Makefile
+N src/include/assert.h
+N src/include/err.h
+N src/include/errno.h
+N src/include/fcntl.h
+N src/include/limits.h
+N src/include/setjmp.h
+N src/include/stdarg.h
+N src/include/stdio.h
+N src/include/stdlib.h
+N src/include/string.h
+N src/include/time.h
+N src/include/unistd.h
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/include/sys
+N src/include/sys/ioctl.h
+N src/include/sys/reboot.h
+N src/include/sys/stat.h
+N src/include/sys/types.h
+N src/include/sys/wait.h
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/kern
+N src/kern/Makefile
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/kern/arch
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/kern/arch/mips
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/kern/arch/mips/conf
+N src/kern/arch/mips/conf/Makefile.mips
+N src/kern/arch/mips/conf/conf.arch
+N src/kern/arch/mips/conf/ldscript
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/kern/arch/mips/include
+N src/kern/arch/mips/include/asmdefs.h
+N src/kern/arch/mips/include/bus.h
+N src/kern/arch/mips/include/pcb.h
+N src/kern/arch/mips/include/setjmp.h
+N src/kern/arch/mips/include/specialreg.h
+N src/kern/arch/mips/include/spl.h
+N src/kern/arch/mips/include/switchframe.h
+N src/kern/arch/mips/include/tlb.h
+N src/kern/arch/mips/include/trapframe.h
+N src/kern/arch/mips/include/types.h
+N src/kern/arch/mips/include/vm.h
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/kern/arch/mips/mips
+N src/kern/arch/mips/mips/cache_mips1.S
+N src/kern/arch/mips/mips/dumbvm.c
+N src/kern/arch/mips/mips/exception.S
+N src/kern/arch/mips/mips/interrupt.c
+N src/kern/arch/mips/mips/lamebus_mips.c
+N src/kern/arch/mips/mips/pcb.c
+N src/kern/arch/mips/mips/ram.c
+N src/kern/arch/mips/mips/spl.c
+N src/kern/arch/mips/mips/start.S
+N src/kern/arch/mips/mips/switch.S
+N src/kern/arch/mips/mips/syscall.c
+N src/kern/arch/mips/mips/threadstart.S
+N src/kern/arch/mips/mips/tlb_mips1.S
+N src/kern/arch/mips/mips/trap.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/kern/asst1
+N src/kern/asst1/catlock.c
+N src/kern/asst1/catsem.c
+N src/kern/asst1/stoplight.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/kern/compile
+N src/kern/compile/.cvsignore
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/kern/conf
+N src/kern/conf/ASST0
+N src/kern/conf/ASST1
+N src/kern/conf/ASST2
+N src/kern/conf/ASST2-OPT
+N src/kern/conf/ASST3
+N src/kern/conf/ASST4
+N src/kern/conf/ASST5
+N src/kern/conf/conf.kern
+N src/kern/conf/config
+N src/kern/conf/newvers.sh
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/kern/dev
+N src/kern/dev/init.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/kern/dev/generic
+N src/kern/dev/generic/beep.c
+N src/kern/dev/generic/beep.h
+N src/kern/dev/generic/console.c
+N src/kern/dev/generic/console.h
+N src/kern/dev/generic/pseudorand.c
+N src/kern/dev/generic/pseudorand.h
+N src/kern/dev/generic/pseudorand_att.c
+N src/kern/dev/generic/random.c
+N src/kern/dev/generic/random.h
+N src/kern/dev/generic/rtclock.c
+N src/kern/dev/generic/rtclock.h
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/kern/dev/lamebus
+N src/kern/dev/lamebus/beep_ltimer.c
+N src/kern/dev/lamebus/con_lscreen.c
+N src/kern/dev/lamebus/con_lser.c
+N src/kern/dev/lamebus/conf.lamebus
+N src/kern/dev/lamebus/emu.c
+N src/kern/dev/lamebus/emu.h
+N src/kern/dev/lamebus/emu_att.c
+N src/kern/dev/lamebus/lamebus.c
+N src/kern/dev/lamebus/lamebus.h
+N src/kern/dev/lamebus/lhd.c
+N src/kern/dev/lamebus/lhd.h
+N src/kern/dev/lamebus/lhd_att.c
+N src/kern/dev/lamebus/lnet.c
+N src/kern/dev/lamebus/lnet_att.c
+N src/kern/dev/lamebus/lrandom.c
+N src/kern/dev/lamebus/lrandom.h
+N src/kern/dev/lamebus/lrandom_att.c
+N src/kern/dev/lamebus/lscreen.c
+N src/kern/dev/lamebus/lscreen.h
+N src/kern/dev/lamebus/lscreen_att.c
+N src/kern/dev/lamebus/lser.c
+N src/kern/dev/lamebus/lser.h
+N src/kern/dev/lamebus/lser_att.c
+N src/kern/dev/lamebus/ltimer.c
+N src/kern/dev/lamebus/ltimer.h
+N src/kern/dev/lamebus/ltimer_att.c
+N src/kern/dev/lamebus/ltrace.c
+N src/kern/dev/lamebus/ltrace.h
+N src/kern/dev/lamebus/ltrace_att.c
+N src/kern/dev/lamebus/random_lrandom.c
+N src/kern/dev/lamebus/rtclock_ltimer.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/kern/fs
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/kern/fs/sfs
+N src/kern/fs/sfs/sfs_fs.c
+N src/kern/fs/sfs/sfs_io.c
+N src/kern/fs/sfs/sfs_vnode.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/kern/fs/vfs
+N src/kern/fs/vfs/device.c
+N src/kern/fs/vfs/devnull.c
+N src/kern/fs/vfs/vfscwd.c
+N src/kern/fs/vfs/vfslist.c
+N src/kern/fs/vfs/vfslookup.c
+N src/kern/fs/vfs/vfspath.c
+N src/kern/fs/vfs/vnode.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/kern/include
+N src/kern/include/addrspace.h
+N src/kern/include/array.h
+N src/kern/include/bitmap.h
+N src/kern/include/clock.h
+N src/kern/include/curthread.h
+N src/kern/include/dev.h
+N src/kern/include/elf.h
+N src/kern/include/emufs.h
+N src/kern/include/fs.h
+N src/kern/include/lib.h
+N src/kern/include/queue.h
+N src/kern/include/scheduler.h
+N src/kern/include/sfs.h
+N src/kern/include/stdarg.h
+N src/kern/include/synch.h
+N src/kern/include/syscall.h
+N src/kern/include/test.h
+N src/kern/include/thread.h
+N src/kern/include/types.h
+N src/kern/include/uio.h
+N src/kern/include/version.h
+N src/kern/include/vfs.h
+N src/kern/include/vm.h
+N src/kern/include/vnode.h
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/kern/include/kern
+N src/kern/include/kern/callno.h
+N src/kern/include/kern/errmsg.h
+N src/kern/include/kern/errno.h
+N src/kern/include/kern/ioctl.h
+N src/kern/include/kern/limits.h
+N src/kern/include/kern/sfs.h
+N src/kern/include/kern/stat.h
+N src/kern/include/kern/types.h
+N src/kern/include/kern/unistd.h
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/kern/lib
+N src/kern/lib/array.c
+N src/kern/lib/bitmap.c
+N src/kern/lib/copyinout.c
+N src/kern/lib/kgets.c
+N src/kern/lib/kheap.c
+N src/kern/lib/kprintf.c
+N src/kern/lib/misc.c
+N src/kern/lib/ntoh.c
+N src/kern/lib/queue.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/kern/main
+N src/kern/main/main.c
+N src/kern/main/menu.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/kern/test
+N src/kern/test/arraytest.c
+N src/kern/test/bitmaptest.c
+N src/kern/test/fstest.c
+N src/kern/test/malloctest.c
+N src/kern/test/nettest.c
+N src/kern/test/queuetest.c
+N src/kern/test/synchtest.c
+N src/kern/test/threadtest.c
+N src/kern/test/tt3.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/kern/thread
+N src/kern/thread/hardclock.c
+N src/kern/thread/scheduler.c
+N src/kern/thread/synch.c
+N src/kern/thread/thread.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/kern/userprog
+N src/kern/userprog/loadelf.c
+N src/kern/userprog/runprogram.c
+N src/kern/userprog/uio.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/kern/vm
+N src/kern/vm/addrspace.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/lib
+N src/lib/Makefile
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/lib/crt0
+N src/lib/crt0/Makefile
+N src/lib/crt0/mips-crt0.S
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/lib/hostcompat
+N src/lib/hostcompat/.cvsignore
+N src/lib/hostcompat/Makefile
+N src/lib/hostcompat/dependh.mk
+N src/lib/hostcompat/err.c
+N src/lib/hostcompat/host-err.h
+N src/lib/hostcompat/hostcompat.c
+N src/lib/hostcompat/hostcompat.h
+N src/lib/hostcompat/time.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/lib/libc
+N src/lib/libc/.cvsignore
+N src/lib/libc/Makefile
+N src/lib/libc/__assert.c
+N src/lib/libc/__printf.c
+N src/lib/libc/__puts.c
+N src/lib/libc/abort.c
+N src/lib/libc/atoi.c
+N src/lib/libc/bzero.c
+N src/lib/libc/callno-parse.sh
+N src/lib/libc/depend.mk
+N src/lib/libc/err.c
+N src/lib/libc/errno.c
+N src/lib/libc/exit.c
+N src/lib/libc/getchar.c
+N src/lib/libc/getcwd.c
+N src/lib/libc/memcmp.c
+N src/lib/libc/memcpy.c
+N src/lib/libc/memmove.c
+N src/lib/libc/memset.c
+N src/lib/libc/mips-setjmp.S
+N src/lib/libc/printf.c
+N src/lib/libc/putchar.c
+N src/lib/libc/puts.c
+N src/lib/libc/random.c
+N src/lib/libc/snprintf.c
+N src/lib/libc/strcat.c
+N src/lib/libc/strchr.c
+N src/lib/libc/strcmp.c
+N src/lib/libc/strcpy.c
+N src/lib/libc/strerror.c
+N src/lib/libc/strlen.c
+N src/lib/libc/strrchr.c
+N src/lib/libc/strtok.c
+N src/lib/libc/strtok_r.c
+N src/lib/libc/syscalls-mips.S
+N src/lib/libc/system.c
+N src/lib/libc/time.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/man
+N src/man/Makefile
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/man/bin
+N src/man/bin/Makefile
+N src/man/bin/cat.html
+N src/man/bin/cp.html
+N src/man/bin/false.html
+N src/man/bin/index.html
+N src/man/bin/ln.html
+N src/man/bin/ls.html
+N src/man/bin/mkdir.html
+N src/man/bin/mv.html
+N src/man/bin/pwd.html
+N src/man/bin/rm.html
+N src/man/bin/rmdir.html
+N src/man/bin/sh.html
+N src/man/bin/sync.html
+N src/man/bin/true.html
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/man/dev
+N src/man/dev/Makefile
+N src/man/dev/beep.html
+N src/man/dev/con.html
+N src/man/dev/emu.html
+N src/man/dev/index.html
+N src/man/dev/lamebus.html
+N src/man/dev/lhd.html
+N src/man/dev/lnet.html
+N src/man/dev/lrandom.html
+N src/man/dev/lscreen.html
+N src/man/dev/lser.html
+N src/man/dev/ltimer.html
+N src/man/dev/null.html
+N src/man/dev/pseudorand.html
+N src/man/dev/random.html
+N src/man/dev/rtclock.html
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/man/libc
+N src/man/libc/Makefile
+N src/man/libc/__vprintf.html
+N src/man/libc/abort.html
+N src/man/libc/assert.html
+N src/man/libc/atoi.html
+N src/man/libc/bzero.html
+N src/man/libc/calloc.html
+N src/man/libc/err.html
+N src/man/libc/exit.html
+N src/man/libc/free.html
+N src/man/libc/getchar.html
+N src/man/libc/getcwd.html
+N src/man/libc/index.html
+N src/man/libc/malloc.html
+N src/man/libc/memcpy.html
+N src/man/libc/memmove.html
+N src/man/libc/memset.html
+N src/man/libc/printf.html
+N src/man/libc/putchar.html
+N src/man/libc/puts.html
+N src/man/libc/random.html
+N src/man/libc/realloc.html
+N src/man/libc/setjmp.html
+N src/man/libc/snprintf.html
+N src/man/libc/stdarg.html
+N src/man/libc/strcat.html
+N src/man/libc/strchr.html
+N src/man/libc/strcmp.html
+N src/man/libc/strcpy.html
+N src/man/libc/strerror.html
+N src/man/libc/strlen.html
+N src/man/libc/strrchr.html
+N src/man/libc/strtok.html
+N src/man/libc/strtok_r.html
+N src/man/libc/system.html
+N src/man/libc/time.html
+N src/man/libc/warn.html
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/man/misc
+N src/man/misc/Makefile
+N src/man/misc/index.html
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/man/sbin
+N src/man/sbin/Makefile
+N src/man/sbin/dumpsfs.html
+N src/man/sbin/halt.html
+N src/man/sbin/index.html
+N src/man/sbin/mksfs.html
+N src/man/sbin/poweroff.html
+N src/man/sbin/reboot.html
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/man/syscall
+N src/man/syscall/Makefile
+N src/man/syscall/__getcwd.html
+N src/man/syscall/__time.html
+N src/man/syscall/_exit.html
+N src/man/syscall/chdir.html
+N src/man/syscall/close.html
+N src/man/syscall/dup2.html
+N src/man/syscall/errno.html
+N src/man/syscall/execv.html
+N src/man/syscall/fork.html
+N src/man/syscall/fstat.html
+N src/man/syscall/fsync.html
+N src/man/syscall/ftruncate.html
+N src/man/syscall/getdirentry.html
+N src/man/syscall/getpid.html
+N src/man/syscall/index.html
+N src/man/syscall/ioctl.html
+N src/man/syscall/link.html
+N src/man/syscall/lseek.html
+N src/man/syscall/lstat.html
+N src/man/syscall/mkdir.html
+N src/man/syscall/open.html
+N src/man/syscall/pipe.html
+N src/man/syscall/read.html
+N src/man/syscall/readlink.html
+N src/man/syscall/reboot.html
+N src/man/syscall/remove.html
+N src/man/syscall/rename.html
+N src/man/syscall/rmdir.html
+N src/man/syscall/sbrk.html
+N src/man/syscall/stat.html
+N src/man/syscall/symlink.html
+N src/man/syscall/sync.html
+N src/man/syscall/waitpid.html
+N src/man/syscall/write.html
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/man/testbin
+N src/man/testbin/Makefile
+N src/man/testbin/add.html
+N src/man/testbin/argtest.html
+N src/man/testbin/badcall.html
+N src/man/testbin/bigfile.html
+N src/man/testbin/conman.html
+N src/man/testbin/crash.html
+N src/man/testbin/ctest.html
+N src/man/testbin/dirseek.html
+N src/man/testbin/dirtest.html
+N src/man/testbin/f_test.html
+N src/man/testbin/farm.html
+N src/man/testbin/faulter.html
+N src/man/testbin/filetest.html
+N src/man/testbin/forkbomb.html
+N src/man/testbin/forktest.html
+N src/man/testbin/guzzle.html
+N src/man/testbin/hash.html
+N src/man/testbin/hog.html
+N src/man/testbin/huge.html
+N src/man/testbin/index.html
+N src/man/testbin/kitchen.html
+N src/man/testbin/malloctest.html
+N src/man/testbin/matmult.html
+N src/man/testbin/palin.html
+N src/man/testbin/randcall.html
+N src/man/testbin/rmdirtest.html
+N src/man/testbin/rmtest.html
+N src/man/testbin/sink.html
+N src/man/testbin/sort.html
+N src/man/testbin/sty.html
+N src/man/testbin/tail.html
+N src/man/testbin/tictac.html
+N src/man/testbin/triplehuge.html
+N src/man/testbin/triplemat.html
+N src/man/testbin/triplesort.html
+N src/man/testbin/userthreads.html
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/man/toplevel
+N src/man/toplevel/Makefile
+N src/man/toplevel/index.html
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/mk
+N src/mk/hostprog.mk
+N src/mk/lib.mk
+N src/mk/man.mk
+N src/mk/prog.mk
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/sbin
+N src/sbin/Makefile
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/sbin/dumpsfs
+N src/sbin/dumpsfs/.cvsignore
+N src/sbin/dumpsfs/Makefile
+N src/sbin/dumpsfs/depend.mk
+N src/sbin/dumpsfs/dependh.mk
+N src/sbin/dumpsfs/dumpsfs.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/sbin/halt
+N src/sbin/halt/.cvsignore
+N src/sbin/halt/Makefile
+N src/sbin/halt/depend.mk
+N src/sbin/halt/halt.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/sbin/mksfs
+N src/sbin/mksfs/.cvsignore
+N src/sbin/mksfs/Makefile
+N src/sbin/mksfs/depend.mk
+N src/sbin/mksfs/dependh.mk
+N src/sbin/mksfs/disk.c
+N src/sbin/mksfs/disk.h
+N src/sbin/mksfs/mksfs.c
+N src/sbin/mksfs/support.c
+N src/sbin/mksfs/support.h
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/sbin/poweroff
+N src/sbin/poweroff/.cvsignore
+N src/sbin/poweroff/Makefile
+N src/sbin/poweroff/depend.mk
+N src/sbin/poweroff/poweroff.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/sbin/reboot
+N src/sbin/reboot/.cvsignore
+N src/sbin/reboot/Makefile
+N src/sbin/reboot/depend.mk
+N src/sbin/reboot/reboot.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin
+N src/testbin/Makefile
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/add
+N src/testbin/add/.cvsignore
+N src/testbin/add/Makefile
+N src/testbin/add/add.c
+N src/testbin/add/depend.mk
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/argtest
+N src/testbin/argtest/.cvsignore
+N src/testbin/argtest/Makefile
+N src/testbin/argtest/argtest.c
+N src/testbin/argtest/depend.mk
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/badcall
+N src/testbin/badcall/.cvsignore
+N src/testbin/badcall/Makefile
+N src/testbin/badcall/bad_chdir.c
+N src/testbin/badcall/bad_close.c
+N src/testbin/badcall/bad_dup2.c
+N src/testbin/badcall/bad_execv.c
+N src/testbin/badcall/bad_fsync.c
+N src/testbin/badcall/bad_ftruncate.c
+N src/testbin/badcall/bad_getcwd.c
+N src/testbin/badcall/bad_getdirentry.c
+N src/testbin/badcall/bad_ioctl.c
+N src/testbin/badcall/bad_link.c
+N src/testbin/badcall/bad_lseek.c
+N src/testbin/badcall/bad_mkdir.c
+N src/testbin/badcall/bad_open.c
+N src/testbin/badcall/bad_pipe.c
+N src/testbin/badcall/bad_read.c
+N src/testbin/badcall/bad_readlink.c
+N src/testbin/badcall/bad_reboot.c
+N src/testbin/badcall/bad_remove.c
+N src/testbin/badcall/bad_rename.c
+N src/testbin/badcall/bad_rmdir.c
+N src/testbin/badcall/bad_sbrk.c
+N src/testbin/badcall/bad_stat.c
+N src/testbin/badcall/bad_symlink.c
+N src/testbin/badcall/bad_time.c
+N src/testbin/badcall/bad_waitpid.c
+N src/testbin/badcall/bad_write.c
+N src/testbin/badcall/common_buf.c
+N src/testbin/badcall/common_fds.c
+N src/testbin/badcall/common_path.c
+N src/testbin/badcall/config.h
+N src/testbin/badcall/depend.mk
+N src/testbin/badcall/driver.c
+N src/testbin/badcall/test.h
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/bigfile
+N src/testbin/bigfile/.cvsignore
+N src/testbin/bigfile/Makefile
+N src/testbin/bigfile/bigfile.c
+N src/testbin/bigfile/depend.mk
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/conman
+N src/testbin/conman/.cvsignore
+N src/testbin/conman/Makefile
+N src/testbin/conman/conman.c
+N src/testbin/conman/depend.mk
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/crash
+N src/testbin/crash/.cvsignore
+N src/testbin/crash/Makefile
+N src/testbin/crash/crash.c
+N src/testbin/crash/depend.mk
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/ctest
+N src/testbin/ctest/.cvsignore
+N src/testbin/ctest/Makefile
+N src/testbin/ctest/ctest.c
+N src/testbin/ctest/depend.mk
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/dirconc
+N src/testbin/dirconc/.cvsignore
+N src/testbin/dirconc/Makefile
+N src/testbin/dirconc/depend.mk
+N src/testbin/dirconc/dirconc.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/dirseek
+N src/testbin/dirseek/.cvsignore
+N src/testbin/dirseek/Makefile
+N src/testbin/dirseek/depend.mk
+N src/testbin/dirseek/dirseek.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/dirtest
+N src/testbin/dirtest/.cvsignore
+N src/testbin/dirtest/Makefile
+N src/testbin/dirtest/depend.mk
+N src/testbin/dirtest/dirtest.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/f_test
+N src/testbin/f_test/.cvsignore
+N src/testbin/f_test/Makefile
+N src/testbin/f_test/depend.mk
+N src/testbin/f_test/f_hdr.h
+N src/testbin/f_test/f_read.c
+N src/testbin/f_test/f_test.c
+N src/testbin/f_test/f_write.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/farm
+N src/testbin/farm/.cvsignore
+N src/testbin/farm/Makefile
+N src/testbin/farm/depend.mk
+N src/testbin/farm/farm.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/faulter
+N src/testbin/faulter/.cvsignore
+N src/testbin/faulter/Makefile
+N src/testbin/faulter/depend.mk
+N src/testbin/faulter/faulter.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/filetest
+N src/testbin/filetest/.cvsignore
+N src/testbin/filetest/Makefile
+N src/testbin/filetest/depend.mk
+N src/testbin/filetest/filetest.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/forkbomb
+N src/testbin/forkbomb/.cvsignore
+N src/testbin/forkbomb/Makefile
+N src/testbin/forkbomb/depend.mk
+N src/testbin/forkbomb/forkbomb.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/forktest
+N src/testbin/forktest/.cvsignore
+N src/testbin/forktest/Makefile
+N src/testbin/forktest/depend.mk
+N src/testbin/forktest/forktest.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/guzzle
+N src/testbin/guzzle/.cvsignore
+N src/testbin/guzzle/Makefile
+N src/testbin/guzzle/depend.mk
+N src/testbin/guzzle/guzzle.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/hash
+N src/testbin/hash/.cvsignore
+N src/testbin/hash/Makefile
+N src/testbin/hash/depend.mk
+N src/testbin/hash/dependh.mk
+N src/testbin/hash/hash.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/hog
+N src/testbin/hog/.cvsignore
+N src/testbin/hog/Makefile
+N src/testbin/hog/depend.mk
+N src/testbin/hog/hog.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/huge
+N src/testbin/huge/.cvsignore
+N src/testbin/huge/Makefile
+N src/testbin/huge/depend.mk
+N src/testbin/huge/huge.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/kitchen
+N src/testbin/kitchen/.cvsignore
+N src/testbin/kitchen/Makefile
+N src/testbin/kitchen/depend.mk
+N src/testbin/kitchen/kitchen.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/malloctest
+N src/testbin/malloctest/.cvsignore
+N src/testbin/malloctest/Makefile
+N src/testbin/malloctest/depend.mk
+N src/testbin/malloctest/malloctest.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/matmult
+N src/testbin/matmult/.cvsignore
+N src/testbin/matmult/Makefile
+N src/testbin/matmult/depend.mk
+N src/testbin/matmult/matmult-orig.c
+N src/testbin/matmult/matmult.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/palin
+N src/testbin/palin/.cvsignore
+N src/testbin/palin/Makefile
+N src/testbin/palin/depend.mk
+N src/testbin/palin/palin.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/parallelvm
+N src/testbin/parallelvm/.cvsignore
+N src/testbin/parallelvm/Makefile
+N src/testbin/parallelvm/depend.mk
+N src/testbin/parallelvm/parallelvm.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/randcall
+N src/testbin/randcall/.cvsignore
+N src/testbin/randcall/Makefile
+N src/testbin/randcall/callspecs.txt
+N src/testbin/randcall/depend.mk
+N src/testbin/randcall/extern.h
+N src/testbin/randcall/gencalls.sh
+N src/testbin/randcall/main.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/rmdirtest
+N src/testbin/rmdirtest/.cvsignore
+N src/testbin/rmdirtest/Makefile
+N src/testbin/rmdirtest/depend.mk
+N src/testbin/rmdirtest/rmdirtest.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/rmtest
+N src/testbin/rmtest/.cvsignore
+N src/testbin/rmtest/Makefile
+N src/testbin/rmtest/depend.mk
+N src/testbin/rmtest/rmtest.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/sink
+N src/testbin/sink/.cvsignore
+N src/testbin/sink/Makefile
+N src/testbin/sink/depend.mk
+N src/testbin/sink/sink.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/sort
+N src/testbin/sort/.cvsignore
+N src/testbin/sort/Makefile
+N src/testbin/sort/depend.mk
+N src/testbin/sort/sort.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/sty
+N src/testbin/sty/.cvsignore
+N src/testbin/sty/Makefile
+N src/testbin/sty/depend.mk
+N src/testbin/sty/sty.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/tail
+N src/testbin/tail/.cvsignore
+N src/testbin/tail/Makefile
+N src/testbin/tail/depend.mk
+N src/testbin/tail/tail.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/tictac
+N src/testbin/tictac/.cvsignore
+N src/testbin/tictac/Makefile
+N src/testbin/tictac/depend.mk
+N src/testbin/tictac/tictac.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/triplehuge
+N src/testbin/triplehuge/.cvsignore
+N src/testbin/triplehuge/Makefile
+N src/testbin/triplehuge/depend.mk
+N src/testbin/triplehuge/triple.c
+N src/testbin/triplehuge/triple.h
+N src/testbin/triplehuge/triplehuge.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/triplemat
+N src/testbin/triplemat/.cvsignore
+N src/testbin/triplemat/Makefile
+N src/testbin/triplemat/depend.mk
+N src/testbin/triplemat/triplemat.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/triplesort
+N src/testbin/triplesort/.cvsignore
+N src/testbin/triplesort/Makefile
+N src/testbin/triplesort/depend.mk
+N src/testbin/triplesort/triplesort.c
+cvs import: Importing /home/blakedonzac/cs161/cvsroot/src/testbin/userthreads
+N src/testbin/userthreads/.cvsignore
+N src/testbin/userthreads/Makefile
+N src/testbin/userthreads/depend.mk
+N src/testbin/userthreads/userthreads.c
+
+No conflicts created by this import
+
+]777;notify;Command completed;cvs import -m "Import of os161" src os161 os161-1_10]0;blakedonzac@localhost:~/cs161/os161]7;file://localhost.localdomain/home/blakedonzac/cs161/os161[blakedonzac@localhost os161]$ cd ..
+]777;notify;Command completed;cd ..]0;blakedonzac@localhost:~/cs161]7;file://localhost.localdomain/home/blakedonzac/cs161[blakedonzac@localhost cs161]$ rm -rf os161
+]777;notify;Command completed;rm -rf os161]0;blakedonzac@localhost:~/cs161]7;file://localhost.localdomain/home/blakedonzac/cs161[blakedonzac@localhost cs161]$ cd ~/cs161
+]777;notify;Command completed;cd ~/cs161]0;blakedonzac@localhost:~/cs161]7;file://localhost.localdomain/home/blakedonzac/cs161[blakedonzac@localhost cs161]$ cvs checkout src
+cvs checkout: Updating src
+U src/.cvsignore
+U src/CHANGES
+U src/COPYING
+U src/Makefile
+U src/configure
+U src/defs.mk.sample
+cvs checkout: Updating src/bin
+U src/bin/Makefile
+cvs checkout: Updating src/bin/cat
+U src/bin/cat/.cvsignore
+U src/bin/cat/Makefile
+U src/bin/cat/cat.c
+U src/bin/cat/depend.mk
+cvs checkout: Updating src/bin/cp
+U src/bin/cp/.cvsignore
+U src/bin/cp/Makefile
+U src/bin/cp/cp.c
+U src/bin/cp/depend.mk
+cvs checkout: Updating src/bin/false
+U src/bin/false/.cvsignore
+U src/bin/false/Makefile
+U src/bin/false/depend.mk
+U src/bin/false/false.c
+cvs checkout: Updating src/bin/ln
+U src/bin/ln/.cvsignore
+U src/bin/ln/Makefile
+U src/bin/ln/depend.mk
+U src/bin/ln/ln.c
+cvs checkout: Updating src/bin/ls
+U src/bin/ls/.cvsignore
+U src/bin/ls/Makefile
+U src/bin/ls/depend.mk
+U src/bin/ls/ls.c
+cvs checkout: Updating src/bin/mkdir
+U src/bin/mkdir/.cvsignore
+U src/bin/mkdir/Makefile
+U src/bin/mkdir/depend.mk
+U src/bin/mkdir/mkdir.c
+cvs checkout: Updating src/bin/mv
+U src/bin/mv/.cvsignore
+U src/bin/mv/Makefile
+U src/bin/mv/depend.mk
+U src/bin/mv/mv.c
+cvs checkout: Updating src/bin/pwd
+U src/bin/pwd/.cvsignore
+U src/bin/pwd/Makefile
+U src/bin/pwd/depend.mk
+U src/bin/pwd/pwd.c
+cvs checkout: Updating src/bin/rm
+U src/bin/rm/.cvsignore
+U src/bin/rm/Makefile
+U src/bin/rm/depend.mk
+U src/bin/rm/rm.c
+cvs checkout: Updating src/bin/rmdir
+U src/bin/rmdir/.cvsignore
+U src/bin/rmdir/Makefile
+U src/bin/rmdir/depend.mk
+U src/bin/rmdir/rmdir.c
+cvs checkout: Updating src/bin/sh
+U src/bin/sh/.cvsignore
+U src/bin/sh/Makefile
+U src/bin/sh/depend.mk
+U src/bin/sh/dependh.mk
+U src/bin/sh/sh.c
+cvs checkout: Updating src/bin/sync
+U src/bin/sync/.cvsignore
+U src/bin/sync/Makefile
+U src/bin/sync/depend.mk
+U src/bin/sync/sync.c
+cvs checkout: Updating src/bin/true
+U src/bin/true/.cvsignore
+U src/bin/true/Makefile
+U src/bin/true/depend.mk
+U src/bin/true/true.c
+cvs checkout: Updating src/include
+U src/include/Makefile
+U src/include/assert.h
+U src/include/err.h
+U src/include/errno.h
+U src/include/fcntl.h
+U src/include/limits.h
+U src/include/setjmp.h
+U src/include/stdarg.h
+U src/include/stdio.h
+U src/include/stdlib.h
+U src/include/string.h
+U src/include/time.h
+U src/include/unistd.h
+cvs checkout: Updating src/include/sys
+U src/include/sys/ioctl.h
+U src/include/sys/reboot.h
+U src/include/sys/stat.h
+U src/include/sys/types.h
+U src/include/sys/wait.h
+cvs checkout: Updating src/kern
+U src/kern/Makefile
+cvs checkout: Updating src/kern/arch
+cvs checkout: Updating src/kern/arch/mips
+cvs checkout: Updating src/kern/arch/mips/conf
+U src/kern/arch/mips/conf/Makefile.mips
+U src/kern/arch/mips/conf/conf.arch
+U src/kern/arch/mips/conf/ldscript
+cvs checkout: Updating src/kern/arch/mips/include
+U src/kern/arch/mips/include/asmdefs.h
+U src/kern/arch/mips/include/bus.h
+U src/kern/arch/mips/include/pcb.h
+U src/kern/arch/mips/include/setjmp.h
+U src/kern/arch/mips/include/specialreg.h
+U src/kern/arch/mips/include/spl.h
+U src/kern/arch/mips/include/switchframe.h
+U src/kern/arch/mips/include/tlb.h
+U src/kern/arch/mips/include/trapframe.h
+U src/kern/arch/mips/include/types.h
+U src/kern/arch/mips/include/vm.h
+cvs checkout: Updating src/kern/arch/mips/mips
+U src/kern/arch/mips/mips/cache_mips1.S
+U src/kern/arch/mips/mips/dumbvm.c
+U src/kern/arch/mips/mips/exception.S
+U src/kern/arch/mips/mips/interrupt.c
+U src/kern/arch/mips/mips/lamebus_mips.c
+U src/kern/arch/mips/mips/pcb.c
+U src/kern/arch/mips/mips/ram.c
+U src/kern/arch/mips/mips/spl.c
+U src/kern/arch/mips/mips/start.S
+U src/kern/arch/mips/mips/switch.S
+U src/kern/arch/mips/mips/syscall.c
+U src/kern/arch/mips/mips/threadstart.S
+U src/kern/arch/mips/mips/tlb_mips1.S
+U src/kern/arch/mips/mips/trap.c
+cvs checkout: Updating src/kern/asst1
+U src/kern/asst1/catlock.c
+U src/kern/asst1/catsem.c
+U src/kern/asst1/stoplight.c
+cvs checkout: Updating src/kern/compile
+U src/kern/compile/.cvsignore
+cvs checkout: Updating src/kern/conf
+U src/kern/conf/ASST0
+U src/kern/conf/ASST1
+U src/kern/conf/ASST2
+U src/kern/conf/ASST2-OPT
+U src/kern/conf/ASST3
+U src/kern/conf/ASST4
+U src/kern/conf/ASST5
+U src/kern/conf/conf.kern
+U src/kern/conf/config
+U src/kern/conf/newvers.sh
+cvs checkout: Updating src/kern/dev
+U src/kern/dev/init.c
+cvs checkout: Updating src/kern/dev/generic
+U src/kern/dev/generic/beep.c
+U src/kern/dev/generic/beep.h
+U src/kern/dev/generic/console.c
+U src/kern/dev/generic/console.h
+U src/kern/dev/generic/pseudorand.c
+U src/kern/dev/generic/pseudorand.h
+U src/kern/dev/generic/pseudorand_att.c
+U src/kern/dev/generic/random.c
+U src/kern/dev/generic/random.h
+U src/kern/dev/generic/rtclock.c
+U src/kern/dev/generic/rtclock.h
+cvs checkout: Updating src/kern/dev/lamebus
+U src/kern/dev/lamebus/beep_ltimer.c
+U src/kern/dev/lamebus/con_lscreen.c
+U src/kern/dev/lamebus/con_lser.c
+U src/kern/dev/lamebus/conf.lamebus
+U src/kern/dev/lamebus/emu.c
+U src/kern/dev/lamebus/emu.h
+U src/kern/dev/lamebus/emu_att.c
+U src/kern/dev/lamebus/lamebus.c
+U src/kern/dev/lamebus/lamebus.h
+U src/kern/dev/lamebus/lhd.c
+U src/kern/dev/lamebus/lhd.h
+U src/kern/dev/lamebus/lhd_att.c
+U src/kern/dev/lamebus/lnet.c
+U src/kern/dev/lamebus/lnet_att.c
+U src/kern/dev/lamebus/lrandom.c
+U src/kern/dev/lamebus/lrandom.h
+U src/kern/dev/lamebus/lrandom_att.c
+U src/kern/dev/lamebus/lscreen.c
+U src/kern/dev/lamebus/lscreen.h
+U src/kern/dev/lamebus/lscreen_att.c
+U src/kern/dev/lamebus/lser.c
+U src/kern/dev/lamebus/lser.h
+U src/kern/dev/lamebus/lser_att.c
+U src/kern/dev/lamebus/ltimer.c
+U src/kern/dev/lamebus/ltimer.h
+U src/kern/dev/lamebus/ltimer_att.c
+U src/kern/dev/lamebus/ltrace.c
+U src/kern/dev/lamebus/ltrace.h
+U src/kern/dev/lamebus/ltrace_att.c
+U src/kern/dev/lamebus/random_lrandom.c
+U src/kern/dev/lamebus/rtclock_ltimer.c
+cvs checkout: Updating src/kern/fs
+cvs checkout: Updating src/kern/fs/sfs
+U src/kern/fs/sfs/sfs_fs.c
+U src/kern/fs/sfs/sfs_io.c
+U src/kern/fs/sfs/sfs_vnode.c
+cvs checkout: Updating src/kern/fs/vfs
+U src/kern/fs/vfs/device.c
+U src/kern/fs/vfs/devnull.c
+U src/kern/fs/vfs/vfscwd.c
+U src/kern/fs/vfs/vfslist.c
+U src/kern/fs/vfs/vfslookup.c
+U src/kern/fs/vfs/vfspath.c
+U src/kern/fs/vfs/vnode.c
+cvs checkout: Updating src/kern/include
+U src/kern/include/addrspace.h
+U src/kern/include/array.h
+U src/kern/include/bitmap.h
+U src/kern/include/clock.h
+U src/kern/include/curthread.h
+U src/kern/include/dev.h
+U src/kern/include/elf.h
+U src/kern/include/emufs.h
+U src/kern/include/fs.h
+U src/kern/include/lib.h
+U src/kern/include/queue.h
+U src/kern/include/scheduler.h
+U src/kern/include/sfs.h
+U src/kern/include/stdarg.h
+U src/kern/include/synch.h
+U src/kern/include/syscall.h
+U src/kern/include/test.h
+U src/kern/include/thread.h
+U src/kern/include/types.h
+U src/kern/include/uio.h
+U src/kern/include/version.h
+U src/kern/include/vfs.h
+U src/kern/include/vm.h
+U src/kern/include/vnode.h
+cvs checkout: Updating src/kern/include/kern
+U src/kern/include/kern/callno.h
+U src/kern/include/kern/errmsg.h
+U src/kern/include/kern/errno.h
+U src/kern/include/kern/ioctl.h
+U src/kern/include/kern/limits.h
+U src/kern/include/kern/sfs.h
+U src/kern/include/kern/stat.h
+U src/kern/include/kern/types.h
+U src/kern/include/kern/unistd.h
+cvs checkout: Updating src/kern/lib
+U src/kern/lib/array.c
+U src/kern/lib/bitmap.c
+U src/kern/lib/copyinout.c
+U src/kern/lib/kgets.c
+U src/kern/lib/kheap.c
+U src/kern/lib/kprintf.c
+U src/kern/lib/misc.c
+U src/kern/lib/ntoh.c
+U src/kern/lib/queue.c
+cvs checkout: Updating src/kern/main
+U src/kern/main/main.c
+U src/kern/main/menu.c
+cvs checkout: Updating src/kern/test
+U src/kern/test/arraytest.c
+U src/kern/test/bitmaptest.c
+U src/kern/test/fstest.c
+U src/kern/test/malloctest.c
+U src/kern/test/nettest.c
+U src/kern/test/queuetest.c
+U src/kern/test/synchtest.c
+U src/kern/test/threadtest.c
+U src/kern/test/tt3.c
+cvs checkout: Updating src/kern/thread
+U src/kern/thread/hardclock.c
+U src/kern/thread/scheduler.c
+U src/kern/thread/synch.c
+U src/kern/thread/thread.c
+cvs checkout: Updating src/kern/userprog
+U src/kern/userprog/loadelf.c
+U src/kern/userprog/runprogram.c
+U src/kern/userprog/uio.c
+cvs checkout: Updating src/kern/vm
+U src/kern/vm/addrspace.c
+cvs checkout: Updating src/lib
+U src/lib/Makefile
+cvs checkout: Updating src/lib/crt0
+U src/lib/crt0/Makefile
+U src/lib/crt0/mips-crt0.S
+cvs checkout: Updating src/lib/hostcompat
+U src/lib/hostcompat/.cvsignore
+U src/lib/hostcompat/Makefile
+U src/lib/hostcompat/dependh.mk
+U src/lib/hostcompat/err.c
+U src/lib/hostcompat/host-err.h
+U src/lib/hostcompat/hostcompat.c
+U src/lib/hostcompat/hostcompat.h
+U src/lib/hostcompat/time.c
+cvs checkout: Updating src/lib/libc
+U src/lib/libc/.cvsignore
+U src/lib/libc/Makefile
+U src/lib/libc/__assert.c
+U src/lib/libc/__printf.c
+U src/lib/libc/__puts.c
+U src/lib/libc/abort.c
+U src/lib/libc/atoi.c
+U src/lib/libc/bzero.c
+U src/lib/libc/callno-parse.sh
+U src/lib/libc/depend.mk
+U src/lib/libc/err.c
+U src/lib/libc/errno.c
+U src/lib/libc/exit.c
+U src/lib/libc/getchar.c
+U src/lib/libc/getcwd.c
+U src/lib/libc/memcmp.c
+U src/lib/libc/memcpy.c
+U src/lib/libc/memmove.c
+U src/lib/libc/memset.c
+U src/lib/libc/mips-setjmp.S
+U src/lib/libc/printf.c
+U src/lib/libc/putchar.c
+U src/lib/libc/puts.c
+U src/lib/libc/random.c
+U src/lib/libc/snprintf.c
+U src/lib/libc/strcat.c
+U src/lib/libc/strchr.c
+U src/lib/libc/strcmp.c
+U src/lib/libc/strcpy.c
+U src/lib/libc/strerror.c
+U src/lib/libc/strlen.c
+U src/lib/libc/strrchr.c
+U src/lib/libc/strtok.c
+U src/lib/libc/strtok_r.c
+U src/lib/libc/syscalls-mips.S
+U src/lib/libc/system.c
+U src/lib/libc/time.c
+cvs checkout: Updating src/man
+U src/man/Makefile
+cvs checkout: Updating src/man/bin
+U src/man/bin/Makefile
+U src/man/bin/cat.html
+U src/man/bin/cp.html
+U src/man/bin/false.html
+U src/man/bin/index.html
+U src/man/bin/ln.html
+U src/man/bin/ls.html
+U src/man/bin/mkdir.html
+U src/man/bin/mv.html
+U src/man/bin/pwd.html
+U src/man/bin/rm.html
+U src/man/bin/rmdir.html
+U src/man/bin/sh.html
+U src/man/bin/sync.html
+U src/man/bin/true.html
+cvs checkout: Updating src/man/dev
+U src/man/dev/Makefile
+U src/man/dev/beep.html
+U src/man/dev/con.html
+U src/man/dev/emu.html
+U src/man/dev/index.html
+U src/man/dev/lamebus.html
+U src/man/dev/lhd.html
+U src/man/dev/lnet.html
+U src/man/dev/lrandom.html
+U src/man/dev/lscreen.html
+U src/man/dev/lser.html
+U src/man/dev/ltimer.html
+U src/man/dev/null.html
+U src/man/dev/pseudorand.html
+U src/man/dev/random.html
+U src/man/dev/rtclock.html
+cvs checkout: Updating src/man/libc
+U src/man/libc/Makefile
+U src/man/libc/__vprintf.html
+U src/man/libc/abort.html
+U src/man/libc/assert.html
+U src/man/libc/atoi.html
+U src/man/libc/bzero.html
+U src/man/libc/calloc.html
+U src/man/libc/err.html
+U src/man/libc/exit.html
+U src/man/libc/free.html
+U src/man/libc/getchar.html
+U src/man/libc/getcwd.html
+U src/man/libc/index.html
+U src/man/libc/malloc.html
+U src/man/libc/memcpy.html
+U src/man/libc/memmove.html
+U src/man/libc/memset.html
+U src/man/libc/printf.html
+U src/man/libc/putchar.html
+U src/man/libc/puts.html
+U src/man/libc/random.html
+U src/man/libc/realloc.html
+U src/man/libc/setjmp.html
+U src/man/libc/snprintf.html
+U src/man/libc/stdarg.html
+U src/man/libc/strcat.html
+U src/man/libc/strchr.html
+U src/man/libc/strcmp.html
+U src/man/libc/strcpy.html
+U src/man/libc/strerror.html
+U src/man/libc/strlen.html
+U src/man/libc/strrchr.html
+U src/man/libc/strtok.html
+U src/man/libc/strtok_r.html
+U src/man/libc/system.html
+U src/man/libc/time.html
+U src/man/libc/warn.html
+cvs checkout: Updating src/man/misc
+U src/man/misc/Makefile
+U src/man/misc/index.html
+cvs checkout: Updating src/man/sbin
+U src/man/sbin/Makefile
+U src/man/sbin/dumpsfs.html
+U src/man/sbin/halt.html
+U src/man/sbin/index.html
+U src/man/sbin/mksfs.html
+U src/man/sbin/poweroff.html
+U src/man/sbin/reboot.html
+cvs checkout: Updating src/man/syscall
+U src/man/syscall/Makefile
+U src/man/syscall/__getcwd.html
+U src/man/syscall/__time.html
+U src/man/syscall/_exit.html
+U src/man/syscall/chdir.html
+U src/man/syscall/close.html
+U src/man/syscall/dup2.html
+U src/man/syscall/errno.html
+U src/man/syscall/execv.html
+U src/man/syscall/fork.html
+U src/man/syscall/fstat.html
+U src/man/syscall/fsync.html
+U src/man/syscall/ftruncate.html
+U src/man/syscall/getdirentry.html
+U src/man/syscall/getpid.html
+U src/man/syscall/index.html
+U src/man/syscall/ioctl.html
+U src/man/syscall/link.html
+U src/man/syscall/lseek.html
+U src/man/syscall/lstat.html
+U src/man/syscall/mkdir.html
+U src/man/syscall/open.html
+U src/man/syscall/pipe.html
+U src/man/syscall/read.html
+U src/man/syscall/readlink.html
+U src/man/syscall/reboot.html
+U src/man/syscall/remove.html
+U src/man/syscall/rename.html
+U src/man/syscall/rmdir.html
+U src/man/syscall/sbrk.html
+U src/man/syscall/stat.html
+U src/man/syscall/symlink.html
+U src/man/syscall/sync.html
+U src/man/syscall/waitpid.html
+U src/man/syscall/write.html
+cvs checkout: Updating src/man/testbin
+U src/man/testbin/Makefile
+U src/man/testbin/add.html
+U src/man/testbin/argtest.html
+U src/man/testbin/badcall.html
+U src/man/testbin/bigfile.html
+U src/man/testbin/conman.html
+U src/man/testbin/crash.html
+U src/man/testbin/ctest.html
+U src/man/testbin/dirseek.html
+U src/man/testbin/dirtest.html
+U src/man/testbin/f_test.html
+U src/man/testbin/farm.html
+U src/man/testbin/faulter.html
+U src/man/testbin/filetest.html
+U src/man/testbin/forkbomb.html
+U src/man/testbin/forktest.html
+U src/man/testbin/guzzle.html
+U src/man/testbin/hash.html
+U src/man/testbin/hog.html
+U src/man/testbin/huge.html
+U src/man/testbin/index.html
+U src/man/testbin/kitchen.html
+U src/man/testbin/malloctest.html
+U src/man/testbin/matmult.html
+U src/man/testbin/palin.html
+U src/man/testbin/randcall.html
+U src/man/testbin/rmdirtest.html
+U src/man/testbin/rmtest.html
+U src/man/testbin/sink.html
+U src/man/testbin/sort.html
+U src/man/testbin/sty.html
+U src/man/testbin/tail.html
+U src/man/testbin/tictac.html
+U src/man/testbin/triplehuge.html
+U src/man/testbin/triplemat.html
+U src/man/testbin/triplesort.html
+U src/man/testbin/userthreads.html
+cvs checkout: Updating src/man/toplevel
+U src/man/toplevel/Makefile
+U src/man/toplevel/index.html
+cvs checkout: Updating src/mk
+U src/mk/hostprog.mk
+U src/mk/lib.mk
+U src/mk/man.mk
+U src/mk/prog.mk
+cvs checkout: Updating src/sbin
+U src/sbin/Makefile
+cvs checkout: Updating src/sbin/dumpsfs
+U src/sbin/dumpsfs/.cvsignore
+U src/sbin/dumpsfs/Makefile
+U src/sbin/dumpsfs/depend.mk
+U src/sbin/dumpsfs/dependh.mk
+U src/sbin/dumpsfs/dumpsfs.c
+cvs checkout: Updating src/sbin/halt
+U src/sbin/halt/.cvsignore
+U src/sbin/halt/Makefile
+U src/sbin/halt/depend.mk
+U src/sbin/halt/halt.c
+cvs checkout: Updating src/sbin/mksfs
+U src/sbin/mksfs/.cvsignore
+U src/sbin/mksfs/Makefile
+U src/sbin/mksfs/depend.mk
+U src/sbin/mksfs/dependh.mk
+U src/sbin/mksfs/disk.c
+U src/sbin/mksfs/disk.h
+U src/sbin/mksfs/mksfs.c
+U src/sbin/mksfs/support.c
+U src/sbin/mksfs/support.h
+cvs checkout: Updating src/sbin/poweroff
+U src/sbin/poweroff/.cvsignore
+U src/sbin/poweroff/Makefile
+U src/sbin/poweroff/depend.mk
+U src/sbin/poweroff/poweroff.c
+cvs checkout: Updating src/sbin/reboot
+U src/sbin/reboot/.cvsignore
+U src/sbin/reboot/Makefile
+U src/sbin/reboot/depend.mk
+U src/sbin/reboot/reboot.c
+cvs checkout: Updating src/testbin
+U src/testbin/Makefile
+cvs checkout: Updating src/testbin/add
+U src/testbin/add/.cvsignore
+U src/testbin/add/Makefile
+U src/testbin/add/add.c
+U src/testbin/add/depend.mk
+cvs checkout: Updating src/testbin/argtest
+U src/testbin/argtest/.cvsignore
+U src/testbin/argtest/Makefile
+U src/testbin/argtest/argtest.c
+U src/testbin/argtest/depend.mk
+cvs checkout: Updating src/testbin/badcall
+U src/testbin/badcall/.cvsignore
+U src/testbin/badcall/Makefile
+U src/testbin/badcall/bad_chdir.c
+U src/testbin/badcall/bad_close.c
+U src/testbin/badcall/bad_dup2.c
+U src/testbin/badcall/bad_execv.c
+U src/testbin/badcall/bad_fsync.c
+U src/testbin/badcall/bad_ftruncate.c
+U src/testbin/badcall/bad_getcwd.c
+U src/testbin/badcall/bad_getdirentry.c
+U src/testbin/badcall/bad_ioctl.c
+U src/testbin/badcall/bad_link.c
+U src/testbin/badcall/bad_lseek.c
+U src/testbin/badcall/bad_mkdir.c
+U src/testbin/badcall/bad_open.c
+U src/testbin/badcall/bad_pipe.c
+U src/testbin/badcall/bad_read.c
+U src/testbin/badcall/bad_readlink.c
+U src/testbin/badcall/bad_reboot.c
+U src/testbin/badcall/bad_remove.c
+U src/testbin/badcall/bad_rename.c
+U src/testbin/badcall/bad_rmdir.c
+U src/testbin/badcall/bad_sbrk.c
+U src/testbin/badcall/bad_stat.c
+U src/testbin/badcall/bad_symlink.c
+U src/testbin/badcall/bad_time.c
+U src/testbin/badcall/bad_waitpid.c
+U src/testbin/badcall/bad_write.c
+U src/testbin/badcall/common_buf.c
+U src/testbin/badcall/common_fds.c
+U src/testbin/badcall/common_path.c
+U src/testbin/badcall/config.h
+U src/testbin/badcall/depend.mk
+U src/testbin/badcall/driver.c
+U src/testbin/badcall/test.h
+cvs checkout: Updating src/testbin/bigfile
+U src/testbin/bigfile/.cvsignore
+U src/testbin/bigfile/Makefile
+U src/testbin/bigfile/bigfile.c
+U src/testbin/bigfile/depend.mk
+cvs checkout: Updating src/testbin/conman
+U src/testbin/conman/.cvsignore
+U src/testbin/conman/Makefile
+U src/testbin/conman/conman.c
+U src/testbin/conman/depend.mk
+cvs checkout: Updating src/testbin/crash
+U src/testbin/crash/.cvsignore
+U src/testbin/crash/Makefile
+U src/testbin/crash/crash.c
+U src/testbin/crash/depend.mk
+cvs checkout: Updating src/testbin/ctest
+U src/testbin/ctest/.cvsignore
+U src/testbin/ctest/Makefile
+U src/testbin/ctest/ctest.c
+U src/testbin/ctest/depend.mk
+cvs checkout: Updating src/testbin/dirconc
+U src/testbin/dirconc/.cvsignore
+U src/testbin/dirconc/Makefile
+U src/testbin/dirconc/depend.mk
+U src/testbin/dirconc/dirconc.c
+cvs checkout: Updating src/testbin/dirseek
+U src/testbin/dirseek/.cvsignore
+U src/testbin/dirseek/Makefile
+U src/testbin/dirseek/depend.mk
+U src/testbin/dirseek/dirseek.c
+cvs checkout: Updating src/testbin/dirtest
+U src/testbin/dirtest/.cvsignore
+U src/testbin/dirtest/Makefile
+U src/testbin/dirtest/depend.mk
+U src/testbin/dirtest/dirtest.c
+cvs checkout: Updating src/testbin/f_test
+U src/testbin/f_test/.cvsignore
+U src/testbin/f_test/Makefile
+U src/testbin/f_test/depend.mk
+U src/testbin/f_test/f_hdr.h
+U src/testbin/f_test/f_read.c
+U src/testbin/f_test/f_test.c
+U src/testbin/f_test/f_write.c
+cvs checkout: Updating src/testbin/farm
+U src/testbin/farm/.cvsignore
+U src/testbin/farm/Makefile
+U src/testbin/farm/depend.mk
+U src/testbin/farm/farm.c
+cvs checkout: Updating src/testbin/faulter
+U src/testbin/faulter/.cvsignore
+U src/testbin/faulter/Makefile
+U src/testbin/faulter/depend.mk
+U src/testbin/faulter/faulter.c
+cvs checkout: Updating src/testbin/filetest
+U src/testbin/filetest/.cvsignore
+U src/testbin/filetest/Makefile
+U src/testbin/filetest/depend.mk
+U src/testbin/filetest/filetest.c
+cvs checkout: Updating src/testbin/forkbomb
+U src/testbin/forkbomb/.cvsignore
+U src/testbin/forkbomb/Makefile
+U src/testbin/forkbomb/depend.mk
+U src/testbin/forkbomb/forkbomb.c
+cvs checkout: Updating src/testbin/forktest
+U src/testbin/forktest/.cvsignore
+U src/testbin/forktest/Makefile
+U src/testbin/forktest/depend.mk
+U src/testbin/forktest/forktest.c
+cvs checkout: Updating src/testbin/guzzle
+U src/testbin/guzzle/.cvsignore
+U src/testbin/guzzle/Makefile
+U src/testbin/guzzle/depend.mk
+U src/testbin/guzzle/guzzle.c
+cvs checkout: Updating src/testbin/hash
+U src/testbin/hash/.cvsignore
+U src/testbin/hash/Makefile
+U src/testbin/hash/depend.mk
+U src/testbin/hash/dependh.mk
+U src/testbin/hash/hash.c
+cvs checkout: Updating src/testbin/hog
+U src/testbin/hog/.cvsignore
+U src/testbin/hog/Makefile
+U src/testbin/hog/depend.mk
+U src/testbin/hog/hog.c
+cvs checkout: Updating src/testbin/huge
+U src/testbin/huge/.cvsignore
+U src/testbin/huge/Makefile
+U src/testbin/huge/depend.mk
+U src/testbin/huge/huge.c
+cvs checkout: Updating src/testbin/kitchen
+U src/testbin/kitchen/.cvsignore
+U src/testbin/kitchen/Makefile
+U src/testbin/kitchen/depend.mk
+U src/testbin/kitchen/kitchen.c
+cvs checkout: Updating src/testbin/malloctest
+U src/testbin/malloctest/.cvsignore
+U src/testbin/malloctest/Makefile
+U src/testbin/malloctest/depend.mk
+U src/testbin/malloctest/malloctest.c
+cvs checkout: Updating src/testbin/matmult
+U src/testbin/matmult/.cvsignore
+U src/testbin/matmult/Makefile
+U src/testbin/matmult/depend.mk
+U src/testbin/matmult/matmult-orig.c
+U src/testbin/matmult/matmult.c
+cvs checkout: Updating src/testbin/palin
+U src/testbin/palin/.cvsignore
+U src/testbin/palin/Makefile
+U src/testbin/palin/depend.mk
+U src/testbin/palin/palin.c
+cvs checkout: Updating src/testbin/parallelvm
+U src/testbin/parallelvm/.cvsignore
+U src/testbin/parallelvm/Makefile
+U src/testbin/parallelvm/depend.mk
+U src/testbin/parallelvm/parallelvm.c
+cvs checkout: Updating src/testbin/randcall
+U src/testbin/randcall/.cvsignore
+U src/testbin/randcall/Makefile
+U src/testbin/randcall/callspecs.txt
+U src/testbin/randcall/depend.mk
+U src/testbin/randcall/extern.h
+U src/testbin/randcall/gencalls.sh
+U src/testbin/randcall/main.c
+cvs checkout: Updating src/testbin/rmdirtest
+U src/testbin/rmdirtest/.cvsignore
+U src/testbin/rmdirtest/Makefile
+U src/testbin/rmdirtest/depend.mk
+U src/testbin/rmdirtest/rmdirtest.c
+cvs checkout: Updating src/testbin/rmtest
+U src/testbin/rmtest/.cvsignore
+U src/testbin/rmtest/Makefile
+U src/testbin/rmtest/depend.mk
+U src/testbin/rmtest/rmtest.c
+cvs checkout: Updating src/testbin/sink
+U src/testbin/sink/.cvsignore
+U src/testbin/sink/Makefile
+U src/testbin/sink/depend.mk
+U src/testbin/sink/sink.c
+cvs checkout: Updating src/testbin/sort
+U src/testbin/sort/.cvsignore
+U src/testbin/sort/Makefile
+U src/testbin/sort/depend.mk
+U src/testbin/sort/sort.c
+cvs checkout: Updating src/testbin/sty
+U src/testbin/sty/.cvsignore
+U src/testbin/sty/Makefile
+U src/testbin/sty/depend.mk
+U src/testbin/sty/sty.c
+cvs checkout: Updating src/testbin/tail
+U src/testbin/tail/.cvsignore
+U src/testbin/tail/Makefile
+U src/testbin/tail/depend.mk
+U src/testbin/tail/tail.c
+cvs checkout: Updating src/testbin/tictac
+U src/testbin/tictac/.cvsignore
+U src/testbin/tictac/Makefile
+U src/testbin/tictac/depend.mk
+U src/testbin/tictac/tictac.c
+cvs checkout: Updating src/testbin/triplehuge
+U src/testbin/triplehuge/.cvsignore
+U src/testbin/triplehuge/Makefile
+U src/testbin/triplehuge/depend.mk
+U src/testbin/triplehuge/triple.c
+U src/testbin/triplehuge/triple.h
+U src/testbin/triplehuge/triplehuge.c
+cvs checkout: Updating src/testbin/triplemat
+U src/testbin/triplemat/.cvsignore
+U src/testbin/triplemat/Makefile
+U src/testbin/triplemat/depend.mk
+U src/testbin/triplemat/triplemat.c
+cvs checkout: Updating src/testbin/triplesort
+U src/testbin/triplesort/.cvsignore
+U src/testbin/triplesort/Makefile
+U src/testbin/triplesort/depend.mk
+U src/testbin/triplesort/triplesort.c
+cvs checkout: Updating src/testbin/userthreads
+U src/testbin/userthreads/.cvsignore
+U src/testbin/userthreads/Makefile
+U src/testbin/userthreads/depend.mk
+U src/testbin/userthreads/userthreads.c
+]777;notify;Command completed;cvs checkout src]0;blakedonzac@localhost:~/cs161]7;file://localhost.localdomain/home/blakedonzac/cs161[blakedonzac@localhost cs161]$ mv typec[Kcs[K[K[K[K[K[K[K[K[Kmv typescript[K[K[K[K[K[K[K[K[K[K[K[K[Kexit
+
+Script done on Sun 04 Feb 2018 05:25:27 PM EST

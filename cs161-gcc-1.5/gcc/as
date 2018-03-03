@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /home/blakedonzac/cs161/tools/bin/mips-linux-as "$@"

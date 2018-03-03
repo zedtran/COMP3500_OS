@@ -1,0 +1,81 @@
+head	1.1;
+branch	1.1.1;
+access;
+symbols
+	asst0-end:1.1.1.1
+	os161-1_10:1.1.1.1
+	os161:1.1.1;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2018.02.04.22.23.30;	author blakedonzac;	state Exp;
+branches
+	1.1.1.1;
+next	;
+
+1.1.1.1
+date	2018.02.04.22.23.30;	author blakedonzac;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+
+1.1
+log
+@Initial revision
+@
+text
+@<html>
+<head>
+<title>strtok_r</title>
+<body bgcolor=#ffffff>
+<h2 align=center>strtok_r</h2>
+<h4 align=center>OS/161 Reference Manual</h4>
+
+<h3>Name</h3>
+strtok_r - tokenize string reentrantly
+
+<h3>Library</h3>
+Standard C Library (libc, -lc)
+
+<h3>Synopsis</h3>
+#include &lt;string.h&gt;<br>
+<br>
+char *<br>
+strtok_r(char *<em>string</em>, const char *<em>separators</em>,
+char **<em>context</em>);
+
+<h3>Description</h3>
+
+strtok_r is a reentrant version of <A HREF=strtok.html>strtok</A>. It
+behaves the same way, except that the internal state is kept using the
+<em>context</em> parameter rather than being global.
+<p>
+
+The value passed to the <em>context</em> parameter should be the
+address of a char * whose value is preserved between successive
+related calls to strtok_r. The char * need not be initialized
+before the first call, and its value should not be inspected.
+<p>
+
+<h3>Return Values</h3>
+strtok_r returns successive components of the passed-in string, and
+NULL when no more remain.
+
+</body>
+</html>
+@
+
+
+1.1.1.1
+log
+@Import of os161
+@
+text
+@@

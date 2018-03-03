@@ -1,0 +1,79 @@
+head	1.1;
+branch	1.1.1;
+access;
+symbols
+	asst0-end:1.1.1.1
+	os161-1_10:1.1.1.1
+	os161:1.1.1;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2018.02.04.22.23.30;	author blakedonzac;	state Exp;
+branches
+	1.1.1.1;
+next	;
+
+1.1.1.1
+date	2018.02.04.22.23.30;	author blakedonzac;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+
+1.1
+log
+@Initial revision
+@
+text
+@<html>
+<head>
+<title>matmult</title>
+<body bgcolor=#ffffff>
+<h2 align=center>matmult</h2>
+<h4 align=center>OS/161 Reference Manual</h4>
+
+<h3>Name</h3>
+matmult - baseline VM stress test
+
+<h3>Synopsis</h3>
+/testbin/matmult
+
+<h3>Description</h3>
+
+matmult multiplies two large matrices together and checks the result.
+Hopefully this will help detect bugs in the VM system.
+<p>
+
+The version for OS/161 has been gimmicked to be less efficient
+space-wise than normal matrix multiplication. This allows it to both
+take up an interesting amount of memory and run in a non-boring amount
+of time.
+
+<h3>Requirements</h3>
+
+matmult uses the following system calls:
+<ul>
+<li> <A HREF=../syscall/write.html>write</A>
+<li> <A HREF=../syscall/_exit.html>_exit</A>
+</ul>
+
+matmult should run correctly once the VM system assignment is
+complete.
+
+</body>
+</html>
+@
+
+
+1.1.1.1
+log
+@Import of os161
+@
+text
+@@

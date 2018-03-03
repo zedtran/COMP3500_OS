@@ -1,0 +1,42 @@
+Script started on Thu 08 Feb 2018 12:12:01 PM CST
+]777;notify;Command completed;exit]0;blakedonzac@localhost:~/cs161]7;file://localhost.localdomain/home/blakedonzac/cs161[?1034h[blakedonzac@localhost cs161]$ cd root/
+]777;notify;Command completed;cd root/]0;blakedonzac@localhost:~/cs161/root]7;file://localhost.localdomain/home/blakedonzac/cs161/root[blakedonzac@localhost root]$ pwd
+/home/blakedonzac/cs161/root
+]777;notify;Command completed;pwd]0;blakedonzac@localhost:~/cs161/root]7;file://localhost.localdomain/home/blakedonzac/cs161/root[blakedonzac@localhost root]$ ./sys161 kernel
+sys161: System/161 release 1.14, compiled Feb  4 2018 17:10:54
+
+OS/161 base system version 1.10
+Copyright (c) 2000, 2001, 2002, 2003
+   President and Fellows of Harvard College.  All rights reserved.
+
+Put-your-group-name-here's system version 0 (ASST0 #2)
+
+Hello World
+Cpu is MIPS r2000/r3000
+1872k physical memory available
+Device probe...
+lamebus0 (system main bus)
+emu0 at lamebus0
+ltrace0 at lamebus0
+ltimer0 at lamebus0
+hardclock on ltimer0 (100 hz)
+beep0 at ltimer0
+rtclock0 at ltimer0
+lrandom0 at lamebus0
+random0 at lrandom0
+lser0 at lamebus0
+con0 at lser0
+pseudorand0 (virtual)
+
+OS/161 kernel [? for menu]: p /sbin/poweroff
+Operation took 0.000162800 seconds
+OS/161 kernel [? for menu]: Shutting down.
+The system is halted.
+sys161: 208221465 cycles (3648370k, 19u, 204573076i)
+sys161: 1481 irqs 6 exns 0r/0w disk 17r/670w console 8r/0w/3m emufs 0r/0w net
+sys161: Elapsed real time: 8.324427 seconds (25.0133 mhz)
+sys161: Elapsed virtual time: 8.328858600 seconds (25 mhz)
+]777;notify;Command completed;./sys161 kernel]0;blakedonzac@localhost:~/cs161/root]7;file://localhost.localdomain/home/blakedonzac/cs161/root[blakedonzac@localhost root]$ exit
+exit
+
+Script done on Thu 08 Feb 2018 12:12:54 PM CST

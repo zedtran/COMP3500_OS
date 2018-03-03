@@ -1,0 +1,182 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:552: checking for Cygwin environment
+configure:585: checking for mingw32 environment
+configure:662: checking host system type
+configure:683: checking target system type
+configure:701: checking build system type
+configure:726: checking for gcc
+configure:839: checking whether the C compiler (gcc -g -O2 ) works
+configure:855: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:881: checking whether the C compiler (gcc -g -O2 ) is a cross-compiler
+configure:886: checking whether we are using GNU C
+configure:914: checking whether gcc accepts -g
+configure:946: checking for POSIXized ISC
+configure:980: checking for a BSD compatible install
+configure:1033: checking whether build environment is sane
+configure:1090: checking whether make sets ${MAKE}
+configure:1136: checking for working aclocal
+configure:1149: checking for working autoconf
+configure:1162: checking for working automake
+configure:1175: checking for working autoheader
+configure:1188: checking for working makeinfo
+configure:1283: checking for ld used by GCC
+configure:1351: checking if the linker (ld) is GNU ld
+configure:1368: checking for ld option to reload object files
+configure:1380: checking for BSD-compatible nm
+configure:1418: checking whether ln -s works
+configure:1439: checking how to recognise dependant libraries
+configure:1612: checking for object suffix
+configure:1638: checking for executable suffix
+configure:1681: checking for file
+configure:1814: checking for ranlib
+configure:1881: checking for strip
+configure:2030: gcc -c -g -O2  conftest.c 1>&5
+ltconfig:678:checking for gcc option to produce PIC
+ltconfig:687:checking that gcc PIC flag  -fPIC -DPIC works.
+ltconfig:749: checking if gcc static flag  works
+ltconfig:780: finding the maximum length of command line arguments
+ltconfig:@lineno@: result: 49153
+ltconfig:887: checking if gcc supports -fno-rtti -fno-exceptions
+ltconfig:888: gcc -c -g -O2 -fno-rtti -fno-exceptions -c conftest.c  conftest.c 1>&5
+ltconfig:1431: checking if global_symbol_pipe works
+ltconfig:1432: gcc -c -g -O2  conftest.c 1>&5
+ltconfig:1435: eval "nm conftest.o | sed -n -e 's/^.*[ 	]\([ABCDGISTW][ABCDGISTW]*\)[ 	][ 	]*\(\)\([_A-Za-z][_A-Za-z0-9]*\)$/\1 \2\3 \3/p' > conftest.nm"
+ltconfig:1487: gcc -o conftest -g -O2 -fno-builtin   conftest.c conftstm.o 1>&5
+configure:3277: checking for gcc
+configure:3390: checking whether the C compiler (gcc -g -O2 ) works
+configure:3406: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:3432: checking whether the C compiler (gcc -g -O2 ) is a cross-compiler
+configure:3437: checking whether we are using GNU C
+configure:3465: checking whether gcc accepts -g
+configure:3502: checking for bison
+configure:3533: checking how to run the C preprocessor
+configure:3618: checking for flex
+configure:3651: checking for flex
+configure:3685: checking for yywrap in -lfl
+configure:3727: checking lex output file root
+configure:3748: checking whether yytext is a pointer
+configure:3793: checking for ranlib
+configure:3821: checking for ANSI C header files
+configure:3925: checking for working const
+configure:4000: checking for inline
+configure:4040: checking for off_t
+configure:4073: checking for size_t
+configure:4108: checking for working alloca.h
+configure:4141: checking for alloca
+configure:4343: checking for stdlib.h
+configure:4343: checking for unistd.h
+configure:4343: checking for sys/stat.h
+configure:4343: checking for sys/types.h
+configure:4353: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:4382: checking for getpagesize
+configure:4435: checking for working mmap
+configure:4624: checking for argz.h
+configure:4624: checking for limits.h
+configure:4624: checking for locale.h
+configure:4624: checking for nl_types.h
+configure:4624: checking for malloc.h
+configure:4624: checking for string.h
+configure:4624: checking for unistd.h
+configure:4624: checking for values.h
+configure:4624: checking for sys/param.h
+configure:4664: checking for getcwd
+configure:4664: checking for munmap
+configure:4664: checking for putenv
+configure:4664: checking for setenv
+configure:4664: checking for setlocale
+configure:4664: checking for strchr
+configure:4664: checking for strcasecmp
+configure:4664: checking for __argz_count
+configure:4664: checking for __argz_stringify
+configure:4664: checking for __argz_next
+configure:4783: checking for LC_MESSAGES
+configure:4816: checking whether NLS is requested
+configure:4836: checking whether included gettext is requested
+configure:4855: checking for libintl.h
+configure:4882: checking for gettext in libc
+configure:4985: checking for msgfmt
+configure:5019: checking for dcgettext
+configure:5074: checking for gmsgfmt
+configure:5110: checking for xgettext
+configure:5150: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:5342: checking for catalogs to be installed
+configure:5443: checking whether to enable maintainer-specific portions of Makefiles
+configure:5468: checking for executable suffix
+configure:5503: checking for string.h
+configure:5503: checking for stdlib.h
+configure:5503: checking for memory.h
+configure:5513: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:5503: checking for strings.h
+configure:5503: checking for unistd.h
+configure:5503: checking for stdarg.h
+configure:5513: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:5503: checking for varargs.h
+configure:5513: gcc -E  conftest.c >/dev/null 2>conftest.out
+In file included from configure:5509:0:
+/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/varargs.h:4:2: error: #error "GCC no longer implements <varargs.h>."
+ #error "GCC no longer implements <varargs.h>."
+  ^
+/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/varargs.h:5:2: error: #error "Revise your code to use <stdarg.h>."
+ #error "Revise your code to use <stdarg.h>."
+  ^
+configure: failed program was:
+#line 5508 "configure"
+#include "confdefs.h"
+#include <varargs.h>
+configure:5503: checking for errno.h
+configure:5513: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:5503: checking for sys/types.h
+configure:5543: checking whether compiling a cross-assembler
+configure:5558: checking for working alloca.h
+configure:5591: checking for alloca
+configure:5790: checking for inline
+configure:5834: checking for unlink
+configure:5862: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:5891: checking for sbrk
+configure:6078: checking for working assert macro
+configure:6099: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:6140: checking whether declaration is required for strstr
+configure:6156: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:6177: checking whether declaration is required for malloc
+configure:6193: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:6214: checking whether declaration is required for free
+configure:6230: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:6251: checking whether declaration is required for sbrk
+configure:6267: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:6288: checking whether declaration is required for environ
+configure:6304: gcc -o conftest -g -O2   conftest.c  1>&5
+configure: In function 'main':
+configure:6316:9: error: 'environ' undeclared (first use in this function)
+configure:6316:9: note: each undeclared identifier is reported only once for each function it appears in
+configure: failed program was:
+#line 6293 "configure"
+#include "confdefs.h"
+
+#ifdef HAVE_MEMORY_H
+#include <memory.h>
+#endif
+#ifdef HAVE_STRING_H
+#include <string.h>
+#else
+#ifdef HAVE_STRINGS_H
+#include <strings.h>
+#endif
+#endif
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+
+int main() {
+
+typedef char **f;
+f x;
+x = (f) environ;
+
+; return 0; }
+configure:6328: checking whether declaration is required for errno
+configure:6348: gcc -o conftest -g -O2   conftest.c  1>&5

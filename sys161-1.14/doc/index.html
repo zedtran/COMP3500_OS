@@ -1,0 +1,546 @@
+<html>
+<head>
+<title>System/161</title>
+</head>
+<body bgcolor=#ffffff>
+
+<h2>System/161</h2>
+
+System/161 is a synthetic (read: made up) hardware platform designed
+specifically for use in CS161. It includes a simulated system bus and
+bus devices, and any of several possible simulated CPUs.
+<p>
+
+The rest of this manual is divided into the following subsections:
+<ul>
+<li> <A HREF=#getting>Getting and Building System/161</A>
+<li> <A HREF=#running>Running System/161</A>
+<li> <A HREF=#config>Config files</A>
+<li> <A HREF=#debug>Remote debugging with <tt>gdb</tt></A>
+<li> <A HREF=#hub>Network connectivity with <tt>hub161</tt></A>
+<li> <A HREF=#prog>Programming specs</A>
+</ul>
+
+<hr>
+<A NAME=getting>
+
+<h3>Getting System/161</h3>
+
+If you are working on the Science Center ICE machines and have the
+CS161 binary directory <tt>~lib161/usr/bin</tt> on your path, you can
+run the version of System/161 installed by the course staff just by
+typing <tt>sys161</tt> or <tt>trace161</tt>. You only need download
+and compile it yourself if you want to work elsewhere.
+<p>
+
+The source distribution for System/161 can be found on the CS161 web
+site, <A HREF=http://www.courses.fas.harvard.edu/~cs161>here</A>. It
+supports most Unix-like systems. Windows is not supported. (However,
+you might be able to compile it with cygwin or a similar toolset. If
+you do this, you're on your own.)
+<p>
+
+All you need is sys161-1.0.tar.gz (or whatever the current version
+is).
+<p>
+
+<h3>Building System/161</h3>
+
+Unpack the distribution file by typing
+<pre>
+	tar -xvzf sys161-1.0.tar.gz
+</pre>
+(substitute whatever version you have for the 1.0.)
+<p>
+
+This will create a subdirectory called <tt>sys161-1.0</tt> with the
+files in it. Go into this directory by typing
+<pre>
+	cd sys161-1.0
+</pre>
+(substitute whatever version you have for the 1.0.)
+<p>
+
+Now you need to know what processor type you want to use. For CS161
+this year, you want the "mipseb" processor. For other uses, consult
+the course staff, or choose from the list of supported processors,
+which you can get by running <tt>./configure --help</tt>.
+<p>
+
+Run the configure script. Specify the processor type you want as an
+argument. In the simple case, it looks like this:
+<pre>
+	./configure mipseb
+</pre>
+It'll grind for a while. If you want it to install the resulting programs
+someplace other than <tt>~/cs161/root</tt>, pass configure the
+<tt>--installdir</tt> option, like this:
+<pre>
+	./configure --installdir=$HOME/bin
+</pre>
+Note that, because of the way the Unix shell handles ~, if you use
+<tt>~/bin</tt> instead of <tt>$HOME/bin</tt> it won't work.
+<p>
+
+Now compile things by typing
+<pre>
+	make
+</pre>
+and install them by typing
+<pre>
+	make install
+</pre>
+
+This compiles and installs two programs: <tt>sys161</tt>, the normal
+or "fast" simulator, and <tt>trace161</tt>, which has lots of
+debugging and diagnostic support built in and thus doesn't run as
+quickly. You can run OS/161 in either.
+<p>
+
+If the compilation bombs, contact the course staff.
+<p>
+
+System/161 has been tested on the following platforms:
+<ul>
+<li> NetBSD on x86
+<li> Digital Unix 4.0x on alpha
+</ul>
+
+<hr>
+<A NAME=running>
+
+<h3>Running System/161</h3>
+
+There are two versions of System/161 that can be built: the normal
+one, <tt>sys161</tt>, and one compiled to be able to log information
+about what's happening and generally assist debugging, which is called
+<tt>trace161</tt>.
+<p>
+
+The general format for the command line for either of these is like
+this:
+<blockquote>
+	<tt>sys161</tt> [ <em>System/161 options</em> ] 
+		<em>kernel</em> [ <em>kernel options</em> ]
+</blockquote>
+<p>
+
+The <em>System/161 options</em> are:
+<blockquote>
+<dl>
+
+<dt>-c <em>configfile</em></dt>
+<dd>Specify alternate config file. Default is <tt>sys161.conf</tt>.</dd>
+
+<dt>-p <em>port</em></dt>
+<dd>Listen for debugger connections on specified TCP port. The default
+is to use the Unix-domain socket <tt>./.sockets/gdb</tt> for debugger
+connections. 
+<br><font size=-1><strong>Note: because the remote gdb protocol
+does not support authentication, use this option only with
+caution.</strong></font></dd>
+
+<dt>-s</dt>
+<dd>Pass signal-generating characters (^C, ^Z, etc.) through to the
+kernel instead of treating them as requests to sys161.</dd>
+
+<dt>-w</dt>
+<dd>Wait for a debugger connection immediately on startup.</dd>
+
+</dl>
+</blockquote>
+<p>
+
+The following additional options control trace161's tracing and are
+ignored by sys161:
+<blockquote>
+<dl>
+
+<dt>-f <em>tracefile</em></dt>
+<dd>Set the file trace information is logged to. By default, stderr is
+used. Specifying -f- sends output to stdout instead of stderr.</dd>
+
+<dt>-t <em>traceflags</em></dt>
+<dd>Tell System/161 what to trace. The following flags are available:
+   <table>
+   <tr><td>d</td>	<td>Trace disk I/O</td></tr>
+   <tr><td>e</td>	<td>Trace emufs I/O</td></tr>
+   <tr><td>j</td>	<td>Trace jumps and branches</td></tr>
+   <tr><td>k</td>	<td>Trace instructions in kernel mode</td></tr>
+   <tr><td>n</td>	<td>Trace network I/O</td></tr>
+   <tr><td>t</td>	<td>Trace TLB/MMU activity</td></tr>
+   <tr><td>u</td>	<td>Trace instructions in user mode</td></tr>
+   <tr><td>x</td>	<td>Trace exceptions</td></tr>
+   </table>
+   Caution: tracing instructions generates huge amounts of output
+   that may overwhelm smaller host systems.
+</dd>
+
+</dl>
+</blockquote>
+<p>
+
+The following option is also only available in trace161:
+<blockquote>
+<dl>
+
+<dt>-P</dt>
+<dd>Collect a kernel profile and leave it in the file
+<tt>gmon.out</tt> for analysis by <tt>gprof</tt>.</dd>
+
+</dl>
+</blockquote>
+<p>
+
+The <em>kernel</em> is an operating system kernel to load and run. It
+should be an ELF-format executable for the same processor type as
+System/161 is compiled to support. For further information, see below.
+<p>
+
+Note that options found after the kernel name will be passed to the
+kernel and not interpreted by System/161.
+<p>
+
+<hr>
+<A NAME=config>
+
+<h3>System/161 Config Files</h3>
+
+System/161 reads a config file to determine what hardware it should
+simulate. The default config file is <tt>./sys161.conf</tt>. A
+different one can be specified with the <em>-c</em> option.
+<p>
+
+The config file is composed of lines in the following form:
+<blockquote>
+<em>slot-number</em> <em>device-name</em> [<em>args</em>...]
+</blockquote>
+<p>
+
+Slots may be 0-31. You must place the bus controller card in slot 31,
+or the system will not run.
+<p>
+
+Single-line comments are introduced with <tt>#</tt>.
+<p>
+
+The devices available, and the arguments they support, are:
+<blockquote>
+<table width=95%>
+
+<tr>
+<td colspan=2>busctl</td>
+<td colspan=2><A HREF=lamebus.html>LAMEbus bus controller</A></td>
+</tr>
+<tr>
+<td></td>
+<td colspan=2><tt>ramsize=</tt><em>bytes</em></td>
+<td>Specify size of physical RAM. Required.</td>
+</tr>
+<tr><td colspan=4>&nbsp;</td></tr>
+
+<tr>
+<td colspan=2>timer</td>
+<td colspan=2><A HREF=devices.html#timer>CS161 timer device</A></td>
+</tr>
+<tr>
+<td></td>
+<td colspan=3><em>(no arguments)</td>
+</tr>
+<tr><td colspan=4>&nbsp;</td></tr>
+
+<tr>
+<td colspan=2>disk</td>
+<td colspan=2><A HREF=devices.html#disk>CS161 disk device</A></td>
+</tr>
+<tr>
+<td></td>
+<td colspan=2><tt>rpm=</tt><em>cycles</em></td>
+<td>Specify rotation speed. Must be multiple of 60. Default is 3600.</td>
+</tr>
+<tr>
+<td></td>
+<td colspan=2><tt>sectors=</tt><em>sectors</em></td>
+<td>Specify number of 512-byte sectors on disk. Required.</td>
+</tr>
+<tr>
+<td></td>
+<td colspan=2><tt>file=</tt><em>filename</em></td>
+<td>Filename to use for disk storage. Required.</td>
+</tr>
+<tr>
+<td></td>
+<td colspan=2><tt>paranoid</tt></td>
+<td>If set, call fsync() on every disk write to hopefully ensure data
+is not lost if the host system crashes. Slow and not recommended for
+normal operation.</td>
+</tr>
+<tr><td colspan=4>&nbsp;</td></tr>
+
+<tr>
+<td colspan=2>serial</td>
+<td colspan=2><A HREF=devices.html#serial>CS161 serial console</A></td>
+</tr>
+<tr>
+<td></td>
+<td colspan=3><em>(no arguments)</td>
+</tr>
+<tr><td colspan=4>&nbsp;</td></tr>
+
+<tr>
+<td colspan=2>screen</td>
+<td colspan=2><A HREF=devices.html#screen>CS161 full-screen console</A></td>
+</tr>
+<tr>
+<td></td>
+<td colspan=3><em>(no arguments)</td>
+</tr>
+<tr><td></td><td colspan=3>Note: not available yet.</td></tr>
+<tr><td colspan=4>&nbsp;</td></tr>
+
+<tr>
+<td colspan=2>nic</td>
+<td colspan=2><A HREF=devices.html#nic>CS161 network interface</A></td>
+</tr>
+<tr>
+<td></td>
+<td colspan=2><tt>hwaddr=</tt><em>addr</em></td>
+<td>Set the hardware address for this network card. The hardware
+address is a 16-bit integer. (Note that 0 and 65535 (0xffff) are 
+reserved for special purposes.) Required.</td>
+</tr>
+<tr>
+<td></td>
+<td colspan=2><tt>hub=</tt><em>path</em></td>
+<td>Set the path to the socket for the network hub, 
+<A HREF=#hub><tt>hub161</tt></A>.
+The default is <tt>.sockets/hub</tt>.</td>
+</tr>
+<tr><td colspan=4>&nbsp;</td></tr>
+
+<tr>
+<td colspan=2>emufs</td>
+<td colspan=2><A HREF=devices.html#emufs>CS161/OS161 emulator
+			pass-through filesystem</A></td>
+</tr>
+<tr>
+<td></td>
+<td colspan=2><tt>dir=</tt><em>directory</em></td>
+<td>Directory to use as root of emufs filesystem. Default is <tt>.</tt>.</td>
+</tr>
+<tr><td colspan=4>&nbsp;</td></tr>
+
+<tr>
+<td colspan=2>trace</td>
+<td colspan=2><A HREF=devices.html#trace>System/161 trace controller</A></td>
+</tr>
+<tr>
+<td></td>
+<td colspan=3><em>(no arguments)</td>
+</tr>
+<tr><td colspan=4>&nbsp;</td></tr>
+
+<tr>
+<td colspan=2>random</td>
+<td colspan=2><A HREF=devices.html#rand>CS161 random number generator</A></td>
+</tr>
+<tr>
+<td></td>
+<td colspan=2><tt>seed=</tt><em>number</em></td>
+<td>Set seed for pseudo-random-number generator. Default is 0.</td>
+</tr>
+<tr>
+<td></td>
+<td colspan=2><tt>autoseed</tt></td>
+<td>Set seed for pseudo-random-number generator based on the system clock.</td>
+</tr>
+<tr>
+<td></td>
+<td colspan=3>Note: if you have multiple random devices, they all
+share the same randomizer state.</td>
+</tr>
+
+</table>
+</blockquote>
+
+<hr>
+<A NAME=debug>
+
+<h3>Kernel Debugging with <tt>gdb</tt></h3>
+
+System/161 supports remote <tt>gdb</tt> debugging directly into the
+simulator. The simulator acts like an in-circuit emulator (ICE), only
+more so, so that you can debug without any interference whatsoever
+with the debugged code - even timing is unaffected.
+<p>
+
+To do this, you need a copy of <tt>gdb</tt> compiled for the same
+processor that System/161 is simulating, and that understands the
+ELF kernel file format loaded by System/161. Get and compile
+<A HREF=http://www.courses.fas.harvard.edu/~cs161/download>the CS161
+toolchain</A>.
+On the Science Center machines, you can just run <tt>cs161-gdb</tt>.
+<p>
+
+Run gdb as you normally would:
+<pre>
+	gdb kernel
+</pre>
+
+After it finishes loading, attach to System/161 by typing this into gdb:
+<pre>
+	target remote unix:.sockets/gdb
+</pre>
+and gdb will connect up to the copy of System/161 you have running in
+the same directory and you can start debugging. (You can debug one in
+another directory by specifying the right path to its socket.)
+<p>
+
+Since this is a painful thing to type every time you want to debug, we
+recommend you create a shortcut for it. Put the following in a file
+called <tt>.gdbinit</tt> in the same directory you're working in.
+(gdb runs this file when you start it up.)
+<pre>
+	define db
+	target remote unix:.sockets/gdb
+	end
+</pre>
+Then you can connect up to System/161 for debugging just by running
+gdb and typing "db".
+<p>
+
+If you give System/161 the <em>-w</em> option, it will stop and wait
+for a debugger connection before it runs anything at all. This allows
+you to start debugging from the very beginning of kernel initialization.
+<p>
+
+Theoretically everything you can do with gdb normally should work with
+gdb connected this way. In practice, there are probably some problems.
+Bring them to the attention of the course staff and we'll see if we
+can get them fixed.
+<p>
+
+When System/161 is running, if you type ^G (control-G) into its
+window, it will immediately stop in gdb (if gdb is attached) or wait
+for a gdb connection (if gdb is not attached).
+<p>
+
+<hr>
+<A NAME=hub>
+
+<h3>Network Connectivity with <tt>hub161</tt></h3>
+
+If you are using the <A HREF=devices.html#nic>network card</A>, you
+need to use the <tt>hub161</tt> program to provide a simulated network
+for the card to plug into.
+<p>
+
+When you run <tt>hub161</tt>, you can optionally give it, on its
+command line, the name of a unix-domain socket to listen to. The
+default is <tt>.sockets/hub</tt>. This pathname may then be specified
+in the <tt>sys161.conf</tt> file(s) of the system(s) that wish to
+connect to that hub.
+<p>
+
+Each socket can only have one hub running on it at a time; however,
+you can have as many hubs as you like at once by giving them different
+socket names.
+<p>
+
+If you give the cards plugged into the same hub duplicate hardware
+addresses, bizarre things will happen.
+<p>
+
+No facility is provided for gatewaying <tt>hub161</tt> packets onto
+the real network via the host system. Such a facility could be
+written, albeit with some difficulty, but will be fairly useless
+unless the operating system running within System/161 contains its own
+complete TCP/IP implementation.
+<p>
+
+The simulated network is a very simple link layer. All packets are
+sent to the hub process, which rebroadcasts them to all network cards.
+There is very little attempt at realism in general.
+<p>
+
+There is no effort made to synchronize the time among multiple
+instances of System/161 connected to the same hub; thus, packets may
+appear to travel in time. Furthermore, because of the way System/161
+handles time, any attempt to synchronize the time in software is
+likely doomed to failure.
+<p>
+
+Because <tt>hub161</tt> communicates over unix-domain sockets, it and
+all the instances of <tt>sys161</tt> or <tt>trace161</tt> that wish to
+connect to it must be run on the same host.
+<p>
+
+It should not be necessary to restart <tt>hub161</tt> if any of the
+<tt>sys161</tt> processes attached to it die, or vice-versa either,
+although a delay of up to a few seconds on a busy host system may
+occur. 
+<p>
+
+If you are not using the network, it is recommended that you comment
+the network devices out of <tt>sys161.conf</tt> to reduce overhead on
+the host system.
+<p>
+
+<hr>
+<A NAME=prog>
+
+<h3>System/161 Programming Information</h3>
+
+At present, System/161 can be compiled to simulate only one fully
+supported processor type: the MIPS r2000/r3000. There is partial
+support for the Ant-32 processor as well, but this is incomplete and
+not supported. It may not be present in the release tarfiles.
+<p>
+
+This page does not document MIPS r2000/r3000 programming. 
+<!-- XXX we should have some links if there are any good ones. -->
+<p>
+
+The system bus used in System/161 is a simplified architecture made up
+for the purpose; it is fittingly called LAMEbus. There are also a half
+dozen or so simulated devices available.
+<p>
+
+<blockquote>
+<A HREF=lamebus.html>LAMEbus programming info</A><br>
+<A HREF=devices.html>System/161 LAMEbus devices</A><br>
+</blockquote>
+<p>
+
+The kernel loaded by System/161 is (at present) loaded by the
+simulator, not a boot ROM within the simulator. Thus, at present, any
+of the memory regions described as being boot ROMs are in fact
+unmapped and accesses to them will cause bus errors.
+<p>
+
+The kernel will be loaded into physical memory at an address chosen so
+that it appears in kernel virtual memory at the virtual address it was
+linked to be run at. (The desired address should be passed to the
+linker at kernel build time.) Precisely what this means depends on the
+processor and MMU in use. See the processor-specific pages listed at
+the top of the <A HREF=lamebus.html>LAMEbus programming</A> page.
+<p>
+
+Control will be transferred to the entry point of the kernel specified
+in the ELF file. The entry point will be called as if it were a C
+function taking one argument: a string. This string contains the
+kernel arguments passed on the System/161 command line, concatenated
+with spaces.
+<p>
+
+Both the argument string and a small bootup stack, and possibly other
+machine-dependent data, are located in the top few pages of physical
+memory. The precise location is not specified and should not be
+assumed. The kernel should establish its own stack, copy the string
+to a known location elsewhere, and handle any other machine-dependent
+data appropriately; then it can reuse the top of physical memory for
+its own purposes.
+<p>
+
+</body>
+</html>

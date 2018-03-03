@@ -1,0 +1,294 @@
+<!-- Automatically generated file - do not edit here -->
+<html>
+<head>
+<title>LAMEbus on MIPS</title>
+</head>
+<body bgcolor=#ffffff>
+
+<h2>LAMEbus on MIPS</h2>
+
+<h3>Summary</h3>
+
+<ul>
+<li> Physical RAM (up to 508 megabytes) starts at physical address 0.
+<li> The LAMEbus device mapping area is from physical address
+     0x1fe00000 to 0x1fffffff.
+<li> The LAMEbus device mapping area appears at kernel virtual
+     addresses 0xbfe00000 to 0xbfffffff without requiring any
+     kernel setup.
+<li> Kernels should be linked to be loaded starting at or (generally)
+     closely above virtual address 0x80000000.
+</ul>
+
+Kernel virtual memory map:
+<blockquote>
+<table width=95% border=1>
+
+<tr>
+<th width=20%>Address</th>
+<th width=10%>MIPS<br>Segment</th>
+<th width=10%>Region</th>
+<th align=left>MIPS hardwired address</th>
+</tr>
+
+<tr>
+<td><tt>0xffffffff</tt></td>
+<td rowspan=2>kseg2</td>
+<td rowspan=2>TLB-mappable<br>kernel space</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td><tt>0xc0000000</tt></td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td><tt>0xbfffffff</tt></td>
+<td rowspan=8>kseg1</td>
+<td rowspan=2>LAMEbus mapping area</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td><tt>0xbfe00000</tt></td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td><tt>0xbfdfffff</tt></td>
+<td rowspan=4>Boot ROM area<br>(uncached)</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td><tt>0xbfc00180</tt></td>
+<td>Exception address if "bootstrap" flag is set</td>
+</tr>
+
+<tr>
+<td><tt>0xbfc00100</tt></td>
+<td>UTLB exception address if "bootstrap" flag is set</td>
+</tr>
+
+<tr>
+<td><tt>0xbfc00000</tt></td>
+<td>Execution begins here after processor reset.</td>
+</tr>
+
+<tr>
+<td><tt>0xbfbfffff</tt></td>
+<td rowspan=2>First 508 MB of RAM<br>(uncached)</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td><tt>0xa0000000</tt></td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td><tt>0x9fffffff</tt></td>
+<td rowspan=7>kseg0</td>
+<td rowspan=2>Cached LAMEbus<br>(not useful)</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td><tt>0x9fe00000</tt></td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td><tt>0x9fdfffff</tt></td>
+<td rowspan=2>Boot ROM area<br>(cached)</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td><tt>0x9fc00000</tt></td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td><tt>0x9fbfffff</tt></td>
+<td rowspan=3>First 508 MB of RAM<br>(cached)</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td><tt>0x80000080</tt></td>
+<td>Exception address if "bootstrap" flag not set.</td>
+</tr>
+
+<tr>
+<td><tt>0x80000000</tt></td>
+<td>UTLB exception address if "bootstrap" flag not set.</td>
+</tr>
+
+<tr>
+<td><tt>0x7fffffff</tt></td>
+<td rowspan=2>kuseg</td>
+<td rowspan=2>User space</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td><tt>0x00000000</tt></td>
+<td>&nbsp;</td>
+</tr>
+
+</table>
+</blockquote>
+
+
+Physical memory map:
+<blockquote>
+<table width=95% border=1>
+
+<tr>
+<th width=20%>Address</th>
+<th align=left>Region</th>
+</tr>
+
+<tr>
+<td><tt>0xffffffff</tt></td>
+<td rowspan=2>Upper physical RAM (above 508 MB)</td>
+</tr>
+
+<tr>
+<td><tt>0x20000000</tt></td>
+</tr>
+
+<tr>
+<td><tt>0x1fffffff</tt></td>
+<td rowspan=2>LAMEbus devices</td>
+</tr>
+
+<tr>
+<td><tt>0x1fe00000</tt></td>
+</tr>
+
+<tr>
+<td><tt>0x1fdfffff</tt></td>
+<td rowspan=2>Boot ROM area</td>
+</tr>
+
+<tr>
+<td><tt>0x1fc00000</tt></td>
+</tr>
+
+<tr>
+<td><tt>0x1fbfffff</tt></td>
+<td rowspan=2>First 508 MB of physical RAM</td>
+</tr>
+
+<tr>
+<td><tt>0x00000000</tt></td>
+</tr>
+
+</table>
+</blockquote>
+
+<h3>Details</h3>
+
+The MIPS processor defines four hardwired segments in its virtual
+address space. It also defines five hardwired addresses that it will
+jump to at various times. These are listed in the table above.
+<p>
+
+The segments are:
+<blockquote>
+<table width=95% border=0>
+<tr><th width=10% align=left>Name</th><th align=left>Description</th></tr>
+<tr><td>kseg2</td><td>Supervisor mode only; TLB-mapped, cacheable</td></tr>
+<tr><td>kseg1</td><td>Supervisor mode only; direct-mapped, uncached</td></tr>
+<tr><td>kseg0</td><td>Supervisor mode only; direct-mapped, cached</td></tr>
+<tr><td>kuseg</td><td>User and supervisor mode; TLB-mapped, cacheable</td></tr>
+</table>
+</blockquote>
+
+The mapped segments are mapped via a translation lookaside buffer
+(TLB) with software refill. The direct-mapped segments are mapped
+(without use of the TLB) both to the first 512 megabytes of the 
+physical memory space.
+<p>
+
+Three of the hardwired addresses (the ones used for system
+initialization) are 4 MB below the top of kseg1. The other two are at the
+bottom of kseg0. This means that, of the first 512 megabytes of
+physical memory space, at least part of the top 4M must be ROM, and the very
+bottom must be RAM. This was clearly designed in an era
+where 512 megs of memory was an unthinkably large amount.
+<p>
+
+We put the first 508 megs of physical RAM starting at physical address
+0. After this we reserve 2 megabytes for a boot ROM; after that we
+put the 2-megabyte LAMEbus mapping area. Then physical RAM
+resumes again at the 512-meg mark. Thus, if the RAMSZ register reports
+512 megs of RAM, it will appear from 0x0 to 0x1fbfffff and then from
+0x20000000 to 0x203fffff.
+<p>
+
+(Note that the current implementation will not let you configure
+anywhere near 512 megs of physical RAM, and does not actually have a
+boot ROM, just 2 megs of empty space. If you get an exception before
+switching off the "bootstrap" flag, the system will hang trying to
+execute from nonexistent memory. This is suboptimal and may be
+corrected in a future release.)
+<p>
+
+As a result of all this, the best place to load a kernel is starting
+at 0x80001000, the first page after the page containing the hardwired
+exception addresses. Because of the way ELF executables work and
+because of the way linkers work, trying to create a kernel image to
+load at 0x80000000 that has the exception entry points in exactly the
+right place is highly impractical. The best bet is to write
+position-independent code for the entry points and copy it into place
+during kernel initialization.
+<p>
+
+Note that System/161 does not implement a cache simulator; all memory
+accesses go straight through to memory. This is important, because the
+MIPS architecture does not guarantee synchronization between the
+instruction and data caches. On a real MIPS, after performing any
+operation that involves writing code to memory and then executing it
+later, one must manually flush the instruction cache. This is painful
+to implement. If you are only running on System/161 and never intend
+to run on a real MIPS, you can avoid actually implementing this code,
+though you should stub it out and insert calls to it in the necessary
+places in case you change your mind later.
+<p>
+
+This is also a concern for hardware devices that may do DMA into
+cached regions of memory. However, LAMEbus devices do not do DMA
+(instead they have memory-mapped buffers) and the LAMEbus mapping area
+is meant to be accessed through the uncached hardwired segment. It
+also appears in the cached hardwired segment, but as cached memory
+access is worse than useless for device registers, this area should
+not be used.
+<p>
+
+Kernel loading on MIPS takes place exactly as described for the
+general case. Assuming the kernel is linked to run at 0x80001000, it
+will be loaded into physical memory starting at 0x00001000 (which
+appears at virtual address 0x80001000) and control will be transferred
+to the kernel's entry point in virtual memory as recorded by the
+linker.
+<p>
+
+The kernel arguments are assembled into a single null-terminated
+string which is stored at the top of physical memory. The address of
+this string is passed in the first argument register (a0, register 4).
+The stack pointer is initialized to point near the top of physical
+memory, so it can be used (growing down as normal) for scratch space
+during kernel initialization if necessary.
+<p>
+
+Because the MIPS has a 32-bit memory bus, all registers (all LAMEbus
+device registers are 32-bit) can be read or written atomically in a
+single instruction.
+<p>
+
+</body>
+</html>

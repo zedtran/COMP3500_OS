@@ -1,0 +1,17 @@
+HTML=devices.html index.html lamebus.html
+
+include defs.mk
+
+all tidy distclean clean rules depend: ;
+
+install:
+	[ -d "$(DOCDIR)" ] || mkdir -p $(DOCDIR)
+	@for h in $(HTML); do \
+		echo cp $S/doc/$$h $(DOCDIR)/$$h; \
+		cp $S/doc/$$h $(DOCDIR)/$$h; \
+		chmod 644 $(DOCDIR)/$$h; \
+	  done
+	cp lb-cpu.html $(DOCDIR)/lb-cpu.html
+	chmod 644 $(DOCDIR)/lb-cpu.html
+	cp $S/sys161.conf.sample $(ETCDIR)/sys161.conf.sample
+	chmod 644 $(ETCDIR)/sys161.conf.sample

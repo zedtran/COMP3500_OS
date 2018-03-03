@@ -1,0 +1,104 @@
+<html>
+<head>
+<title>LAMEbus</title>
+</head>
+<body bgcolor=#ffffff>
+
+<h3>LAMEbus</h3>
+
+LAMEbus is a simple no-fuss 32-bit system bus and bus controller.
+There are 32 slots, each of which has a fixed 64k addressable region.
+These regions are mapped in order into the system physical memory
+space. Thus the physical address for the start of the region for slot
+N can be computed as LAMEBASE+0x10000*N, where LAMEBASE is the physical
+base address of the LAMEbus mapping area.
+<p>
+
+Depending on the processor type in use, this area may appear
+automatically at some other address in virtual memory, or may need to
+be mapped into kernel virtual memory using the MMU. For more
+information, <A HREF=lb-cpu.html>click here</A>.
+<p>
+
+The last slot, slot 31, is always occupied by the bus controller
+card. Its mapped memory area is divided into two parts. The upper half
+(32k) is reserved for mapping a boot ROM, which has no published entry
+points, supplies no services besides system startup, and may or may
+not actually be present. The lower half (also 32k) is split into 32 1k
+regions, each of which maps configuration data about its corresponding
+slot. The last such region refers to the bus controller card itself,
+and has some additional registers.
+<p>
+
+The physical address of the config region for slot N can be computed
+as LAMEBASE+(0x10000*31)+(0x400*N). Again, the virtual address depends
+on the processor type.
+<p>
+
+Each of these config regions contains the following fields:
+<blockquote>
+<table width=100% border=0>
+<tr><th width=10%>Name</th><th width=10%>Offset</th>
+				<th align=left>Description</th></tr>
+<tr><td>VID</td><td>0x00-0x03</td>	<td>Vendor ID of device</td></tr>
+<tr><td>DID</td><td>0x04-0x07</td>	<td>Device type ID</td></tr>
+<tr><td>DRL</td><td>0x08-0x0b</td>	<td>Device revision level</td></tr>
+<tr><td></td><td>0x0c-0x3ff</td>	<td>Reserved</td></tr>
+</table>
+</blockquote>
+<p>
+
+Vendor IDs defined are as follows:
+<p>
+<blockquote>
+<table width=100% border=0>
+<tr><th width=10%>Value</th>	<th align=left>Organization</th></tr>
+<tr><td>0</td>			<td>No card present</td></tr>
+<tr><td>1</td>			<td>CS161 Course Staff</td></tr>
+</table>
+</blockquote>
+If no card is present, the other fields in the region may contain
+invalid values, and references to that slot's mapping area will
+(normally) cause memory bus errors. 
+<p>
+The device type IDs and revision levels are defined by the vendors.
+<p>
+
+Offsets 512-1023 (0x200-0x3ff) of the bus controller's own
+configuration region are mapped to the bus controller's own
+registers. For the CS161 revision 1 bus controller (VID 1, DID 1, DRL
+1) these registers are:
+
+<blockquote>
+<table width=100% border=0>
+<tr><th width=10%>Name</th><th width=10%>Offset</th>
+				<th align=left>Description</th></tr>
+<tr><td>RAMSZ</td><td>0x200-0x203</td>
+				<td>Size of physical RAM in bytes</td></tr>
+<tr><td>IRQS</td><td>0x204-0x207</td>
+			<td>Mask of slots presently interrupting</td></tr>
+<tr><td>PWR</td><td>0x208-0x20b</td>
+			<td>Power enable register</td></tr>
+<tr><td></td><td>0x20c-0x3ff</td><td>Reserved</td></tr>
+</table>
+</blockquote>
+
+RAMSZ reports the system main board configuration. Writes are
+rejected. Where the physical RAM appears in the physical address
+space, and whether it's contiguous (and if not, where the gaps are)
+depends on the processor type.
+<p>
+
+The IRQS register holds a 1 for each slot that is presently asserting
+its IRQ line. Writes to IRQS are rejected; interrupts should be
+cleared on the devices generating them. Bit 0 represents slot 0,
+etc. Thus bit 31 is the bus controller's bit.
+<p>
+
+The PWR register switches the system off if the magic value 0xfee1dead
+is written into it. Other writes have no effect, and reading produces
+undefined results.
+<p>
+
+</body>
+</html>

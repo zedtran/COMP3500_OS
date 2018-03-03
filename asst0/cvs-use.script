@@ -1,0 +1,965 @@
+Script started on Thu 15 Feb 2018 12:01:01 PM CST
+]777;notify;Command completed;sudo vim /etc/sysconfig/network-scripts/ifcfg-enp3s0 ]0;blakedonzac@localhost:~/cs161]7;file://localhost.localdomain/home/blakedonzac/cs161[?1034h[blakedonzac@localhost cs161]$ 
+[K[blakedonzac@localhost cs161]$ 
+[K[blakedonzac@localhost cs161]$ cvs diff -c kern/main/main.c
+cvs [diff aborted]: no such directory `kern/main'
+]777;notify;Command completed;cvs diff -c kern/main/main.c]0;blakedonzac@localhost:~/cs161]7;file://localhost.localdomain/home/blakedonzac/cs161[blakedonzac@localhost cs161]$ cvs diff - c[K[Kc sys161
+sys161-1.14/        sys161-1.14.tar.gz  sys161.conf
+[blakedonzac@localhost cs161]$ cvs diff -c sys161[K[K[K[K[K[Ksrc/kern/main/main.c 
+Index: src/kern/main/main.c
+===================================================================
+RCS file: /home/blakedonzac/cs161/cvsroot/src/kern/main/main.c,v
+retrieving revision 1.2
+diff -c -r1.2 main.c
+*** src/kern/main/main.c	8 Feb 2018 18:39:10 -0000	1.2
+--- src/kern/main/main.c	15 Feb 2018 18:02:23 -0000
+***************
+*** 18,23 ****
+--- 18,24 ----
+  #include <version.h>
+  
+  /* ASST0 Comment: Don Tran, Blake Mathews, Zac Parker  */
++ /* ASST0 Comment #2: Don Tran, Blake Mathews, Zac Parker */
+  
+  /*
+   * These two pieces of data are maintained by the makefiles and build system.
+]777;notify;Command completed;cvs diff -c src/kern/main/main.c ]0;blakedonzac@localhost:~/cs161]7;file://localhost.localdomain/home/blakedonzac/cs161[blakedonzac@localhost cs161]$ cvs commit
+cvs commit: Examining src
+cvs commit: Examining src/bin
+cvs commit: Examining src/bin/cat
+cvs commit: Examining src/bin/cp
+cvs commit: Examining src/bin/false
+cvs commit: Examining src/bin/ln
+cvs commit: Examining src/bin/ls
+cvs commit: Examining src/bin/mkdir
+cvs commit: Examining src/bin/mv
+cvs commit: Examining src/bin/pwd
+cvs commit: Examining src/bin/rm
+cvs commit: Examining src/bin/rmdir
+cvs commit: Examining src/bin/sh
+cvs commit: Examining src/bin/sync
+cvs commit: Examining src/bin/true
+cvs commit: Examining src/include
+cvs commit: Examining src/include/sys
+cvs commit: Examining src/kern
+cvs commit: Examining src/kern/arch
+cvs commit: Examining src/kern/arch/mips
+cvs commit: Examining src/kern/arch/mips/conf
+cvs commit: Examining src/kern/arch/mips/include
+cvs commit: Examining src/kern/arch/mips/mips
+cvs commit: Examining src/kern/asst1
+cvs commit: Examining src/kern/compile
+cvs commit: Examining src/kern/conf
+cvs commit: Examining src/kern/dev
+cvs commit: Examining src/kern/dev/generic
+cvs commit: Examining src/kern/dev/lamebus
+cvs commit: Examining src/kern/fs
+cvs commit: Examining src/kern/fs/sfs
+cvs commit: Examining src/kern/fs/vfs
+cvs commit: Examining src/kern/include
+cvs commit: Examining src/kern/include/kern
+cvs commit: Examining src/kern/lib
+cvs commit: Examining src/kern/main
+cvs commit: Examining src/kern/test
+cvs commit: Examining src/kern/thread
+cvs commit: Examining src/kern/userprog
+cvs commit: Examining src/kern/vm
+cvs commit: Examining src/lib
+cvs commit: Examining src/lib/crt0
+cvs commit: Examining src/lib/hostcompat
+cvs commit: Examining src/lib/libc
+cvs commit: Examining src/man
+cvs commit: Examining src/man/bin
+cvs commit: Examining src/man/dev
+cvs commit: Examining src/man/libc
+cvs commit: Examining src/man/misc
+cvs commit: Examining src/man/sbin
+cvs commit: Examining src/man/syscall
+cvs commit: Examining src/man/testbin
+cvs commit: Examining src/man/toplevel
+cvs commit: Examining src/mk
+cvs commit: Examining src/sbin
+cvs commit: Examining src/sbin/dumpsfs
+cvs commit: Examining src/sbin/halt
+cvs commit: Examining src/sbin/mksfs
+cvs commit: Examining src/sbin/poweroff
+cvs commit: Examining src/sbin/reboot
+cvs commit: Examining src/testbin
+cvs commit: Examining src/testbin/add
+cvs commit: Examining src/testbin/argtest
+cvs commit: Examining src/testbin/badcall
+cvs commit: Examining src/testbin/bigfile
+cvs commit: Examining src/testbin/conman
+cvs commit: Examining src/testbin/crash
+cvs commit: Examining src/testbin/ctest
+cvs commit: Examining src/testbin/dirconc
+cvs commit: Examining src/testbin/dirseek
+cvs commit: Examining src/testbin/dirtest
+cvs commit: Examining src/testbin/f_test
+cvs commit: Examining src/testbin/farm
+cvs commit: Examining src/testbin/faulter
+cvs commit: Examining src/testbin/filetest
+cvs commit: Examining src/testbin/forkbomb
+cvs commit: Examining src/testbin/forktest
+cvs commit: Examining src/testbin/guzzle
+cvs commit: Examining src/testbin/hash
+cvs commit: Examining src/testbin/hog
+cvs commit: Examining src/testbin/huge
+cvs commit: Examining src/testbin/kitchen
+cvs commit: Examining src/testbin/malloctest
+cvs commit: Examining src/testbin/matmult
+cvs commit: Examining src/testbin/palin
+cvs commit: Examining src/testbin/parallelvm
+cvs commit: Examining src/testbin/randcall
+cvs commit: Examining src/testbin/rmdirtest
+cvs commit: Examining src/testbin/rmtest
+cvs commit: Examining src/testbin/sink
+cvs commit: Examining src/testbin/sort
+cvs commit: Examining src/testbin/sty
+cvs commit: Examining src/testbin/tail
+cvs commit: Examining src/testbin/tictac
+cvs commit: Examining src/testbin/triplehuge
+cvs commit: Examining src/testbin/triplemat
+cvs commit: Examining src/testbin/triplesort
+cvs commit: Examining src/testbin/userthreads
+[?1049h[?1h=[1;24r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[24;1H"/tmp/cvsi5W08o" 9L, 304C[2;1HCVS: ----------------------------------------------------------------------
+CVS: Enter Log.  Lines beginning with `CVS:' are removed automatically
+CVS:
+CVS: Committing in src/bin/cp
+CVS:
+CVS: Modified Files:
+CVS:    depend.mk
+CVS: ----------------------------------------------------------------------
+[94m~                                                                               [11;1H~                                                                               [12;1H~                                                                               [13;1H~                                                                               [14;1H~                                                                               [15;1H~                                                                               [16;1H~                                                                               [17;1H~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [1;1H[?12l[?25h
+
+[?25l[m[24;1H[K[24;1H:[?12l[?25hq
+[?25l[24;1H[K[24;1H[?1l>[?12l[?25h[?1049l
+Log message unchanged or not specified
+a)bort, c)ontinue, e)dit, !)reuse this message unchanged for remaining dirs
+Action: (continue) 
+Checking in src/bin/cp/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/bin/cp/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+[?1049h[?1h=[1;24r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[24;1H"/tmp/cvs8wBPxX" 9L, 307C[2;1HCVS: ----------------------------------------------------------------------
+CVS: Enter Log.  Lines beginning with `CVS:' are removed automatically
+CVS:
+CVS: Committing in src/bin/false
+CVS:
+CVS: Modified Files:
+CVS:    depend.mk
+CVS: ----------------------------------------------------------------------
+[94m~                                                                               [11;1H~                                                                               [12;1H~                                                                               [13;1H~                                                                               [14;1H~                                                                               [15;1H~                                                                               [16;1H~                                                                               [17;1H~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [1;1H[?12l[?25h
+[?25l[m[24;1HType  :quit<Enter>  to exit Vim[2;1H[?12l[?25h
+[?25l[24;1H[1mrecording[m[24;10H[K[3;1H[?12l[?25h[?25l[24;1H[1m--c INSERT[m [1m --recording[3;1H[?12l[?25h[?25l[mtCVS: Enter Log.  Lines beginning with `CVS:' are removed automatically
+t[?12l[?25h[?25lCVS: Enter Log.  Lines beginning with `CVS:' are removed automatically[3;71H[K[3;1H[?12l[?25h[?25l[2;76HCVS:  [3;1HEnter Log.  Lines beginning with `CVS:' are removed automatically[3;66H[K[2;76H[?12l[?25h[24;1H[1mrecording [m[24;10H[K[2;75H[?25l[?12l[?25h[?25l[24;1H[K[24;1H:[?12l[?25hquir[?25l[24;5H[K[24;5H[?12l[?25ht
+[?25l[97m[41mE37: No write since last change (add ! to override)[m
+[1mrecording[m[24;10H[K[2;75H[?12l[?25h[?25l[24;1H[K[24;1H:[?12l[?25hquit!
+[?25l[24;1H[K[24;1H[?1l>[?12l[?25h[?1049l
+Log message unchanged or not specified
+a)bort, c)ontinue, e)dit, !)reuse this message unchanged for remaining dirs
+Action: (continue) a
+cvs [commit aborted]: aborted by user
+]777;notify;Command completed;cvs commit]0;blakedonzac@localhost:~/cs161]7;file://localhost.localdomain/home/blakedonzac/cs161[blakedonzac@localhost cs161]$ cvs commit
+cvs commit: Examining src
+cvs commit: Examining src/bin
+cvs commit: Examining src/bin/cat
+cvs commit: Examining src/bin/cp
+cvs commit: Examining src/bin/false
+cvs commit: Examining src/bin/ln
+cvs commit: Examining src/bin/ls
+cvs commit: Examining src/bin/mkdir
+cvs commit: Examining src/bin/mv
+cvs commit: Examining src/bin/pwd
+cvs commit: Examining src/bin/rm
+cvs commit: Examining src/bin/rmdir
+cvs commit: Examining src/bin/sh
+cvs commit: Examining src/bin/sync
+cvs commit: Examining src/bin/true
+cvs commit: Examining src/include
+cvs commit: Examining src/include/sys
+cvs commit: Examining src/kern
+cvs commit: Examining src/kern/arch
+cvs commit: Examining src/kern/arch/mips
+cvs commit: Examining src/kern/arch/mips/conf
+cvs commit: Examining src/kern/arch/mips/include
+cvs commit: Examining src/kern/arch/mips/mips
+cvs commit: Examining src/kern/asst1
+cvs commit: Examining src/kern/compile
+cvs commit: Examining src/kern/conf
+cvs commit: Examining src/kern/dev
+cvs commit: Examining src/kern/dev/generic
+cvs commit: Examining src/kern/dev/lamebus
+cvs commit: Examining src/kern/fs
+cvs commit: Examining src/kern/fs/sfs
+cvs commit: Examining src/kern/fs/vfs
+cvs commit: Examining src/kern/include
+cvs commit: Examining src/kern/include/kern
+cvs commit: Examining src/kern/lib
+cvs commit: Examining src/kern/main
+cvs commit: Examining src/kern/test
+cvs commit: Examining src/kern/thread
+cvs commit: Examining src/kern/userprog
+cvs commit: Examining src/kern/vm
+cvs commit: Examining src/lib
+cvs commit: Examining src/lib/crt0
+cvs commit: Examining src/lib/hostcompat
+cvs commit: Examining src/lib/libc
+cvs commit: Examining src/man
+cvs commit: Examining src/man/bin
+cvs commit: Examining src/man/dev
+cvs commit: Examining src/man/libc
+cvs commit: Examining src/man/misc
+cvs commit: Examining src/man/sbin
+cvs commit: Examining src/man/syscall
+cvs commit: Examining src/man/testbin
+cvs commit: Examining src/man/toplevel
+cvs commit: Examining src/mk
+cvs commit: Examining src/sbin
+cvs commit: Examining src/sbin/dumpsfs
+cvs commit: Examining src/sbin/halt
+cvs commit: Examining src/sbin/mksfs
+cvs commit: Examining src/sbin/poweroff
+cvs commit: Examining src/sbin/reboot
+cvs commit: Examining src/testbin
+cvs commit: Examining src/testbin/add
+cvs commit: Examining src/testbin/argtest
+cvs commit: Examining src/testbin/badcall
+cvs commit: Examining src/testbin/bigfile
+cvs commit: Examining src/testbin/conman
+cvs commit: Examining src/testbin/crash
+cvs commit: Examining src/testbin/ctest
+cvs commit: Examining src/testbin/dirconc
+cvs commit: Examining src/testbin/dirseek
+cvs commit: Examining src/testbin/dirtest
+cvs commit: Examining src/testbin/f_test
+cvs commit: Examining src/testbin/farm
+cvs commit: Examining src/testbin/faulter
+cvs commit: Examining src/testbin/filetest
+cvs commit: Examining src/testbin/forkbomb
+cvs commit: Examining src/testbin/forktest
+cvs commit: Examining src/testbin/guzzle
+cvs commit: Examining src/testbin/hash
+cvs commit: Examining src/testbin/hog
+cvs commit: Examining src/testbin/huge
+cvs commit: Examining src/testbin/kitchen
+cvs commit: Examining src/testbin/malloctest
+cvs commit: Examining src/testbin/matmult
+cvs commit: Examining src/testbin/palin
+cvs commit: Examining src/testbin/parallelvm
+cvs commit: Examining src/testbin/randcall
+cvs commit: Examining src/testbin/rmdirtest
+cvs commit: Examining src/testbin/rmtest
+cvs commit: Examining src/testbin/sink
+cvs commit: Examining src/testbin/sort
+cvs commit: Examining src/testbin/sty
+cvs commit: Examining src/testbin/tail
+cvs commit: Examining src/testbin/tictac
+cvs commit: Examining src/testbin/triplehuge
+cvs commit: Examining src/testbin/triplemat
+cvs commit: Examining src/testbin/triplesort
+cvs commit: Examining src/testbin/userthreads
+[?1049h[?1h=[1;24r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[24;1H"/tmp/cvsRBIryr" 9L, 307C[2;1HCVS: ----------------------------------------------------------------------
+CVS: Enter Log.  Lines beginning with `CVS:' are removed automatically
+CVS:
+CVS: Committing in src/bin/false
+CVS:
+CVS: Modified Files:
+CVS:    depend.mk
+CVS: ----------------------------------------------------------------------
+[94m~                                                                               [11;1H~                                                                               [12;1H~                                                                               [13;1H~                                                                               [14;1H~                                                                               [15;1H~                                                                               [16;1H~                                                                               [17;1H~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [1;1H[?12l[?25h[?25l[m[24;1H[K[24;1H:[?12l[?25hq[?25l[24;2H[K[24;2H[?12l[?25hwq
+[?25l"/tmp/cvsRBIryr" 9L, 307C written
+
+
+[?1l>[?12l[?25h[?1049l
+Log message unchanged or not specified
+a)bort, c)ontinue, e)dit, !)reuse this message unchanged for remaining dirs
+Action: (continue) 
+Checking in src/bin/false/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/bin/false/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+[?1049h[?1h=[1;24r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[24;1H"/tmp/cvspctSBA" 9L, 304C[2;1HCVS: ----------------------------------------------------------------------
+CVS: Enter Log.  Lines beginning with `CVS:' are removed automatically
+CVS:
+CVS: Committing in src/bin/ln
+CVS:
+CVS: Modified Files:
+CVS:    depend.mk
+CVS: ----------------------------------------------------------------------
+[94m~                                                                               [11;1H~                                                                               [12;1H~                                                                               [13;1H~                                                                               [14;1H~                                                                               [15;1H~                                                                               [16;1H~                                                                               [17;1H~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [1;1H[?12l[?25h[?25l[m[24;1H[K[24;1H:[?12l[?25hq[?25l[24;2H[K[24;2H[?12l[?25hwq
+[?25l"/tmp/cvspctSBA" 9L, 304C written
+
+
+[?1l>[?12l[?25h[?1049l
+Log message unchanged or not specified
+a)bort, c)ontinue, e)dit, !)reuse this message unchanged for remaining dirs
+Action: (continue) 
+Checking in src/bin/ln/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/bin/ln/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+[?1049h[?1h=[1;24r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[24;1H"/tmp/cvsNj0eC7" 9L, 304C[2;1HCVS: ----------------------------------------------------------------------
+CVS: Enter Log.  Lines beginning with `CVS:' are removed automatically
+CVS:
+CVS: Committing in src/bin/ls
+CVS:
+CVS: Modified Files:
+CVS:    depend.mk
+CVS: ----------------------------------------------------------------------
+[94m~                                                                               [11;1H~                                                                               [12;1H~                                                                               [13;1H~                                                                               [14;1H~                                                                               [15;1H~                                                                               [16;1H~                                                                               [17;1H~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [1;1H[?12l[?25h
+
+[?25l[m[24;1H[K[24;1H:[?12l[?25hwq
+[?25l"/tmp/cvsNj0eC7" 9L, 304C written
+
+
+[?1l>[?12l[?25h[?1049l
+Log message unchanged or not specified
+a)bort, c)ontinue, e)dit, !)reuse this message unchanged for remaining dirs
+Action: (continue) !
+Checking in src/bin/ls/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/bin/ls/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/bin/mkdir/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/bin/mkdir/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/bin/mv/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/bin/mv/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/bin/pwd/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/bin/pwd/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/bin/rm/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/bin/rm/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/bin/rmdir/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/bin/rmdir/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/bin/sh/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/bin/sh/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/bin/sh/dependh.mk;
+/home/blakedonzac/cs161/cvsroot/src/bin/sh/dependh.mk,v  <--  dependh.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/bin/sync/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/bin/sync/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/bin/true/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/bin/true/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/kern/conf/conf.kern;
+/home/blakedonzac/cs161/cvsroot/src/kern/conf/conf.kern,v  <--  conf.kern
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/kern/include/lib.h;
+/home/blakedonzac/cs161/cvsroot/src/kern/include/lib.h,v  <--  lib.h
+new revision: 1.2; previous revision: 1.1
+done
+RCS file: /home/blakedonzac/cs161/cvsroot/src/kern/main/hello.c,v
+done
+Checking in src/kern/main/hello.c;
+/home/blakedonzac/cs161/cvsroot/src/kern/main/hello.c,v  <--  hello.c
+initial revision: 1.1
+done
+Checking in src/kern/main/main.c;
+/home/blakedonzac/cs161/cvsroot/src/kern/main/main.c,v  <--  main.c
+new revision: 1.3; previous revision: 1.2
+done
+Checking in src/lib/hostcompat/dependh.mk;
+/home/blakedonzac/cs161/cvsroot/src/lib/hostcompat/dependh.mk,v  <--  dependh.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/lib/libc/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/lib/libc/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/sbin/dumpsfs/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/sbin/dumpsfs/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/sbin/dumpsfs/dependh.mk;
+/home/blakedonzac/cs161/cvsroot/src/sbin/dumpsfs/dependh.mk,v  <--  dependh.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/sbin/halt/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/sbin/halt/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/sbin/mksfs/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/sbin/mksfs/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/sbin/mksfs/dependh.mk;
+/home/blakedonzac/cs161/cvsroot/src/sbin/mksfs/dependh.mk,v  <--  dependh.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/sbin/poweroff/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/sbin/poweroff/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/sbin/reboot/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/sbin/reboot/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/add/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/add/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/argtest/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/argtest/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/badcall/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/badcall/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/bigfile/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/bigfile/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/conman/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/conman/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/crash/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/crash/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/ctest/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/ctest/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/dirconc/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/dirconc/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/dirseek/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/dirseek/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/dirtest/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/dirtest/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/f_test/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/f_test/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/farm/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/farm/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/faulter/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/faulter/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/filetest/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/filetest/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/forkbomb/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/forkbomb/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/forktest/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/forktest/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/guzzle/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/guzzle/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/hash/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/hash/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/hash/dependh.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/hash/dependh.mk,v  <--  dependh.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/hog/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/hog/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/huge/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/huge/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/kitchen/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/kitchen/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/matmult/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/matmult/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/palin/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/palin/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/parallelvm/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/parallelvm/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/randcall/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/randcall/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/rmdirtest/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/rmdirtest/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/rmtest/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/rmtest/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/sink/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/sink/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/sort/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/sort/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/sty/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/sty/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/tail/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/tail/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/tictac/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/tictac/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/triplehuge/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/triplehuge/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/triplemat/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/triplemat/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+Checking in src/testbin/triplesort/depend.mk;
+/home/blakedonzac/cs161/cvsroot/src/testbin/triplesort/depend.mk,v  <--  depend.mk
+new revision: 1.2; previous revision: 1.1
+done
+]777;notify;Command completed;cvs commit]0;blakedonzac@localhost:~/cs161]7;file://localhost.localdomain/home/blakedonzac/cs161[blakedonzac@localhost cs161]$ cd root/
+]777;notify;Command completed;cd root/]0;blakedonzac@localhost:~/cs161/root]7;file://localhost.localdomain/home/blakedonzac/cs161/root[blakedonzac@localhost root]$ ./sys161 kernel[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kcd ..
+]777;notify;Command completed;cd ..]0;blakedonzac@localhost:~/cs161]7;file://localhost.localdomain/home/blakedonzac/cs161[blakedonzac@localhost cs161]$ cd src/
+]777;notify;Command completed;cd src/]0;blakedonzac@localhost:~/cs161/src]7;file://localhost.localdomain/home/blakedonzac/cs161/src[blakedonzac@localhost src]$ ./configure 
+Checking for ranlib... yes
+Checking for <err.h>... yes
+Generating defs.mk.
+]777;notify;Command completed;./configure ]0;blakedonzac@localhost:~/cs161/src]7;file://localhost.localdomain/home/blakedonzac/cs161/src[blakedonzac@localhost src]$ cd ~/cs161/src/kern/conf/CVS/[K[K[K[K
+]777;notify;Command completed;cd ~/cs161/src/kern/conf/]0;blakedonzac@localhost:~/cs161/src/kern/conf]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern/conf[blakedonzac@localhost conf]$ ./config ASST0
+Configuration ASST0
+Generating files... opt-*.h files.mk defs.mk Makefile autoconf.h autoconf.c
+Configuration in ../compile/ASST0 done
+Remember to make depend
+]777;notify;Command completed;./config ASST0]0;blakedonzac@localhost:~/cs161/src/kern/conf]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern/conf[blakedonzac@localhost conf]$ cd ../compile/ASST0/
+]777;notify;Command completed;cd ../compile/ASST0/]0;blakedonzac@localhost:~/cs161/src/kern/compile/ASST0]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern/compile/ASST0[blakedonzac@localhost ASST0]$ make depend
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -M ../../dev/generic/console.c ../../dev/lamebus/emu.c ../../dev/lamebus/lser.c ../../dev/lamebus/lhd.c ../../dev/generic/pseudorand.c ../../dev/generic/random.c ../../dev/lamebus/ltimer.c ../../dev/lamebus/lamebus.c ../../dev/lamebus/lrandom.c ../../dev/generic/beep.c ../../dev/lamebus/ltrace.c ../../dev/generic/rtclock.c ../../dev/lamebus/ltimer_att.c ../../dev/lamebus/con_lser.c ../../dev/lamebus/lhd_att.c ../../dev/lamebus/random_lrandom.c ../../dev/lamebus/rtclock_ltimer.c ../../dev/lamebus/ltrace_att.c ../../dev/lamebus/lser_att.c ../../dev/lamebus/lrandom_att.c ../../dev/lamebus/emu_att.c ../../dev/lamebus/beep_ltimer.c ../../dev/generic/pseudorand_att.c ../../fs/sfs/sfs_vnode.c ../../fs/sfs/sfs_fs.c ../../arch/mips/mips/dumbvm.c ../../fs/sfs/sfs_io.c ../../arch/mips/mips/cache_mips1.S ../../arch/mips/mips/exception.S ../../arch/mips/mips/lamebus_mips.c ../../arch/mips/mips/interrupt.c ../../arch/mips/mips/pcb.c ../../arch/mips/mips/ram.c ../../arch/mips/mips/spl.c ../../arch/mips/mips/start.S ../../arch/mips/mips/switch.S ../../arch/mips/mips/syscall.c ../../arch/mips/mips/threadstart.S ../../arch/mips/mips/trap.c ../../arch/mips/mips/tlb_mips1.S ../../../lib/libc/mips-setjmp.S ../../lib/copyinout.c ../../lib/array.c ../../lib/bitmap.c ../../lib/queue.c ../../lib/kheap.c ../../lib/kprintf.c ../../lib/kgets.c ../../lib/misc.c ../../lib/ntoh.c ../../../lib/libc/__printf.c ../../../lib/libc/snprintf.c ../../../lib/libc/atoi.c ../../../lib/libc/bzero.c ../../../lib/libc/memcpy.c ../../../lib/libc/memmove.c ../../../lib/libc/strcat.c ../../../lib/libc/strchr.c ../../../lib/libc/strcmp.c ../../../lib/libc/strcpy.c ../../../lib/libc/strlen.c ../../../lib/libc/strrchr.c ../../../lib/libc/strtok_r.c ../../dev/init.c ../../fs/vfs/device.c ../../fs/vfs/vfscwd.c ../../fs/vfs/vfslist.c ../../fs/vfs/vfslookup.c ../../fs/vfs/vfspath.c ../../fs/vfs/vnode.c ../../fs/vfs/devnull.c ../../thread/hardclock.c ../../thread/synch.c ../../thread/scheduler.c ../../thread/thread.c ../../main/hello.c ../../main/main.c ../../main/menu.c ../../userprog/loadelf.c ../../userprog/runprogram.c ../../userprog/uio.c ../../test/arraytest.c ../../test/bitmaptest.c ../../test/queuetest.c ../../test/threadtest.c ../../test/tt3.c ../../test/synchtest.c ../../test/malloctest.c ../../test/fstest.c ../../compile/ASST0/autoconf.c > depend.mk
+]777;notify;Command completed;make depend]0;blakedonzac@localhost:~/cs161/src/kern/compile/ASST0]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern/compile/ASST0[blakedonzac@localhost ASST0]$ make
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/generic/console.c
+In file included from ../../dev/generic/console.c:26:
+../../include/lib.h:79: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:79: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:80: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:80: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:81: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:81: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:82: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:82: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:83: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:83: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:84: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:84: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:85: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:85: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:86: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:86: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:87: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:87: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:88: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:88: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:89: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:89: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:90: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:90: error: expected ‘)’ before ‘?’ token
+make: *** [console.o] Error 1
+]777;notify;Command completed;make]0;blakedonzac@localhost:~/cs161/src/kern/compile/ASST0]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern/compile/ASST0[blakedonzac@localhost ASST0]$ rm [K[K[Kcd ..
+]777;notify;Command completed;cd ..]0;blakedonzac@localhost:~/cs161/src/kern/compile]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern/compile[blakedonzac@localhost compile]$ cd ..
+]777;notify;Command completed;cd ..]0;blakedonzac@localhost:~/cs161/src/kern]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern[blakedonzac@localhost kern]$  [Kcd main/
+]777;notify;Command completed;cd main/]0;blakedonzac@localhost:~/cs161/src/kern/main]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern/main[blakedonzac@localhost main]$ ls
+[0m[38;5;27mCVS[0m  hello.c  main.c  menu.c
+]777;notify;Command completed;ls]0;blakedonzac@localhost:~/cs161/src/kern/main]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern/main[blakedonzac@localhost main]$ rm main.c 
+]777;notify;Command completed;rm main.c ]0;blakedonzac@localhost:~/cs161/src/kern/main]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern/main[blakedonzac@localhost main]$ sv[K[Kcsv[K[Kvs update -d main.d[Kc
+cvs update: warning: main.c was lost
+U main.c
+]777;notify;Command completed;cvs update -d main.c]0;blakedonzac@localhost:~/cs161/src/kern/main]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern/main[blakedonzac@localhost main]$ cd
+]777;notify;Command completed;cd]0;blakedonzac@localhost:~]7;file://localhost.localdomain/home/blakedonzac[blakedonzac@localhost ~]$ cd ~/cs161/src/
+]777;notify;Command completed;cd ~/cs161/src/]0;blakedonzac@localhost:~/cs161/src]7;file://localhost.localdomain/home/blakedonzac/cs161/src[blakedonzac@localhost src]$ ./configure 
+Checking for ranlib... yes
+Checking for <err.h>... yes
+Generating defs.mk.
+]777;notify;Command completed;./configure ]0;blakedonzac@localhost:~/cs161/src]7;file://localhost.localdomain/home/blakedonzac/cs161/src[blakedonzac@localhost src]$ cd ~/cs`[K161/src/kern//[Kconf
+]777;notify;Command completed;cd ~/cs161/src/kern/conf]0;blakedonzac@localhost:~/cs161/src/kern/conf]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern/conf[blakedonzac@localhost conf]$ ./configt[K ASST0
+Configuration ASST0
+Generating files... opt-*.h files.mk defs.mk Makefile autoconf.h autoconf.c
+Configuration in ../compile/ASST0 done
+Remember to make depend
+]777;notify;Command completed;./config ASST0]0;blakedonzac@localhost:~/cs161/src/kern/conf]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern/conf[blakedonzac@localhost conf]$ cd ../compile/ASST0/
+]777;notify;Command completed;cd ../compile/ASST0/]0;blakedonzac@localhost:~/cs161/src/kern/compile/ASST0]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern/compile/ASST0[blakedonzac@localhost ASST0]$ make depend
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -M ../../dev/generic/console.c ../../dev/lamebus/emu.c ../../dev/lamebus/lser.c ../../dev/lamebus/lhd.c ../../dev/generic/pseudorand.c ../../dev/generic/random.c ../../dev/lamebus/ltimer.c ../../dev/lamebus/lamebus.c ../../dev/lamebus/lrandom.c ../../dev/generic/beep.c ../../dev/lamebus/ltrace.c ../../dev/generic/rtclock.c ../../dev/lamebus/ltimer_att.c ../../dev/lamebus/con_lser.c ../../dev/lamebus/lhd_att.c ../../dev/lamebus/random_lrandom.c ../../dev/lamebus/rtclock_ltimer.c ../../dev/lamebus/ltrace_att.c ../../dev/lamebus/lser_att.c ../../dev/lamebus/lrandom_att.c ../../dev/lamebus/emu_att.c ../../dev/lamebus/beep_ltimer.c ../../dev/generic/pseudorand_att.c ../../fs/sfs/sfs_vnode.c ../../fs/sfs/sfs_fs.c ../../arch/mips/mips/dumbvm.c ../../fs/sfs/sfs_io.c ../../arch/mips/mips/cache_mips1.S ../../arch/mips/mips/exception.S ../../arch/mips/mips/lamebus_mips.c ../../arch/mips/mips/interrupt.c ../../arch/mips/mips/pcb.c ../../arch/mips/mips/ram.c ../../arch/mips/mips/spl.c ../../arch/mips/mips/start.S ../../arch/m
+
+Script started on Thu 15 Feb 2018 12:13:07 PM CST
+]777;notify;Command completed;make]0;blakedonzac@localhost:~]7;file://localhost.localdomain/home/blakedonzac[?1034h[blakedonzac@localhost ~]$ cd ~/cs161/
+]777;notify;Command completed;cd ~/cs161/]0;blakedonzac@localhost:~/cs161]7;file://localhost.localdomain/home/blakedonzac/cs161[blakedonzac@localhost cs161]$ cd src/
+]777;notify;Command completed;cd src/]0;blakedonzac@localhost:~/cs161/src]7;file://localhost.localdomain/home/blakedonzac/cs161/src[blakedonzac@localhost src]$ ./configure 
+Checking for ranlib... yes
+Checking for <err.h>... yes
+Generating defs.mk.
+]777;notify;Command completed;./configure ]0;blakedonzac@localhost:~/cs161/src]7;file://localhost.localdomain/home/blakedonzac/cs161/src[blakedonzac@localhost src]$ cd ~/con[K[Ks161//[Ksrc/kern/conf/
+]777;notify;Command completed;cd ~/cs161/src/kern/conf/]0;blakedonzac@localhost:~/cs161/src/kern/conf]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern/conf[blakedonzac@localhost conf]$ ./config ASST0
+Configuration ASST0
+Generating files... opt-*.h files.mk defs.mk Makefile autoconf.h autoconf.c
+Configuration in ../compile/ASST0 done
+Remember to make depend
+]777;notify;Command completed;./config ASST0]0;blakedonzac@localhost:~/cs161/src/kern/conf]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern/conf[blakedonzac@localhost conf]$ make depend
+make: *** No rule to make target `depend'.  Stop.
+]777;notify;Command completed;make depend]0;blakedonzac@localhost:~/cs161/src/kern/conf]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern/conf[blakedonzac@localhost conf]$ l[Kcd
+]777;notify;Command completed;cd]0;blakedonzac@localhost:~]7;file://localhost.localdomain/home/blakedonzac[blakedonzac@localhost ~]$ cd ~/cs161/src/
+]777;notify;Command completed;cd ~/cs161/src/]0;blakedonzac@localhost:~/cs161/src]7;file://localhost.localdomain/home/blakedonzac/cs161/src[blakedonzac@localhost src]$ ./.c[K[Kconfigure 
+Checking for ranlib... yes
+Checking for <err.h>... yes
+Generating defs.mk.
+]777;notify;Command completed;./configure ]0;blakedonzac@localhost:~/cs161/src]7;file://localhost.localdomain/home/blakedonzac/cs161/src[blakedonzac@localhost src]$ cd ~/cs161/src/kern/conf
+]777;notify;Command completed;cd ~/cs161/src/kern/conf]0;blakedonzac@localhost:~/cs161/src/kern/conf]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern/conf[blakedonzac@localhost conf]$ ./config ASST0
+Configuration ASST0
+Generating files... opt-*.h files.mk defs.mk Makefile autoconf.h autoconf.c
+Configuration in ../compile/ASST0 done
+Remember to make depend
+]777;notify;Command completed;./config ASST0]0;blakedonzac@localhost:~/cs161/src/kern/conf]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern/conf[blakedonzac@localhost conf]$ cd ../compile/ASST0/
+]777;notify;Command completed;cd ../compile/ASST0/]0;blakedonzac@localhost:~/cs161/src/kern/compile/ASST0]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern/compile/ASST0[blakedonzac@localhost ASST0]$ make depend
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -M ../../dev/generic/console.c ../../dev/lamebus/emu.c ../../dev/lamebus/lser.c ../../dev/lamebus/lhd.c ../../dev/generic/pseudorand.c ../../dev/generic/random.c ../../dev/lamebus/ltimer.c ../../dev/lamebus/lamebus.c ../../dev/lamebus/lrandom.c ../../dev/generic/beep.c ../../dev/lamebus/ltrace.c ../../dev/generic/rtclock.c ../../dev/lamebus/ltimer_att.c ../../dev/lamebus/con_lser.c ../../dev/lamebus/lhd_att.c ../../dev/lamebus/random_lrandom.c ../../dev/lamebus/rtclock_ltimer.c ../../dev/lamebus/ltrace_att.c ../../dev/lamebus/lser_att.c ../../dev/lamebus/lrandom_att.c ../../dev/lamebus/emu_att.c ../../dev/lamebus/beep_ltimer.c ../../dev/generic/pseudorand_att.c ../../fs/sfs/sfs_vnode.c ../../fs/sfs/sfs_fs.c ../../arch/mips/mips/dumbvm.c ../../fs/sfs/sfs_io.c ../../arch/mips/mips/cache_mips1.S ../../arch/mips/mips/exception.S ../../arch/mips/mips/lamebus_mips.c ../../arch/mips/mips/interrupt.c ../../arch/mips/mips/pcb.c ../../arch/mips/mips/ram.c ../../arch/mips/mips/spl.c ../../arch/mips/mips/start.S ../../arch/mips/mips/switch.S ../../arch/mips/mips/syscall.c ../../arch/mips/mips/threadstart.S ../../arch/mips/mips/trap.c ../../arch/mips/mips/tlb_mips1.S ../../../lib/libc/mips-setjmp.S ../../lib/copyinout.c ../../lib/array.c ../../lib/bitmap.c ../../lib/queue.c ../../lib/kheap.c ../../lib/kprintf.c ../../lib/kgets.c ../../lib/misc.c ../../lib/ntoh.c ../../../lib/libc/__printf.c ../../../lib/libc/snprintf.c ../../../lib/libc/atoi.c ../../../lib/libc/bzero.c ../../../lib/libc/memcpy.c ../../../lib/libc/memmove.c ../../../lib/libc/strcat.c ../../../lib/libc/strchr.c ../../../lib/libc/strcmp.c ../../../lib/libc/strcpy.c ../../../lib/libc/strlen.c ../../../lib/libc/strrchr.c ../../../lib/libc/strtok_r.c ../../dev/init.c ../../fs/vfs/device.c ../../fs/vfs/vfscwd.c ../../fs/vfs/vfslist.c ../../fs/vfs/vfslookup.c ../../fs/vfs/vfspath.c ../../fs/vfs/vnode.c ../../fs/vfs/devnull.c ../../thread/hardclock.c ../../thread/synch.c ../../thread/scheduler.c ../../thread/thread.c ../../main/hello.c ../../main/main.c ../../main/menu.c ../../userprog/loadelf.c ../../userprog/runprogram.c ../../userprog/uio.c ../../test/arraytest.c ../../test/bitmaptest.c ../../test/queuetest.c ../../test/threadtest.c ../../test/tt3.c ../../test/synchtest.c ../../test/malloctest.c ../../test/fstest.c ../../compile/ASST0/autoconf.c > depend.mk
+]777;notify;Command completed;make depend]0;blakedonzac@localhost:~/cs161/src/kern/compile/ASST0]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern/compile/ASST0[blakedonzac@localhost ASST0]$ make
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/generic/console.c
+In file included from ../../dev/generic/console.c:26:
+../../include/lib.h:79: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:79: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:80: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:80: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:81: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:81: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:82: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:82: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:83: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:83: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:84: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:84: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:85: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:85: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:86: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:86: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:87: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:87: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:88: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:88: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:89: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:89: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:90: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:90: error: expected ‘)’ before ‘?’ token
+make: *** [console.o] Error 1
+]777;notify;Command completed;make]0;blakedonzac@localhost:~/cs161/src/kern/compile/ASST0]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern/compile/ASST0[blakedonzac@localhost ASST0]$ make depend[K depend
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -M ../../dev/generic/console.c ../../dev/lamebus/emu.c ../../dev/lamebus/lser.c ../../dev/lamebus/lhd.c ../../dev/generic/pseudorand.c ../../dev/generic/random.c ../../dev/lamebus/ltimer.c ../../dev/lamebus/lamebus.c ../../dev/lamebus/lrandom.c ../../dev/generic/beep.c ../../dev/lamebus/ltrace.c ../../dev/generic/rtclock.c ../../dev/lamebus/ltimer_att.c ../../dev/lamebus/con_lser.c ../../dev/lamebus/lhd_att.c ../../dev/lamebus/random_lrandom.c ../../dev/lamebus/rtclock_ltimer.c ../../dev/lamebus/ltrace_att.c ../../dev/lamebus/lser_att.c ../../dev/lamebus/lrandom_att.c ../../dev/lamebus/emu_att.c ../../dev/lamebus/beep_ltimer.c ../../dev/generic/pseudorand_att.c ../../fs/sfs/sfs_vnode.c ../../fs/sfs/sfs_fs.c ../../arch/mips/mips/dumbvm.c ../../fs/sfs/sfs_io.c ../../arch/mips/mips/cache_mips1.S ../../arch/mips/mips/exception.S ../../arch/mips/mips/lamebus_mips.c ../../arch/mips/mips/interrupt.c ../../arch/mips/mips/pcb.c ../../arch/mips/mips/ram.c ../../arch/mips/mips/spl.c ../../arch/mips/mips/start.S ../../arch/mips/mips/switch.S ../../arch/mips/mips/syscall.c ../../arch/mips/mips/threadstart.S ../../arch/mips/mips/trap.c ../../arch/mips/mips/tlb_mips1.S ../../../lib/libc/mips-setjmp.S ../../lib/copyinout.c ../../lib/array.c ../../lib/bitmap.c ../../lib/queue.c ../../lib/kheap.c ../../lib/kprintf.c ../../lib/kgets.c ../../lib/misc.c ../../lib/ntoh.c ../../../lib/libc/__printf.c ../../../lib/libc/snprintf.c ../../../lib/libc/atoi.c ../../../lib/libc/bzero.c ../../../lib/libc/memcpy.c ../../../lib/libc/memmove.c ../../../lib/libc/strcat.c ../../../lib/libc/strchr.c ../../../lib/libc/strcmp.c ../../../lib/libc/strcpy.c ../../../lib/libc/strlen.c ../../../lib/libc/strrchr.c ../../../lib/libc/strtok_r.c ../../dev/init.c ../../fs/vfs/device.c ../../fs/vfs/vfscwd.c ../../fs/vfs/vfslist.c ../../fs/vfs/vfslookup.c ../../fs/vfs/vfspath.c ../../fs/vfs/vnode.c ../../fs/vfs/devnull.c ../../thread/hardclock.c ../../thread/synch.c ../../thread/scheduler.c ../../thread/thread.c ../../main/hello.c ../../main/main.c ../../main/menu.c ../../userprog/loadelf.c ../../userprog/runprogram.c ../../userprog/uio.c ../../test/arraytest.c ../../test/bitmaptest.c ../../test/queuetest.c ../../test/threadtest.c ../../test/tt3.c ../../test/synchtest.c ../../test/malloctest.c ../../test/fstest.c ../../compile/ASST0/autoconf.c > depend.mk
+]777;notify;Command completed;make depend]0;blakedonzac@localhost:~/cs161/src/kern/compile/ASST0]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern/compile/ASST0[blakedonzac@localhost ASST0]$ make depend[K
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/generic/console.c
+In file included from ../../dev/generic/console.c:26:
+../../include/lib.h:79: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:79: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:80: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:80: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:81: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:81: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:82: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:82: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:83: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:83: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:84: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:84: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:85: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:85: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:86: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:86: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:87: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:87: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:88: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:88: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:89: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:89: error: expected ‘)’ before ‘?’ token
+../../include/lib.h:90: error: expected ‘)’ before ‘&’ token
+../../include/lib.h:90: error: expected ‘)’ before ‘?’ token
+make: *** [console.o] Error 1
+]777;notify;Command completed;make]0;blakedonzac@localhost:~/cs161/src/kern/compile/ASST0]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern/compile/ASST0[blakedonzac@localhost ASST0]$ make depend
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -M ../../dev/generic/console.c ../../dev/lamebus/emu.c ../../dev/lamebus/lser.c ../../dev/lamebus/lhd.c ../../dev/generic/pseudorand.c ../../dev/generic/random.c ../../dev/lamebus/ltimer.c ../../dev/lamebus/lamebus.c ../../dev/lamebus/lrandom.c ../../dev/generic/beep.c ../../dev/lamebus/ltrace.c ../../dev/generic/rtclock.c ../../dev/lamebus/ltimer_att.c ../../dev/lamebus/con_lser.c ../../dev/lamebus/lhd_att.c ../../dev/lamebus/random_lrandom.c ../../dev/lamebus/rtclock_ltimer.c ../../dev/lamebus/ltrace_att.c ../../dev/lamebus/lser_att.c ../../dev/lamebus/lrandom_att.c ../../dev/lamebus/emu_att.c ../../dev/lamebus/beep_ltimer.c ../../dev/generic/pseudorand_att.c ../../fs/sfs/sfs_vnode.c ../../fs/sfs/sfs_fs.c ../../arch/mips/mips/dumbvm.c ../../fs/sfs/sfs_io.c ../../arch/mips/mips/cache_mips1.S ../../arch/mips/mips/exception.S ../../arch/mips/mips/lamebus_mips.c ../../arch/mips/mips/interrupt.c ../../arch/mips/mips/pcb.c ../../arch/mips/mips/ram.c ../../arch/mips/mips/spl.c ../../arch/mips/mips/start.S ../../arch/mips/mips/switch.S ../../arch/mips/mips/syscall.c ../../arch/mips/mips/threadstart.S ../../arch/mips/mips/trap.c ../../arch/mips/mips/tlb_mips1.S ../../../lib/libc/mips-setjmp.S ../../lib/copyinout.c ../../lib/array.c ../../lib/bitmap.c ../../lib/queue.c ../../lib/kheap.c ../../lib/kprintf.c ../../lib/kgets.c ../../lib/misc.c ../../lib/ntoh.c ../../../lib/libc/__printf.c ../../../lib/libc/snprintf.c ../../../lib/libc/atoi.c ../../../lib/libc/bzero.c ../../../lib/libc/memcpy.c ../../../lib/libc/memmove.c ../../../lib/libc/strcat.c ../../../lib/libc/strchr.c ../../../lib/libc/strcmp.c ../../../lib/libc/strcpy.c ../../../lib/libc/strlen.c ../../../lib/libc/strrchr.c ../../../lib/libc/strtok_r.c ../../dev/init.c ../../fs/vfs/device.c ../../fs/vfs/vfscwd.c ../../fs/vfs/vfslist.c ../../fs/vfs/vfslookup.c ../../fs/vfs/vfspath.c ../../fs/vfs/vnode.c ../../fs/vfs/devnull.c ../../thread/hardclock.c ../../thread/synch.c ../../thread/scheduler.c ../../thread/thread.c ../../main/hello.c ../../main/main.c ../../main/menu.c ../../userprog/loadelf.c ../../userprog/runprogram.c ../../userprog/uio.c ../../test/arraytest.c ../../test/bitmaptest.c ../../test/queuetest.c ../../test/threadtest.c ../../test/tt3.c ../../test/synchtest.c ../../test/malloctest.c ../../test/fstest.c ../../compile/ASST0/autoconf.c > depend.mk
+]777;notify;Command completed;make depend]0;blakedonzac@localhost:~/cs161/src/kern/compile/ASST0]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern/compile/ASST0[blakedonzac@localhost ASST0]$ make depend[K
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/generic/console.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/lamebus/emu.c
+../../dev/lamebus/emu.c: In function ‘emufs_stat’:
+../../dev/lamebus/emu.c:607: warning: pointer targets in passing argument 2 of ‘(vnode_check(v, "gettype"), v->vn_ops->vop_gettype)’ differ in signedness
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/lamebus/lser.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/lamebus/lhd.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/generic/pseudorand.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/generic/random.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/lamebus/ltimer.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/lamebus/lamebus.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/lamebus/lrandom.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/generic/beep.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/lamebus/ltrace.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/generic/rtclock.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/lamebus/ltimer_att.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/lamebus/con_lser.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/lamebus/lhd_att.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/lamebus/random_lrandom.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/lamebus/rtclock_ltimer.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/lamebus/ltrace_att.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/lamebus/lser_att.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/lamebus/lrandom_att.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/lamebus/emu_att.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/lamebus/beep_ltimer.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/generic/pseudorand_att.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../fs/sfs/sfs_vnode.c
+../../fs/sfs/sfs_vnode.c: In function ‘sfs_stat’:
+../../fs/sfs/sfs_vnode.c:981: warning: pointer targets in passing argument 2 of ‘(vnode_check(v, "gettype"), v->vn_ops->vop_gettype)’ differ in signedness
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../fs/sfs/sfs_fs.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../arch/mips/mips/dumbvm.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../fs/sfs/sfs_io.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../arch/mips/mips/lamebus_mips.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../arch/mips/mips/interrupt.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../arch/mips/mips/pcb.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../arch/mips/mips/ram.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../arch/mips/mips/spl.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../arch/mips/mips/syscall.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../arch/mips/mips/trap.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../lib/copyinout.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../lib/array.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../lib/bitmap.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../lib/queue.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../lib/kheap.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../lib/kprintf.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../lib/kgets.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../lib/misc.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../lib/ntoh.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../../lib/libc/__printf.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../../lib/libc/snprintf.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../../lib/libc/atoi.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../../lib/libc/bzero.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../../lib/libc/memcpy.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../../lib/libc/memmove.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../../lib/libc/strcat.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../../lib/libc/strchr.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../../lib/libc/strcmp.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../../lib/libc/strcpy.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../../lib/libc/strlen.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../../lib/libc/strrchr.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../../lib/libc/strtok_r.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../dev/init.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../fs/vfs/device.c
+../../fs/vfs/device.c: In function ‘dev_stat’:
+../../fs/vfs/device.c:122: warning: pointer targets in passing argument 2 of ‘(vnode_check(v, "gettype"), v->vn_ops->vop_gettype)’ differ in signedness
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../fs/vfs/vfscwd.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../fs/vfs/vfslist.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../fs/vfs/vfslookup.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../fs/vfs/vfspath.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../fs/vfs/vnode.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../fs/vfs/devnull.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../thread/hardclock.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../thread/synch.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../thread/scheduler.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../thread/thread.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../main/main.c
+../../main/main.c: In function ‘boot’:
+../../main/main.c:77: warning: implicit declaration of function ‘hello’
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../main/menu.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../userprog/loadelf.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../userprog/runprogram.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../userprog/uio.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../test/arraytest.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../test/bitmaptest.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../test/queuetest.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../test/threadtest.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../test/tt3.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../test/synchtest.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../test/malloctest.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../test/fstest.c
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c ../../compile/ASST0/autoconf.c
+../../conf/newvers.sh ASST0
+*** This is ASST0 build #4 ***
+cs161-gcc   -mno-abicalls -fno-pic -Wall -W -Wwrite-strings -g -nostdinc -I../../include -I../../dev -I.  -ffreestanding -D_KERNEL -G 0 -c vers.c
+cs161-ld   -nostdlib -Ttext 0x80001000 -T ../../arch/mips/conf/ldscript -G 0 console.o emu.o lser.o lhd.o pseudorand.o random.o ltimer.o lamebus.o lrandom.o beep.o ltrace.o rtclock.o ltimer_att.o con_lser.o lhd_att.o random_lrandom.o rtclock_ltimer.o ltrace_att.o lser_att.o lrandom_att.o emu_att.o beep_ltimer.o pseudorand_att.o sfs_vnode.o sfs_fs.o dumbvm.o sfs_io.o cache_mips1.o exception.o lamebus_mips.o interrupt.o pcb.o ram.o spl.o start.o switch.o syscall.o threadstart.o trap.o tlb_mips1.o mips-setjmp.o copyinout.o array.o bitmap.o queue.o kheap.o kprintf.o kgets.o misc.o ntoh.o __printf.o snprintf.o atoi.o bzero.o memcpy.o memmove.o strcat.o strchr.o strcmp.o strcpy.o strlen.o strrchr.o strtok_r.o init.o device.o vfscwd.o vfslist.o vfslookup.o vfspath.o vnode.o devnull.o hardclock.o synch.o scheduler.o thread.o hello.o main.o menu.o loadelf.o runprogram.o uio.o arraytest.o bitmaptest.o queuetest.o threadtest.o tt3.o synchtest.o malloctest.o fstest.o autoconf.o vers.o -o kernel
+cs161-size kernel
+   text	   data	    bss	    dec	    hex	filename
+ 160648	    448	   7668	 168764	  2933c	kernel
+]777;notify;Command completed;make]0;blakedonzac@localhost:~/cs161/src/kern/compile/ASST0]7;file://localhost.localdomain/home/blakedonzac/cs161/src/kern/compile/ASST0[blakedonzac@localhost ASST0]$ cd ~/cs161/src
+]777;notify;Command completed;cd ~/cs161/src]0;blakedonzac@localhost:~/cs161/src]7;file://localhost.localdomain/home/blakedonzac/cs161/src[blakedonzac@localhost src]$ sv[K[Kcs[Kvs diff -c
+cvs diff: Diffing .
+cvs diff: Diffing bin
+cvs diff: Diffing bin/cat
+cvs diff: Diffing bin/cp
+cvs diff: Diffing bin/false
+cvs diff: Diffing bin/ln
+cvs diff: Diffing bin/ls
+cvs diff: Diffing bin/mkdir
+cvs diff: Diffing bin/mv
+cvs diff: Diffing bin/pwd
+cvs diff: Diffing bin/rm
+cvs diff: Diffing bin/rmdir
+cvs diff: Diffing bin/sh
+cvs diff: Diffing bin/sync
+cvs diff: Diffing bin/true
+cvs diff: Diffing include
+cvs diff: Diffing include/sys
+cvs diff: Diffing kern
+cvs diff: Diffing kern/arch
+cvs diff: Diffing kern/arch/mips
+cvs diff: Diffing kern/arch/mips/conf
+cvs diff: Diffing kern/arch/mips/include
+cvs diff: Diffing kern/arch/mips/mips
+cvs diff: Diffing kern/asst1
+cvs diff: Diffing kern/compile
+cvs diff: Diffing kern/conf
+cvs diff: Diffing kern/dev
+cvs diff: Diffing kern/dev/generic
+cvs diff: Diffing kern/dev/lamebus
+cvs diff: Diffing kern/fs
+cvs diff: Diffing kern/fs/sfs
+cvs diff: Diffing kern/fs/vfs
+cvs diff: Diffing kern/include
+Index: kern/include/lib.h
+===================================================================
+RCS file: /home/blakedonzac/cs161/cvsroot/src/kern/include/lib.h,v
+retrieving revision 1.2
+diff -c -r1.2 lib.h
+*** kern/include/lib.h	15 Feb 2018 18:05:03 -0000	1.2
+--- kern/include/lib.h	15 Feb 2018 18:27:09 -0000
+***************
+*** 76,93 ****
+  #define DEBUG(d, fmt, args...) ((dbflags & (d)) ? kprintf(fmt, ##args) : 0)
+  #endif
+  
+  DEBUG(DB_VM, "VM free pages: %u\n", free_pages);
+! DEBUG(DB_LOCORE, "VM free pages: %u\n", free_pages);
+! DEBUG(DB_SYSCALL, "VM free pages: %u\n", free_pages);
+! DEBUG(DB_INTERRUPT, "VM free pages: %u\n", free_pages);
+! DEBUG(DB_DEVICE, "VM free pages: %u\n", free_pages);
+! DEBUG(DB_THREADS, "VM free pages: %u\n", free_pages);
+! DEBUG(DB_EXEC, "VM free pages: %u\n", free_pages);
+! DEBUG(DB_VFS, "VM free pages: %u\n", free_pages);
+! DEBUG(DB_SFS, "VM free pages: %u\n", free_pages);
+! DEBUG(DB_NET, "VM free pages: %u\n", free_pages);
+! DEBUG(DB_NETFS, "VM free pages: %u\n", free_pages);
+! DEBUG(DB_KMALLOC, "VM free pages: %u\n", free_pages);
+  
+  
+  
+--- 76,94 ----
+  #define DEBUG(d, fmt, args...) ((dbflags & (d)) ? kprintf(fmt, ##args) : 0)
+  #endif
+  
++ 
+  DEBUG(DB_VM, "VM free pages: %u\n", free_pages);
+! DEBUG(DB_LOCORE, "locore: %u\n", free_pages);
+! DEBUG(DB_SYSCALL, "syscall: %u\n", free_pages);
+! DEBUG(DB_INTERRUPT, "interrupt: %u\n", free_pages);
+! DEBUG(DB_DEVICE, "device: %u\n", free_pages);
+! DEBUG(DB_THREADS, "threads: %u\n", free_pages);
+! DEBUG(DB_EXEC, "exec: %u\n", free_pages);
+! DEBUG(DB_VFS, "vfs: %u\n", free_pages);
+! DEBUG(DB_SFS, "sfs: %u\n", free_pages);
+! DEBUG(DB_NET, "net: %u\n", free_pages);
+! DEBUG(DB_NETFS, "netfs: %u\n", free_pages);
+! DEBUG(DB_KMALLOC, "kmalloc: %u\n", free_pages);
+  
+  
+  
+cvs diff: Diffing kern/include/kern
+cvs diff: Diffing kern/lib
+cvs diff: Diffing kern/main
+cvs diff: Diffing kern/test
+cvs diff: Diffing kern/thread
+cvs diff: Diffing kern/userprog
+cvs diff: Diffing kern/vm
+cvs diff: Diffing lib
+cvs diff: Diffing lib/crt0
+cvs diff: Diffing lib/hostcompat
+cvs diff: Diffing lib/libc
+cvs diff: Diffing man
+cvs diff: Diffing man/bin
+cvs diff: Diffing man/dev
+cvs diff: Diffing man/libc
+cvs diff: Diffing man/misc
+cvs diff: Diffing man/sbin
+cvs diff: Diffing man/syscall
+cvs diff: Diffing man/testbin
+cvs diff: Diffing man/toplevel
+cvs diff: Diffing mk
+cvs diff: Diffing sbin
+cvs diff: Diffing sbin/dumpsfs
+cvs diff: Diffing sbin/halt
+cvs diff: Diffing sbin/mksfs
+cvs diff: Diffing sbin/poweroff
+cvs diff: Diffing sbin/reboot
+cvs diff: Diffing testbin
+cvs diff: Diffing testbin/add
+cvs diff: Diffing testbin/argtest
+cvs diff: Diffing testbin/badcall
+cvs diff: Diffing testbin/bigfile
+cvs diff: Diffing testbin/conman
+cvs diff: Diffing testbin/crash
+cvs diff: Diffing testbin/ctest
+cvs diff: Diffing testbin/dirconc
+cvs diff: Diffing testbin/dirseek
+cvs diff: Diffing testbin/dirtest
+cvs diff: Diffing testbin/f_test
+cvs diff: Diffing testbin/farm
+cvs diff: Diffing testbin/faulter
+cvs diff: Diffing testbin/filetest
+cvs diff: Diffing testbin/forkbomb
+cvs diff: Diffing testbin/forktest
+cvs diff: Diffing testbin/guzzle
+cvs diff: Diffing testbin/hash
+cvs diff: Diffing testbin/hog
+cvs diff: Diffing testbin/huge
+cvs diff: Diffing testbin/kitchen
+cvs diff: Diffing testbin/malloctest
+cvs diff: Diffing testbin/matmult
+cvs diff: Diffing testbin/palin
+cvs diff: Diffing testbin/parallelvm
+cvs diff: Diffing testbin/randcall
+cvs diff: Diffing testbin/rmdirtest
+cvs diff: Diffing testbin/rmtest
+cvs diff: Diffing testbin/sink
+cvs diff: Diffing testbin/sort
+cvs diff: Diffing testbin/sty
+cvs diff: Diffing testbin/tail
+cvs diff: Diffing testbin/tictac
+cvs diff: Diffing testbin/triplehuge
+cvs diff: Diffing testbin/triplemat
+cvs diff: Diffing testbin/triplesort
+cvs diff: Diffing testbin/userthreads
+]777;notify;Command completed;cvs diff -c]0;blakedonzac@localhost:~/cs161/src]7;file://localhost.localdomain/home/blakedonzac/cs161/src[blakedonzac@localhost src]$ exit
+exit
+
+Script done on Thu 15 Feb 2018 12:28:07 PM CST

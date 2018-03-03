@@ -1,0 +1,38 @@
+Script started on Thu 08 Feb 2018 12:18:30 PM CST
+]777;notify;Command completed;exit]0;blakedonzac@localhost:~/cs161]7;file://localhost.localdomain/home/blakedonzac/cs161[?1034h[blakedonzac@localhost cs161]$ cd root/
+]777;notify;Command completed;cd root/]0;blakedonzac@localhost:~/cs161/root]7;file://localhost.localdomain/home/blakedonzac/cs161/root[blakedonzac@localhost root]$ cs161-geb[K[Kdb kere[Knel
+[?1034hGNU gdb 6.6
+Copyright (C) 2006 Free Software Foundation, Inc.
+GDB is free software, covered by the GNU General Public License, and you are
+welcome to change it and/or distribute copies of it under certain conditions.
+Type "show copying" to see the conditions.
+There is absolutely no warranty for GDB.  Type "show warranty" for details.
+This GDB was configured as "--host=x86_64-unknown-linux-gnu --target=mips-elf"...
+(gdb) targe[K[K[K[K[Ktarget remote unix:.sockets/gdb
+Remote debugging using unix:.sockets/gdb
+__start () at ../../arch/mips/mips/start.S:24
+24	../../arch/mips/mips/start.S: No such file or directory.
+	in ../../arch/mips/mips/start.S
+Current language:  auto; currently asm
+(gdb) break menu
+Breakpoint 1 at 0x8001baac: file ../../main/menu.c, line 647.
+(gdb) c
+Continuing.
+
+Breakpoint 1, menu (args=0x8002a344 "") at ../../main/menu.c:647
+647		menu_execute(args, 1);
+Current language:  auto; currently c
+(gdb) where
+#0  menu (args=0x8002a344 "") at ../../main/menu.c:647
+#1  0xffffffff8001a9dc in kmain (arguments=0x8002a344 "")
+    at ../../main/main.c:167
+#2  0xffffffff8000d278 in __start () at ../../arch/mips/mips/start.S:163
+(gdb) detach
+Ending remote debugging.
+(gdb) quit
+]777;notify;Command completed;cs161-gdb kernel]0;blakedonzac@localhost:~/cs161/root]7;file://localhost.localdomain/home/blakedonzac/cs161/root[blakedonzac@localhost root]$ cd ..
+]777;notify;Command completed;cd ..]0;blakedonzac@localhost:~/cs161]7;file://localhost.localdomain/home/blakedonzac/cs161[blakedonzac@localhost cs161]$ mv typescript ~/cs161/asst0/gdb.script
+]777;notify;Command completed;mv typescript ~/cs161/asst0/gdb.script]0;blakedonzac@localhost:~/cs161]7;file://localhost.localdomain/home/blakedonzac/cs161[blakedonzac@localhost cs161]$ exit
+exit
+
+Script done on Thu 08 Feb 2018 12:20:07 PM CST
