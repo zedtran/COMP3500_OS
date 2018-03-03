@@ -7,4 +7,3 @@ halt.o: \
  $(OSTREE)/include/kern/types.h \
  $(OSTREE)/include/kern/unistd.h \
  $(OSTREE)/include/kern/ioctl.h
-

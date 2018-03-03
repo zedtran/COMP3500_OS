@@ -370,9 +370,6 @@ file      thread/thread.c
 # Main/toplevel stuff
 #
 
-#ADDED THIS MANUALLY
-file      main/hello.c 
-
 file      main/main.c
 file      main/menu.c
 

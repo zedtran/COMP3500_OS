@@ -2,7 +2,7 @@ head	1.1;
 branch	1.1.1;
 access;
 symbols
-	asst0-end:1.1.1.1
+	asst1-start:1.1.1.1
 	os161-1_10:1.1.1.1
 	os161:1.1.1;
 locks; strict;
@@ -10,13 +10,13 @@ comment	@# @;
 
 
 1.1
-date	2018.02.04.22.23.30;	author blakedonzac;	state Exp;
+date	2018.03.03.17.21.36;	author blakedonzac;	state Exp;
 branches
 	1.1.1.1;
 next	;
 
 1.1.1.1
-date	2018.02.04.22.23.30;	author blakedonzac;	state Exp;
+date	2018.03.03.17.21.36;	author blakedonzac;	state Exp;
 branches;
 next	;
 
@@ -66,7 +66,7 @@ issues. It serves mostly as an attachment point for other drivers.
 
 1.1.1.1
 log
-@Import of os161
+@Initial import
 @
 text
 @@

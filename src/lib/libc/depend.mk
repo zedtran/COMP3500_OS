@@ -244,4 +244,3 @@ syscalls.o: \
  syscalls.S \
  $(OSTREE)/include/kern/callno.h \
  $(OSTREE)/include/machine/asmdefs.h
-

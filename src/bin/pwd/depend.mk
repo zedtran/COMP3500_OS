@@ -13,4 +13,3 @@ pwd.o: \
  $(OSTREE)/include/err.h \
  $(OSTREE)/include/limits.h \
  $(OSTREE)/include/kern/limits.h
-

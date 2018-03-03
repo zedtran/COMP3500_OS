@@ -17,9 +17,6 @@
 #include <syscall.h>
 #include <version.h>
 
-/* ASST0 Comment: Don Tran, Blake Mathews, Zac Parker  */
-/* ASST0 Comment #2: Don Tran, Blake Mathews, Zac Parker */
-
 /*
  * These two pieces of data are maintained by the makefiles and build system.
  * buildconfig is the name of the config file the kernel was configured with.
@@ -72,9 +69,6 @@ boot(void)
 	kprintf("Put-your-group-name-here's system version %s (%s #%d)\n", 
 		GROUP_VERSION, buildconfig, buildversion);
 	kprintf("\n");
-	
-	/////////////////////
-	hello();	
 
 	ram_bootstrap();
 	scheduler_bootstrap();

@@ -10,4 +10,3 @@ tail.o: \
  $(OSTREE)/include/stdlib.h \
  $(OSTREE)/include/err.h \
  $(OSTREE)/include/stdarg.h
-

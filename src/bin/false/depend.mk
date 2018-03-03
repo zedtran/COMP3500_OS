@@ -8,4 +8,3 @@ false.o: \
  $(OSTREE)/include/kern/unistd.h \
  $(OSTREE)/include/kern/ioctl.h \
  $(OSTREE)/include/stdlib.h
-

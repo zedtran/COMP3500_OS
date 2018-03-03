@@ -18,4 +18,3 @@ rmdirtest.o: \
  $(OSTREE)/include/limits.h \
  $(OSTREE)/include/kern/limits.h \
  $(OSTREE)/include/err.h
-

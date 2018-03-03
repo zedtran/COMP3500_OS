@@ -9,4 +9,3 @@ tictac.o: \
  $(OSTREE)/include/unistd.h \
  $(OSTREE)/include/kern/unistd.h \
  $(OSTREE)/include/kern/ioctl.h
-

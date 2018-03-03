@@ -7,4 +7,3 @@ ctest.o: \
  $(OSTREE)/include/kern/types.h \
  $(OSTREE)/include/stdarg.h \
  $(OSTREE)/include/stdlib.h
-

@@ -9,4 +9,3 @@ matmult.o: \
  $(OSTREE)/include/kern/ioctl.h \
  $(OSTREE)/include/stdio.h \
  $(OSTREE)/include/stdarg.h
-

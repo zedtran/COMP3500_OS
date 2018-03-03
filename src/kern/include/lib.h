@@ -76,24 +76,6 @@ extern u_int32_t dbflags;
 #define DEBUG(d, fmt, args...) ((dbflags & (d)) ? kprintf(fmt, ##args) : 0)
 #endif
 
-
-DEBUG(DB_VM, "VM free pages: %u\n", free_pages);
-DEBUG(DB_LOCORE, "locore: %u\n", free_pages);
-DEBUG(DB_SYSCALL, "syscall: %u\n", free_pages);
-DEBUG(DB_INTERRUPT, "interrupt: %u\n", free_pages);
-DEBUG(DB_DEVICE, "device: %u\n", free_pages);
-DEBUG(DB_THREADS, "threads: %u\n", free_pages);
-DEBUG(DB_EXEC, "exec: %u\n", free_pages);
-DEBUG(DB_VFS, "vfs: %u\n", free_pages);
-DEBUG(DB_SFS, "sfs: %u\n", free_pages);
-DEBUG(DB_NET, "net: %u\n", free_pages);
-DEBUG(DB_NETFS, "netfs: %u\n", free_pages);
-DEBUG(DB_KMALLOC, "kmalloc: %u\n", free_pages);
-
-
-
-
-
 /*
  * Random number generator, using the random device.
  */

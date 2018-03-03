@@ -12,4 +12,3 @@ forktest.o: \
  $(OSTREE)/include/stdio.h \
  $(OSTREE)/include/stdarg.h \
  $(OSTREE)/include/err.h
-

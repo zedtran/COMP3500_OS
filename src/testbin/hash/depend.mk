@@ -11,4 +11,3 @@ hash.o: \
  $(OSTREE)/include/kern/ioctl.h \
  $(OSTREE)/include/fcntl.h \
  $(OSTREE)/include/err.h
-

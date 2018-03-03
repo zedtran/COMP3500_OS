@@ -11,4 +11,3 @@ disk.ho: \
  disk.h
 support.ho: \
  support.c
-

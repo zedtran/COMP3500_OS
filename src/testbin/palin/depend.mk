@@ -7,4 +7,3 @@ palin.o: \
  $(OSTREE)/include/kern/types.h \
  $(OSTREE)/include/stdarg.h \
  $(OSTREE)/include/string.h
-

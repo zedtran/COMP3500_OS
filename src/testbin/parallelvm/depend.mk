@@ -13,4 +13,3 @@ parallelvm.o: \
  $(OSTREE)/include/string.h \
  $(OSTREE)/include/stdlib.h \
  $(OSTREE)/include/err.h
-
