@@ -1,57 +1,54 @@
 #Thread Questions:
 1. What happens to a thread when it exits (i.e., calls thread_exit() )? What about when it sleeps?
-    - thread_exit() causes the current thread to exit and cleans up the parts of the thread structure we don't actually need to run right away.
-    - thread_exit() checks the "magic number" on the bottom end of the stack in thread_fork
-    
+    - thread_exit() causes the current thread to exit and cleans up the parts of the thread structure that don't need to run immediately.
+    - thread_exit() checks the "magic number" on the bottom end of the stack in thread_fork.
     - thread_sleep yields the CPU to another process, and goes to sleep on "sleep address" ADDR.
-    - thread_sleep makes sure interrupts are off, then moves "curthread" to the "sleep address"
+    - thread_sleep makes sure interrupts are off, then moves "curthread" to the "sleep address."
     
 2. What function(s) handle(s) a context switch?
     - mi_switch(threadstate_t nextstate) - this is high level, machine-independent context switch code
-    - md_switch is the machine-dependent code that actually does the context switch. This is called within the mi_switch function
+    - md_switch is the machine-dependent code that actually does the context switch. This is called within the mi_switch function.
     
 3. How many thread states are there? What are they?
-    - there are 4 states:
-        S_RUN - thread is running
-        S_READY - thread is ready - runnable but not currently running
-        S_SLEEP - thread is sleeping
-        S_ZOMB - thread is a zombie (exited but not yet deleted)
+    - There are 4 states:
+        1) S_RUN - thread is running
+        2) S_READY - thread is ready (runnable but not currently running)
+        3) S_SLEEP - thread is sleeping
+        4) S_ZOMB - thread is a zombie (exited but not yet deleted)
         
 4. What does it mean to turn interrupts off? How is this accomplished? Why is it important to turn off interrupts in the thread subsystem code?
-    - no other thread can replace the current thread through a context switch
-    - accomblished with s = splhigh(); - this sets the SPL to high.
-    - it's important because it allows context switches to complete properly and allows threads to exit properly
-        + example: if not turned off, a thread could potentially sleep forever
+    - Turning off interrupts means that no other thread can replace the current thread through a context switch.
+    - Accomplished with s = splhigh(); - this sets the SPL to high.
+    - it's important because it allows context switches to complete properly and allows threads to exit properly. For example, if not turned
+      off, a thread could potentially sleep forever.
 
 5. What happens when a thread wakes up another thread? How does a sleeping thread get to run again?
-    - a thread wakes up another thread using thread_wakeup(const void *addr)
-    - this function removes threads from the "sleepers list" and makes them runnable using "result = make_runnable(t)"
+    - A thread wakes up another thread using thread_wakeup(const void *addr).
+    - This function removes threads from the "sleepers list" and makes them runnable using "result = make_runnable(t)."
         
 #Scheduler Questions
 6. What function is responsible for choosing the next thread to run?
-    - the scheduler(void) function is the "actual scheduler" and chooses the next thread to run
+    - The scheduler(void) function is the "actual scheduler" and chooses the next thread to run.
+    
 7. How does that function pick the next thread?
-    - scheduler(void) picks the next thread by getting the head of the runqueue
-        + this is done by calling "return q_remhead(runqueue)"
+    - scheduler(void) picks the next thread by getting the head of the run queue - this is done by calling "return q_remhead(runqueue)."
 
 8. What role does the hardware timer play in scheduling? What hardware independent function is called on a timer interrupt?
-    - hardclock(void) is called HZ times a second by the timer device setup
-    - hardclock(void) calls thread_wakeup() and thread_yield()
-    
-    - hardclock() is the function called during a timer interrupt
+    - hardclock(void) is called HZ times a second by the timer device setup.
+    - hardclock(void) calls thread_wakeup() and thread_yield().
+    - hardclock() is the function called during a timer interrupt.
 
 #Synchronization Questions
 9. Describe how thread_sleep() and thread_wakeup() are used to implement semaphores. What is the purpose of the argument passed to thread_sleep()?
-    - there are functions P and V that both take semaphore structs as parameters (e.g. P(struct semaphore *sem)
-        + P = proberen, decrements the count. If the count is 0, block until the count is 1 again before decrementing.
-        + V = verhogen, increments the count
-    - P() calls thread_sleep() while the count is 0
-    - V() calls thread_wakeup()
-    - P() and V() synchronize sleeping and waiting calls
-    
-    - thread_sleep(sem)
-        + sem is passed to this because thread_sleep() takes an address as a parameter and moves the current thread given by the parameter to the "sleep address".
-        + in this case, sem is type struct semaphore, which tells thread_sleep() which thread to "lock" using a semaphore
+    - There are functions P and V that both take semaphore structs as parameters (e.g. P(struct semaphore *sem).
+        P = proberen, decrements the count. If the count is 0, block until the count is 1 again before decrementing.
+        V = verhogen, increments the count
+    - P() calls thread_sleep() while the count is 0.
+    - V() calls thread_wakeup().
+    - P() and V() synchronize sleeping and waiting calls.
+    - thread_sleep(sem): sem is passed to this because thread_sleep() takes an address as a parameter and moves the current thread given by 
+      the parameter to the "sleep address." In this case, sem is type struct semaphore, which tells thread_sleep() which thread to "lock"  
+      using a semaphore
 
 10. Why does the lock API in OS/161 provide lock_do_i_hold(), but not lock_get_holder()?
-    - in OS/161, locks must be released by the same thread that acquires them
+    - In OS/161, locks must be released by the same thread that acquires them.
