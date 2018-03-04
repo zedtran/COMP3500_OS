@@ -137,7 +137,7 @@ lock_acquire(struct lock *lock)
 {
 	int spl;
 
-	// make sure lock exists
+    // make sure lock exists
 	assert(lock != NULL);
 	// turn off interrupt handler
 	assert(in_interrupt == 0);
