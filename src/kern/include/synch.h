@@ -11,7 +11,7 @@
  *     P (proberen): decrement count. If the count is 0, block until
  *                   the count is 1 again before decrementing.
  *     V (verhogen): increment count.
- * 
+ *
  * Both operations are atomic.
  *
  * The name field is for easier debugging. A copy of the name is made
@@ -36,7 +36,7 @@ void              sem_destroy(struct semaphore *);
  *                   same time.
  *    lock_release - Free the lock. Only the thread holding the lock may do
  *                   this.
- *    lock_do_i_hold - Return true if the current thread holds the lock; 
+ *    lock_do_i_hold - Return true if the current thread holds the lock;
  *                   false otherwise.
  *
  * These operations must be atomic. You get to write them.
@@ -50,11 +50,8 @@ void              sem_destroy(struct semaphore *);
 
 struct lock {
 	char *name;
-	// add what you need here
-	// (don't forget to mark things volatile as needed)
-	
+	// variable indicated whether is_locked = true or false
 	volatile int is_locked;
-	
 	// address of thread holding lock
 	struct thread *holder;
 };
@@ -79,7 +76,7 @@ void         lock_destroy(struct lock *);
  *    cv_signal    - Wake up one thread that's sleeping on this CV.
  *    cv_broadcast - Wake up all threads sleeping on this CV.
  *
- * For all three operations, the current thread must hold the lock passed 
+ * For all three operations, the current thread must hold the lock passed
  * in. Note that under normal circumstances the same lock should be used
  * on all operations with any particular CV.
  *
@@ -94,10 +91,6 @@ void         lock_destroy(struct lock *);
 
 struct cv {
 	char *name;
-	// add what you need here
-	// (don't forget to mark things volatile as needed)
-	
-	//struct lock *this_lock;
 };
 
 struct cv *cv_create(const char *name);

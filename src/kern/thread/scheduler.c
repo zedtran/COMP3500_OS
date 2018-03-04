@@ -34,7 +34,7 @@ scheduler_bootstrap(void)
 /*
  * Ensure space for handling at least NTHREADS threads.
  * This is done only to ensure that make_runnable() does not fail -
- * if you change the scheduler to not require space outside the 
+ * if you change the scheduler to not require space outside the
  * thread structure, for instance, this function can reasonably
  * do nothing.
  */
@@ -82,14 +82,14 @@ scheduler_shutdown(void)
  * Actual scheduler. Returns the next thread to run.  Calls cpu_idle()
  * if there's nothing ready. (Note: cpu_idle must be called in a loop
  * until something's ready - it doesn't know whether the things that
- * wake it up are going to make a thread runnable or not.) 
+ * wake it up are going to make a thread runnable or not.)
  */
 struct thread *
 scheduler(void)
 {
 	// meant to be called with interrupts off
 	assert(curspl>0);
-	
+
 	while (q_empty(runqueue)) {
 		cpu_idle();
 	}
@@ -100,11 +100,11 @@ scheduler(void)
 	// prohibitive.
 	// 
 	//print_run_queue();
-	
+
 	return q_remhead(runqueue);
 }
 
-/* 
+/*
  * Make a thread runnable.
  * With the base scheduler, just add it to the end of the run queue.
  */
@@ -128,13 +128,13 @@ print_run_queue(void)
 
 	int i,k=0;
 	i = q_getstart(runqueue);
-	
+
 	while (i!=q_getend(runqueue)) {
 		struct thread *t = q_getguy(runqueue, i);
 		kprintf("  %2d: %s %p\n", k, t->t_name, t->t_sleepaddr);
 		i=(i+1)%q_getsize(runqueue);
 		k++;
 	}
-	
+
 	splx(spl);
 }

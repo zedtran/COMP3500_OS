@@ -11,7 +11,7 @@
  *
  *     print_run_queue - dump the run queue to the console for debugging.
  *
- *     scheduler_bootstrap - initialize scheduler data 
+ *     scheduler_bootstrap - initialize scheduler data
  *                           (must happen early in boot)
  *     scheduler_shutdown -  clean up scheduler data
  *     scheduler_preallocate - ensure space for at least NUMTHREADS threads.
@@ -21,6 +21,7 @@
 struct thread;
 
 struct thread *scheduler(void);
+
 int make_runnable(struct thread *t);
 
 void print_run_queue(void);
