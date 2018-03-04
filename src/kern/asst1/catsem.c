@@ -50,7 +50,8 @@
  * Number to represent "play around" and "eat food" to be called during clocksleep().
  */
 
-#define NMAXTIME
+#define NMAXTIME 3
+
 
 
 /*
@@ -80,6 +81,8 @@ struct semaphore *mice_queue; // 0 initially -- locks other mice
 struct semaphore *mutex; // 1 initially -- locks to either a cat or a mouse
 struct semaphore *dish_mutex; // 1 initially -- locks two animals of the same type
 struct semaphore *done; // 0 initially --helps with bowl assignments before and after eating
+
+struct semaphore *sim_count_mutex; // Used for executing multiple iterations
 
 
 volatile int mice_wait_count = 0;
@@ -121,12 +124,14 @@ catsem(void * unusedpointer,
 
         bool first_cat_eat;
         bool another_cat_eat;
-        int my_dish;
+        int my_dish, iter;
 
 
         (void) unusedpointer;
         (void) catnumber;
-
+        
+       
+    for (iter = 0; iter < 2; iter++) {
         /* FIRST CAT AND NO MOUSE */
         P(mutex);
         if (all_dishes_available == true) {
@@ -175,7 +180,7 @@ catsem(void * unusedpointer,
         }
         V(dish_mutex);
         kprintf("Cat %lu is eating at dish %d.\n", catnumber+1, my_dish);
-        clocksleep(random() % (NMAXTIME + 4)); /* enjoys food */
+        clocksleep(random() % (NMAXTIME+2)); /* enjoys food */
         //clocksleep(1); // FOR TESTING ONLY -- uncomment above line when ready
         kprintf("Cat %lu finished eating at dish %d.\n", catnumber+1, my_dish);
         
@@ -230,7 +235,8 @@ catsem(void * unusedpointer,
         }
         
         //kprintf("DEBUG MESSAGE: Passed line 228, Cat %lu left the kitchen.\n", catnumber+1);
-
+    }
+    V(sim_count_mutex);
 
 
 }
@@ -266,8 +272,10 @@ mousesem(void * unusedpointer,
         
         bool first_mouse_eat;
         bool another_mouse_eat;
-        int my_dish;
+        int my_dish, iter;
         
+        
+    for (iter = 0; iter < 2; iter++) {        
         /* FIRST MOUSE AND NO CAT */
         P(mutex);
         if (all_dishes_available == true) {
@@ -369,6 +377,8 @@ mousesem(void * unusedpointer,
         }
         
         //kprintf("DEBUG MESSAGE: Passed line 371, Mouse %lu left the kitchen.\n", mousenumber+1);
+    }
+    V(sim_count_mutex);
 }
 
 
@@ -391,7 +401,7 @@ int
 catmousesem(int nargs,
             char ** args)
 {
-        int index, error;
+        int index, error, iter;
 
         /*
          * Avoid unused variable warnings.
@@ -414,6 +424,9 @@ catmousesem(int nargs,
         
         done = sem_create("done eating semaphore", (int) 0);
         assert(done != NULL);
+        
+        sim_count_mutex = sem_create("Simulation counter", (int) 0);
+        assert(sim_count_mutex != NULL);
 
         /*
          * Start NCATS catsem() threads.
@@ -464,16 +477,21 @@ catmousesem(int nargs,
                               );
                 }
         }
-        //kprintf("DEBUG MESSAGE: Passed line 467. Entering while check for \"cats_wait_count\" and \"mice_wait_count\".\n");
+    
+    
+        for (iter = 0; iter < 4; iter++) {
+            P(sim_count_mutex);
+        }
         
-        //P(done);
-        //while (cats_wait_count < 6 && mice_wait_count < 2) {
-            
-        //};
-        //V(done);
+        //sem_destroy(sim_count_mutex);
+        //sem_destroy(cats_queue);
+        //sem_destroy(mice_queue);
+        //sem_destroy(mutex);
+        //sem_destroy(dish_mutex);
+        //sem_destroy(done);
         
-        //kprintf("DEBUG MESSAGE: Passed line 475. Left while check for \"cats_wait_count\" and \"mice_wait_count\".\n");
         
+        kprintf("\n\n\n\n\n END LAST OPERATION \n\n\n\n\n.");
         
 
         return 0;
