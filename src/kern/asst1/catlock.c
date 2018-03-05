@@ -18,6 +18,8 @@
 #include <lib.h>
 #include <test.h>
 #include <thread.h>
+#include <synch.h>
+#include <scheduler.h>
 
 
 /*
@@ -58,20 +60,6 @@ int num_finished = 0;
  *
  */
 
-/*
- * Randomly picks a bowl and synchronizes access to it.
- */
-static void
-try_eat_some_bowl(const char *who, int num, int iteration)
-{
-    // gets random bowl number
-    int bowl = (int)(random() % NFOODBOWLS) + 1;
-
-    // wait for lock on random bowl, eat from it, then return
-    lock_acquire(bowl_lock[bowl]);
-    lock_eat(who, num, bowl, iteration);
-    lock_release(bowl_lock[bowl]);
-}
 
 /*
  * who should be "cat" or "mouse"
@@ -86,6 +74,20 @@ lock_eat(const char *who, int num, int bowl, int iteration)
         bowl, iteration);
 }
 
+/*
+ * Randomly picks a bowl and synchronizes access to it.
+ */
+static void
+try_eat_some_bowl(const char *who, int num, int iteration)
+{
+    // gets random bowl number
+    int bowl = (int)(random() % NFOODBOWLS) + 1;
+
+    // wait for lock on random bowl, eat from it, then return
+    lock_acquire(bowl_lock[bowl]);
+    lock_eat(who, num, bowl, iteration);
+    lock_release(bowl_lock[bowl]);
+}
 
 
 /*

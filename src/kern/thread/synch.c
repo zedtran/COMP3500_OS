@@ -41,6 +41,8 @@ sem_destroy(struct semaphore *sem)
 	assert(sem != NULL);
 
 	spl = splhigh();
+	kprintf("SEM YOU WANT TO DESTROY: %s\n",sem->name); 
+    kprintf("CURTHREAD: %s\n",curthread->t_name);
 	assert(thread_hassleepers(sem)==0);
 	splx(spl);
 

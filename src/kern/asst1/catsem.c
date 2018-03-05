@@ -82,19 +82,22 @@ struct semaphore *mutex; // 1 initially -- locks to either a cat or a mouse
 struct semaphore *dish_mutex; // 1 initially -- locks two animals of the same type
 struct semaphore *done; // 0 initially --helps with bowl assignments before and after eating
 
-struct semaphore *sim_count_mutex; // Used for executing multiple iterations
+struct semaphore *sim_count;
 
 
-volatile int mice_wait_count = 0;
-volatile int cats_wait_count = 0;
+volatile int mice_wait_count;
+volatile int cats_wait_count;
 
 
-volatile bool all_dishes_available = true;
-volatile bool no_cat_eat = true; // first cat
-volatile bool no_mouse_eat = true; // first mouse
+volatile bool all_dishes_available;
+volatile bool dish1_taken;
+volatile bool dish2_taken;
 
-volatile bool dish1_taken = false;
-volatile bool dish2_taken = false;
+
+volatile bool no_cat_eat; // first cat
+volatile bool no_mouse_eat; // first mouse
+
+
 
 
 
@@ -124,14 +127,15 @@ catsem(void * unusedpointer,
 
         bool first_cat_eat;
         bool another_cat_eat;
-        int my_dish, iter;
+        int my_dish, i;
 
 
         (void) unusedpointer;
         (void) catnumber;
         
        
-    for (iter = 0; iter < 2; iter++) {
+    for (i = 0; i < 3; i++) {
+    
         /* FIRST CAT AND NO MOUSE */
         P(mutex);
         if (all_dishes_available == true) {
@@ -180,7 +184,7 @@ catsem(void * unusedpointer,
         }
         V(dish_mutex);
         kprintf("Cat %lu is eating at dish %d.\n", catnumber+1, my_dish);
-        clocksleep(random() % (NMAXTIME+2)); /* enjoys food */
+        clocksleep(random() % NMAXTIME); /* enjoys food */
         //clocksleep(1); // FOR TESTING ONLY -- uncomment above line when ready
         kprintf("Cat %lu finished eating at dish %d.\n", catnumber+1, my_dish);
         
@@ -234,10 +238,9 @@ catsem(void * unusedpointer,
           V(done);
         }
         
-        //kprintf("DEBUG MESSAGE: Passed line 228, Cat %lu left the kitchen.\n", catnumber+1);
-    }
-    V(sim_count_mutex);
-
+     }
+     V(sim_count);
+        
 
 }
 
@@ -272,10 +275,10 @@ mousesem(void * unusedpointer,
         
         bool first_mouse_eat;
         bool another_mouse_eat;
-        int my_dish, iter;
+        int my_dish, i;
         
-        
-    for (iter = 0; iter < 2; iter++) {        
+    for (i = 0; i < 3; i++) {
+             
         /* FIRST MOUSE AND NO CAT */
         P(mutex);
         if (all_dishes_available == true) {
@@ -377,8 +380,8 @@ mousesem(void * unusedpointer,
         }
         
         //kprintf("DEBUG MESSAGE: Passed line 371, Mouse %lu left the kitchen.\n", mousenumber+1);
-    }
-    V(sim_count_mutex);
+     }
+     V(sim_count);   
 }
 
 
@@ -401,7 +404,7 @@ int
 catmousesem(int nargs,
             char ** args)
 {
-        int index, error, iter;
+        int index, error, i;
 
         /*
          * Avoid unused variable warnings.
@@ -425,8 +428,21 @@ catmousesem(int nargs,
         done = sem_create("done eating semaphore", (int) 0);
         assert(done != NULL);
         
-        sim_count_mutex = sem_create("Simulation counter", (int) 0);
-        assert(sim_count_mutex != NULL);
+        sim_count = sem_create("sim count", (int) 0);
+        assert(sim_count != NULL);
+        
+        
+        mice_wait_count = 0;
+        cats_wait_count = 0;
+
+
+        all_dishes_available = true;
+        dish1_taken = false;
+        dish2_taken = false;
+        
+        no_cat_eat = true; // first cat
+        no_mouse_eat = true; // first mouse
+        
 
         /*
          * Start NCATS catsem() threads.
@@ -477,21 +493,11 @@ catmousesem(int nargs,
                               );
                 }
         }
-    
-    
-        for (iter = 0; iter < 4; iter++) {
-            P(sim_count_mutex);
+         
+        
+        for (i = 0; i < 6; i++) {
+            P(sim_count);
         }
-        
-        //sem_destroy(sim_count_mutex);
-        //sem_destroy(cats_queue);
-        //sem_destroy(mice_queue);
-        //sem_destroy(mutex);
-        //sem_destroy(dish_mutex);
-        //sem_destroy(done);
-        
-        
-        kprintf("\n\n\n\n\n END LAST OPERATION \n\n\n\n\n.");
         
 
         return 0;
