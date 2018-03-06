@@ -1,0 +1,54 @@
+Zac Parker - zbp0003
+--------------------
+
+
+THREAD QUESTIONS 
+----------------
+1. What happens to a thread when it exits (i.e., calls thread_exit())? What about when it sleeps?
+        - A thread exits when a thread calls thread_exit().
+        - It performs cleanup operations on the parts of the thread that don't need to run immediately.
+        - When a thread sleeps, thread_sleep is called and it yields the CPU to another process by going to sleep on "sleep address ADDR."
+        - Once it knows that interrupts are off, it moves the current thread to the sleep address.
+    
+2. What function(s) handle(s) a context switch?
+        - mi_switch and md_switch handle context switching.
+        - mi_switch (high-level and machine-independent) calls md_switch (machine-independent).
+    
+3. How many thread states are there? What are they?
+        1. S_RUN (the thread is running)
+        2. S_READY (the thread is not currently running but is runnable, so it's ready)
+        3. S_SLEEP (the thread is sleeping)
+        4. S_ZOMB (the thread has exited but has not deleted, so it's a zombie)
+        
+4. What does it mean to turn interrupts off? How is this accomplished? Why is it important to turn off interrupts in the thread subsystem code?
+        - Turning off interrupts means that context switches can't occur, or no threads can replace the current thread.
+        - s = splhigh() is what accomplishes this. It sets the SPL to high, meaning that interrupts can no longer occur. 
+        - Turning off interrupts is important because interrupts can cause problems for context switches and thread exiting.
+
+5. What happens when a thread wakes up another thread? How does a sleeping thread get to run again?
+        - thread_wakeup(const void *addr) is called when a thread wakes up another thread. 
+        - A sleeping thread can run again with the statement "result = make_runnable(t)," which makes it runnable again. 
+
+SCHEDULER QUESTIONS
+-------------------
+6. What function is responsible for choosing the next thread to run?
+        - The function "scheduler(void)" is responsible for this task.
+    
+7. How does that function pick the next thread?
+        - It does so by calling "return q_remhead(runqueue)." 
+        - This gets the head of the queue.
+
+8. What role does the hardware timer play in scheduling? What hardware independent function is called on a timer interrupt?
+        - The device timer calls hardclock(void) HZ times a second.
+        - hardclock(void) calls the thread_wakeup() and thread_yield() functions.
+        - hardclock() is the hardware independent function that's called on a timer interrupt. 
+
+SYNCHRONIZATION QUESTIONS
+---------------
+9. Describe how thread_sleep() and thread_wakeup() are used to implement semaphores. What is the purpose of the argument passed to thread_sleep()?
+        - thread_sleep() and thread_wakeup() are used to implement semaphores because they are called by the P() and V() functions, which decrement and increment the counter respectively. 
+        - They both take semaphores as parameters and synchronize the sleeping/waiting calls. 
+        - The purpose of the argument passed to thread_sleep() is to tell the function which thread to lock.
+
+10. Why does the lock API in OS/161 provide lock_do_i_hold(), but not lock_get_holder()?
+        - There's no need for lock_get_holder() because every lock has to be released by the thread that acquires it.
