@@ -87,6 +87,7 @@ typedef char bool;
   * Global variables
   *
   */
+  static const char catNames
 
 // SEMAPHORES
 struct semaphore *cats_queue; // 0 initially -- locks other cats
@@ -208,13 +209,6 @@ catsem(void * unusedpointer,
         clocksleep(1); // FOR TESTING ONLY -- uncomment above line when ready
         kprintf("Cat %lu finished eating at dish %d.\n", catnumber+1, my_dish);
 
-        if (dish_mutex->count < 0 || mutex->count < 0) {
-            kprintf("\n\nERROR: You should not be seeing this message! Last cat cannot release his dish!\n");
-            kprintf("The dish_mutex->count is %d\n", dish_mutex->count);
-            kprintf("The mutex->count is %d\n\n\n", mutex->count);  
-        }
-        
-        
         
         /* All cats (first cat and non-first cat) RELEASE DISHES */
         P(dish_mutex); /* Protect shared variables */
@@ -248,7 +242,6 @@ catsem(void * unusedpointer,
             }
             else if (cats_wait_count > 0) {
                 V(cats_queue); // cat has preference
-                kprintf("GOT TO LINE <239>. mutex->count is: %d\n", mutex->count);
             }
             else {
                 all_dishes_available = true;
@@ -521,7 +514,7 @@ catmousesem(int nargs,
         
          
         
-        for (i = 0; i < 7; i++) {
+        for (i = 0; i < 8; i++) {
             P(sim_count);
         }
         
