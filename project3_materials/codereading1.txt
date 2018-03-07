@@ -1,3 +1,5 @@
+BLAKE MATHEWS 
+
 #Thread Questions:
 1. What happens to a thread when it exits (i.e., calls thread_exit() )? What about when it sleeps?
     - thread_exit() causes the current thread to exit and cleans up the parts of the thread structure that don't need to run immediately.
