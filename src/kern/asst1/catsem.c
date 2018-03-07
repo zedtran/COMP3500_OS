@@ -62,6 +62,19 @@
 typedef char bool;
 
 
+/* 
+*   TODO: 
+*   (1) Ensure clocksleep() has random param
+*   (2) Fix comments
+*   (3) Modularize reused code 
+*   
+*   WORKING NOTES:
+*   -- Fixed issue where my_dish needed to include "volatile" identifier
+*   -- Current issue: Last cat doesn't leave
+*
+*/
+
+
 /*
  *
  * Function Definitions
@@ -98,9 +111,6 @@ volatile bool no_cat_eat; // first cat
 volatile bool no_mouse_eat; // first mouse
 
 
-
-
-
 /*
  * catsem()
  *
@@ -125,9 +135,10 @@ catsem(void * unusedpointer,
          * Avoid unused variable warnings.
          */
 
-        bool first_cat_eat;
-        bool another_cat_eat;
-        int my_dish, i;
+        volatile bool first_cat_eat;
+        volatile bool another_cat_eat;
+        volatile int my_dish;
+        int i;
 
 
         (void) unusedpointer;
@@ -155,7 +166,7 @@ catsem(void * unusedpointer,
           first_cat_eat = false;
         }
         
-        ////////////////////////////////////////
+
 
         /* THIS IS WHERE FIRST CAT DETERMINES KITCHEN DOMINANCE FOR CATS */
         if (first_cat_eat == true) {
@@ -164,15 +175,21 @@ catsem(void * unusedpointer,
             another_cat_eat = true;
             V(cats_queue); /* let another cat in */
           }
+          else {
+            assert(cats_wait_count==1);
+            another_cat_eat = false;
+          }
           V(mutex);
         }
+        
 
         kprintf("Cat %lu in the kitchen.\n", catnumber+1);
         
-        ////////////////////////////////////////
 
-        /* All cats (first cat and non-first cat) in the kitchen */
+
+        /* All cats (first cat and non-first cat) in the kitchen */  
         P(dish_mutex); /* protect shared variables */
+        //kprintf("my_dish: %d\n",my_dish);
         if (dish1_taken == false) {
           dish1_taken = true;
           my_dish = 1;
@@ -182,68 +199,72 @@ catsem(void * unusedpointer,
           dish2_taken = true;
           my_dish = 2;
         }
+        //kprintf("my_dish: %d\n",my_dish);
         V(dish_mutex);
+        
+        
         kprintf("Cat %lu is eating at dish %d.\n", catnumber+1, my_dish);
-        clocksleep(random() % NMAXTIME); /* enjoys food */
-        //clocksleep(1); // FOR TESTING ONLY -- uncomment above line when ready
+        //clocksleep(random() % NMAXTIME); /* enjoys food */
+        clocksleep(1); // FOR TESTING ONLY -- uncomment above line when ready
         kprintf("Cat %lu finished eating at dish %d.\n", catnumber+1, my_dish);
-        
-        ////////////////////////////////////////
-        
-        //kprintf("DEBUG MESSAGE: Passed line 180, Attempting to release dish. Working with cat #%lu on dish #%d.\n", catnumber+1, my_dish);
 
+        if (dish_mutex->count < 0 || mutex->count < 0) {
+            kprintf("\n\nERROR: You should not be seeing this message! Last cat cannot release his dish!\n");
+            kprintf("The dish_mutex->count is %d\n", dish_mutex->count);
+            kprintf("The mutex->count is %d\n\n\n", mutex->count);  
+        }
+        
+        
+        
         /* All cats (first cat and non-first cat) RELEASE DISHES */
         P(dish_mutex); /* Protect shared variables */
+        kprintf("Preparing to release dish: %d\n",my_dish);
         if (my_dish == 1) { // Release dish 1
           dish1_taken = false;
         }
-        else { // Release dish 2
+        else { // Release dish 2 
+          assert(dish2_taken==true);
           dish2_taken = false;
         }
+        kprintf("Released dish: %d\n",my_dish);
         V(dish_mutex);
-        
-        //kprintf("DEBUG MESSAGE: Passed line 192, RELEASE DISH OCCURRED. Working with cat #%lu on dish #%d.\n", catnumber+1, my_dish);
 
         P(mutex);
           cats_wait_count--; /* Reduced before leaving */
         V(mutex);
         
-        //kprintf("DEBUG MESSAGE: Passed line 197, cats_wait_count decremented. Working with cat #%lu.\n", catnumber+1);
-        
-        ////////////////////////////////////////
-        //kprintf("DEBUG MESSAGE: Passed line 203, Cat %lu trying to leave the kitchen.\n", catnumber+1);
+
         /* First cat is leaving the kitchen */
         if (first_cat_eat == true) { /* First cat */
           if (another_cat_eat == true) {
-            P(done); /* Wait for another cat */
+            P(done); /* Wait for another cat */ 
           }
           kprintf("Cat %lu is leaving.\n", catnumber+1);
           no_cat_eat = true; /* Letting the next cat control */
+          /* Switch to mouse if one is waiting */
+            P(mutex);
+            if (mice_wait_count > 0) { // if there are mice waiting
+                V(mice_queue); // let mice eat
+            }
+            else if (cats_wait_count > 0) {
+                V(cats_queue); // cat has preference
+                kprintf("GOT TO LINE <239>. mutex->count is: %d\n", mutex->count);
+            }
+            else {
+                all_dishes_available = true;
+            }
+            V(mutex);
 
-          /* Switch to mice if any is waiting */
-          P(mutex);
-          if (mice_wait_count > 0) { // if there are mice waiting
-            V(mice_queue); // let mice eat
-          }
-          else if (cats_wait_count > 0) {
-            V(cats_queue); // cat has preference
-          }
-          else {
-            all_dishes_available = true;
-          }
-          V(mutex);
         } /* End of first_cat_eat */
         else { // non-first cat is leaving
-          kprintf("Cat %lu is leaving.\n", catnumber+1);
-          V(done);
-        }
+            kprintf("Cat %lu is leaving.\n", catnumber+1);
+            V(done); 
+        }   
         
      }
-     V(sim_count);
-        
+     V(sim_count);   
 
 }
-
 
 /*
  * mousesem()
@@ -273,9 +294,10 @@ mousesem(void * unusedpointer,
         (void) unusedpointer;
         (void) mousenumber;
         
-        bool first_mouse_eat;
-        bool another_mouse_eat;
-        int my_dish, i;
+        volatile bool first_mouse_eat;
+        volatile bool another_mouse_eat;
+        volatile int my_dish;
+        int i;
         
     for (i = 0; i < 3; i++) {
              
@@ -305,15 +327,19 @@ mousesem(void * unusedpointer,
             another_mouse_eat = true;
             V(mice_queue); /* let another mouse in */
           }
+          else {
+            assert(mice_wait_count==1);
+            another_mouse_eat = false;
+          }
           V(mutex);
         }
 
         kprintf("Mouse %lu in the kitchen.\n", mousenumber+1);
         
-        ////////////////////////////////////////
 
         /* Both mice (first mouse and second mouse) in the kitchen */
         P(dish_mutex); /* protect shared variables */
+        kprintf("my_dish: %d\n",my_dish);
         if (dish1_taken == false) {
           dish1_taken = true;
           my_dish = 1;
@@ -323,15 +349,16 @@ mousesem(void * unusedpointer,
           dish2_taken = true;
           my_dish = 2;
         }
+        kprintf("my_dish: %d\n",my_dish);
         V(dish_mutex);
+        
         kprintf("Mouse %lu is eating at dish %d.\n", mousenumber+1, my_dish);
-        clocksleep(random() % NMAXTIME); /* enjoys food */
-        //clocksleep(1); // FOR TESTING ONLY -- uncomment above line when ready
+        //clocksleep(random() % NMAXTIME); /* enjoys food */
+        clocksleep(1); // FOR TESTING ONLY -- uncomment above line when ready
         kprintf("Mouse %lu finished eating at dish %d.\n", mousenumber+1, my_dish);
         
-        ////////////////////////////////////////
-        
-        //kprintf("DEBUG MESSAGE: Passed line 319, Attempting to release dish. Working with mouse #%lu on dish #%d.\n", mousenumber+1, my_dish);
+
+
 
         /* Both Mice (first and second mouse) RELEASE DISHES */
         P(dish_mutex); /* Protect shared variables */
@@ -339,6 +366,7 @@ mousesem(void * unusedpointer,
           dish1_taken = false;
         }
         else { // Release dish 2
+          assert(dish2_taken==true);
           dish2_taken = false;
         }
         V(dish_mutex);
@@ -347,41 +375,35 @@ mousesem(void * unusedpointer,
           mice_wait_count--; /* Reduced before leaving */
         V(mutex);
         
-        //kprintf("DEBUG MESSAGE: Passed line 337, mice_wait_count decremented. Working with mouse #%lu.\n", mousenumber+1);
-        
-        //kprintf("DEBUG MESSAGE: Passed line 340, RELEASE DISH OCCURRED. Mouse #%lu released dish #%d.\n", mousenumber+1, my_dish);
-        
-        ////////////////////////////////////////
-        //kprintf("DEBUG MESSAGE: Passed line 344, Mouse %lu trying to leave the kitchen.\n", mousenumber+1);
-        /* First mouse is leaving the kitchen */
+
+        /* First mouse is leaving the kitchen */ 
         if (first_mouse_eat == true) { /* First mouse */
           if (another_mouse_eat == true) {
-            P(done); /* Wait for another mouse */
+            P(done);
           }
           kprintf("Mouse %lu is leaving.\n", mousenumber+1);
           no_mouse_eat = true; /* Letting the next mouse control */
-
           /* Switch to cats if any are waiting */
-          P(mutex);
-          if (cats_wait_count > 0) { // if there are cats waiting
-            V(cats_queue); // let cats eat
-          }
-          else if (mice_wait_count > 0) {
-            V(mice_queue); // then let mice
-          }
-          else {
-            all_dishes_available = true;
-          }
-          V(mutex);
+            P(mutex);
+            if (cats_wait_count > 0) { // if there are cats waiting
+                V(cats_queue); // let cats eat
+            }
+            else if (mice_wait_count > 0) {
+                V(mice_queue); // then let mice
+            }
+            else {
+                all_dishes_available = true;
+            }
+            V(mutex);
+
         } /* End of first_mouse_eat */
-        else { // secpmd mouse is leaving
-          kprintf("Mouse %lu is leaving.\n", mousenumber+1);
-          V(done);
+        else { // second mouse is leaving
+            kprintf("Mouse %lu is leaving.\n", mousenumber+1);
+            V(done);
         }
-        
-        //kprintf("DEBUG MESSAGE: Passed line 371, Mouse %lu left the kitchen.\n", mousenumber+1);
      }
-     V(sim_count);   
+     V(sim_count);
+        
 }
 
 
@@ -472,6 +494,8 @@ catmousesem(int nargs,
         /*
          * Start NMICE mousesem() threads.
          */
+         
+         
 
         for (index = 0; index < NMICE; index++) {
 
@@ -493,12 +517,31 @@ catmousesem(int nargs,
                               );
                 }
         }
+        
+        
          
         
-        for (i = 0; i < 6; i++) {
+        for (i = 0; i < 7; i++) {
             P(sim_count);
         }
+        
+        kprintf("cats_queue->count: %d\n",cats_queue->count);
+        kprintf("mice_queue->count: %d\n",mice_queue->count);
+        kprintf("mutex->count: %d\n",mutex->count);
+        kprintf("dish_mutex->count: %d\n",dish_mutex->count);
+        kprintf("done->count: %d\n",done->count);
+        kprintf("sim_count->count: %d\n",sim_count->count);
+        
+        sem_destroy(cats_queue);
+        sem_destroy(mice_queue);
+        sem_destroy(mutex);
+        sem_destroy(dish_mutex);
+        sem_destroy(done);
+        sem_destroy(sim_count);
         
 
         return 0;
 }
+/* 
+* End of Catsem.c
+*/

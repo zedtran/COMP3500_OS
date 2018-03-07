@@ -66,7 +66,7 @@ boot(void)
 	kprintf("%s", harvard_copyright);
 	kprintf("\n");
 
-	kprintf("Put-your-group-name-here's system version %s (%s #%d)\n", 
+	kprintf("BDZ System Version %s (%s #%d)\n", 
 		GROUP_VERSION, buildconfig, buildversion);
 	kprintf("\n");
 
@@ -160,8 +160,8 @@ kmain(char *arguments)
 {
 	boot();
 	
-	locktest(1, "lock test");
-	cvtest(1, "cv test");
+	//locktest(1, "lock test");
+	//cvtest(1, "cv test");
 
 	menu(arguments);
 
