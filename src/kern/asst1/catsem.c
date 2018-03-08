@@ -62,17 +62,6 @@
 typedef char bool;
 
 
-/* 
-*   TODO: 
-*   (1) Ensure clocksleep() has random param
-*   (2) Fix comments
-*   (3) Modularize reused code 
-*   
-*   WORKING NOTES:
-*   -- Fixed issue where my_dish needed to include "volatile" identifier
-*   -- Current issue: Last cat doesn't leave
-*
-*/
 
 
 /*
@@ -87,7 +76,8 @@ typedef char bool;
   * Global variables
   *
   */
-  static const char catNames
+static const char *catNames[6] = {"Axel", "Bazzle", "Copper", "Delta", "Echo", "Fangs"};
+static const char *mouseNames[2] = {"Mickey", "Minnie"};
 
 // SEMAPHORES
 struct semaphore *cats_queue; // 0 initially -- locks other cats
@@ -95,7 +85,6 @@ struct semaphore *mice_queue; // 0 initially -- locks other mice
 struct semaphore *mutex; // 1 initially -- locks to either a cat or a mouse
 struct semaphore *dish_mutex; // 1 initially -- locks two animals of the same type
 struct semaphore *done; // 0 initially --helps with bowl assignments before and after eating
-
 struct semaphore *sim_count;
 
 
@@ -146,7 +135,7 @@ catsem(void * unusedpointer,
         (void) catnumber;
         
        
-    for (i = 0; i < 3; i++) {
+    for (i = 0; i < NMAXTIME; i++) {
     
         /* FIRST CAT AND NO MOUSE */
         P(mutex);
@@ -183,9 +172,7 @@ catsem(void * unusedpointer,
           V(mutex);
         }
         
-
-        kprintf("Cat %lu in the kitchen.\n", catnumber+1);
-        
+        kprintf("(=^･ｪ･^=) >>>> %s entered the kitchen.\n", catNames[catnumber]);
 
 
         /* All cats (first cat and non-first cat) in the kitchen */  
@@ -204,15 +191,13 @@ catsem(void * unusedpointer,
         V(dish_mutex);
         
         
-        kprintf("Cat %lu is eating at dish %d.\n", catnumber+1, my_dish);
-        //clocksleep(random() % NMAXTIME); /* enjoys food */
-        clocksleep(1); // FOR TESTING ONLY -- uncomment above line when ready
-        kprintf("Cat %lu finished eating at dish %d.\n", catnumber+1, my_dish);
+        kprintf("(๑>◡<๑) ****** %s is eating at dish -->> (( %d )).\n", catNames[catnumber], my_dish);
+        clocksleep(random() % NMAXTIME); /* time to enjoy food */
+        kprintf("( ^◡^) <><><><> %s finished eating at dish <<-- (( %d )).\n", catNames[catnumber], my_dish);
 
         
         /* All cats (first cat and non-first cat) RELEASE DISHES */
         P(dish_mutex); /* Protect shared variables */
-        kprintf("Preparing to release dish: %d\n",my_dish);
         if (my_dish == 1) { // Release dish 1
           dish1_taken = false;
         }
@@ -220,7 +205,6 @@ catsem(void * unusedpointer,
           assert(dish2_taken==true);
           dish2_taken = false;
         }
-        kprintf("Released dish: %d\n",my_dish);
         V(dish_mutex);
 
         P(mutex);
@@ -233,7 +217,7 @@ catsem(void * unusedpointer,
           if (another_cat_eat == true) {
             P(done); /* Wait for another cat */ 
           }
-          kprintf("Cat %lu is leaving.\n", catnumber+1);
+          kprintf("<<<<<<<< (=^･ｪ･^=) %s left the kitchen.\n", catNames[catnumber]);
           no_cat_eat = true; /* Letting the next cat control */
           /* Switch to mouse if one is waiting */
             P(mutex);
@@ -250,7 +234,7 @@ catsem(void * unusedpointer,
 
         } /* End of first_cat_eat */
         else { // non-first cat is leaving
-            kprintf("Cat %lu is leaving.\n", catnumber+1);
+            kprintf("<<<<<<<< (=^･ｪ･^=) %s left the kitchen.\n", catNames[catnumber]);
             V(done); 
         }   
         
@@ -292,7 +276,7 @@ mousesem(void * unusedpointer,
         volatile int my_dish;
         int i;
         
-    for (i = 0; i < 3; i++) {
+    for (i = 0; i < NMAXTIME; i++) {
              
         /* FIRST MOUSE AND NO CAT */
         P(mutex);
@@ -327,12 +311,10 @@ mousesem(void * unusedpointer,
           V(mutex);
         }
 
-        kprintf("Mouse %lu in the kitchen.\n", mousenumber+1);
-        
+        kprintf("ʕ•ᴥ•ʔ >>>>> %s entered the kitchen.\n", mouseNames[mousenumber]);
 
         /* Both mice (first mouse and second mouse) in the kitchen */
         P(dish_mutex); /* protect shared variables */
-        kprintf("my_dish: %d\n",my_dish);
         if (dish1_taken == false) {
           dish1_taken = true;
           my_dish = 1;
@@ -342,13 +324,11 @@ mousesem(void * unusedpointer,
           dish2_taken = true;
           my_dish = 2;
         }
-        kprintf("my_dish: %d\n",my_dish);
         V(dish_mutex);
         
-        kprintf("Mouse %lu is eating at dish %d.\n", mousenumber+1, my_dish);
-        //clocksleep(random() % NMAXTIME); /* enjoys food */
-        clocksleep(1); // FOR TESTING ONLY -- uncomment above line when ready
-        kprintf("Mouse %lu finished eating at dish %d.\n", mousenumber+1, my_dish);
+        kprintf("(๑>◡<๑) ****** %s is eating at dish -->> (( %d )).\n", mouseNames[mousenumber], my_dish);
+    clocksleep(random() % NMAXTIME); /* time to enjoy food */
+    kprintf("( ^◡^) <><><><> %s finished eating at dish <<-- (( %d )).\n", mouseNames[mousenumber], my_dish);
         
 
 
@@ -374,7 +354,7 @@ mousesem(void * unusedpointer,
           if (another_mouse_eat == true) {
             P(done);
           }
-          kprintf("Mouse %lu is leaving.\n", mousenumber+1);
+          kprintf("<<<<<<<< ʕ•ᴥ•ʔ %s left the kitchen.\n", mouseNames[mousenumber]);
           no_mouse_eat = true; /* Letting the next mouse control */
           /* Switch to cats if any are waiting */
             P(mutex);
@@ -391,7 +371,7 @@ mousesem(void * unusedpointer,
 
         } /* End of first_mouse_eat */
         else { // second mouse is leaving
-            kprintf("Mouse %lu is leaving.\n", mousenumber+1);
+            kprintf("<<<<<<<< ʕ•ᴥ•ʔ %s left the kitchen.\n", mouseNames[mousenumber]);
             V(done);
         }
      }
@@ -514,7 +494,7 @@ catmousesem(int nargs,
         
          
         
-        for (i = 0; i < 8; i++) {
+        for (i = 0; i < (NCATS + NMICE); i++) {
             P(sim_count);
         }
         
