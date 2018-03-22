@@ -1,13 +1,39 @@
 1. Explain how each of your solutions avoid starvation.
 
+------------------------------------------------------------------------------------------------------------------------------
+FOR catsem.c:
 
+Several semaphores are shared among multiple independent processes that include modifying primitive data variables during program execution. For instance, the following values are modified atomically through the use of our semaphore we will discuss afterward: 
 
+    volatile int mice_wait_count; // Represents the number of inactive threads forked through our call to catsem()
+    volatile int cats_wait_count; // Represents the number of inactive threads forked through our call to mousesem()
 
+    volatile bool all_dishes_available; // Is our boolean value for whether or not the kitchen is free
+    volatile bool dish1_taken; // Is our boolean value for whether or not dish1 is free
+    volatile bool dish2_taken; // Is our boolean value for whether or not dish2 is free
 
+    volatile bool no_cat_eat; // first cat
+    volatile bool no_mouse_eat; // first mouse
+    
+The values are modified through the use of "wait" and "signal" mechanisms which implement queues that put concurrent process threads to sleep on first-come, first-serve order. The semaphore objects below act as counters or gates to control the number of threads that access each resource defined above. Only one thread is permitted to access these values while remaining threads are placed in a thread-sleeper status (waiting). The thread object is signaled when the thread exits, and the process object, when the process exits (ready). The timer object is used to keep track of time and to signal timeouts when operations take too long and need to be interrupted or when a periodic activity needs to be scheduled. Furthermore, internally, the standard Linux wait queue mechanism synchronizes processes that are communicating with each semaphore.
 
+The following semaphores have access control over the values specified above:
 
+struct semaphore *cats_queue; // 0 initially -- locks other cats
+struct semaphore *mice_queue; // 0 initially -- locks other mice
+struct semaphore *mutex; // 1 initially -- locks to either a cat or a mouse
+struct semaphore *dish_mutex; // 1 initially -- locks two animals of the same type
+struct semaphore *done; // 0 initially --helps with bowl assignments before and after eating
+struct semaphore *sim_count;
 
-
+"sim_count" is likely the most inconspicous semaphore, but it helps to validate the number of cats and mice (combined) were able to perform the specified number of "play and eat" scenarios. This ultimately helps to corroborate that starvation is avoided. Additionally, this prevents the range of sleeping threads to not go over an unrestricted domain.
+------------------------------------------------------------------------------------------------------------------------------
 
 
 2. Comment on the relative ease of implementation under the two schemes. Can you derive any principles about the use of these different synchronization primitives?
+
+------------------------------------------------------------------------------------------------------------------------------
+FOR catsem.c: 
+
+Once we determined how to implement the acquiring and releasing of resources, we assessed what synchs would be needed to maintain synchronization for each thread. The difficulty with semaphore implementation is choosing what synchs to use, such that we eliminated conditions which would cause logical errors during runtime. We believe it to be a relatively simple approach, but accounting for all possible conditions took multiple stages of trial and error. We knew that cats would enter the kitchen initially, so we tested with multiple iterations, changing different aspects like "play" time (our random time) and the number of times each cat and mouse were permitted to eat. One observation we made was that correct usage of semaphores does not depend on a particular queueing strategy for the semaphore lists. This made semaphores somewhat easy to implement because we didn't have to worry about any underlying queue data structures, provided we correctly initialized the integer values for our semaphores. Through the use of multiple synch values, and by limiting critical section logic, the critical section is almost never occupied, and busy waiting occurs rarely, and then for only a short time. 
+------------------------------------------------------------------------------------------------------------------------------
