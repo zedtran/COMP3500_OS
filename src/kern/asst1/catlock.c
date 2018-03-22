@@ -7,7 +7,6 @@
  * this file.
  */
 
-
 /*
  *
  * Includes
@@ -61,9 +60,7 @@ int num_finished = 0;
  */
 
 
-/*
- * who should be "cat" or "mouse"
- */
+// print statements in a function
 static void
 lock_eat(const char *who, int num, int bowl, int iteration)
 {
@@ -74,13 +71,11 @@ lock_eat(const char *who, int num, int bowl, int iteration)
         bowl, iteration);
 }
 
-/*
- * Randomly picks a bowl and synchronizes access to it.
- */
+// picking a bowl and syncronizing access to bowl
 static void
 try_eat_some_bowl(const char *who, int num, int iteration)
 {
-    // gets random bowl number
+    // gets random bowl
     int bowl = (int)(random() % NFOODBOWLS) + 1;
 
     // wait for lock on random bowl, eat from it, then return
@@ -109,8 +104,7 @@ try_eat_some_bowl(const char *who, int num, int iteration)
 static
 void
 catlock(void * unusedpointer,
-        unsigned long catnumber)
-{
+        unsigned long catnumber) {
         /*
          * Avoid unused variable warnings.
          */
@@ -120,18 +114,18 @@ catlock(void * unusedpointer,
 
         int i;
 
-        for(i = 0; i < 4;)
-        {
+        for(i = 0; i < 4;) {
+        
+            // must acquire lock
             lock_acquire(cat_mouse_lock);
 
-            if(cats_currently_eating == 0 || cats_currently_eating == 1)
-            {
-                // Eating. Increment cats_currently_eating.
+            if(cats_currently_eating == 0 || cats_currently_eating == 1) {
+                // Eating
                 cats_currently_eating++;
                 lock_release(cat_mouse_lock);
                 try_eat_some_bowl("cat", catnumber, i);
 
-                // Finished eating, reduce cats_currently_eating count.
+                // Finished eating
                 lock_acquire(cat_mouse_lock);
                 cats_currently_eating--;
                 lock_release(cat_mouse_lock);
@@ -139,17 +133,20 @@ catlock(void * unusedpointer,
                 // increment iterator
                 ++i;
             }
-            else
-            {
-                // can't eat, so release lock
+            
+            else {
+                // release if can't eat
                 lock_release(cat_mouse_lock);
             }
+            
             thread_yield();
         }
 
-        // this cat has finished
+        // cat is finished eating
         lock_acquire(finished_count_lock);
+        
         ++num_finished;
+        
         lock_release(finished_count_lock);
 }
 
@@ -173,8 +170,7 @@ catlock(void * unusedpointer,
 static
 void
 mouselock(void * unusedpointer,
-          unsigned long mousenumber)
-{
+          unsigned long mousenumber) {
         /*
          * Avoid unused variable warnings.
          */
@@ -184,42 +180,43 @@ mouselock(void * unusedpointer,
 
         int i;
 
-        for(i = 0; i < 4;)
-        {
+        for(i = 0; i < 4;) {
+        
             lock_acquire(cat_mouse_lock);
 
-            /*
-             * When 0 cats are eating, it means the bowls are free for us.
-    	     * When it says '3' or greater cats it means mice are eating.
-             * This is because in this function we set cats_currently_eating
-             * to 3 to prevent cats from coming to the bowls. This is because
-             * the cats have a mutual agreement that there can be a max of
-             * 2 cats at the bowls at any given time
-             */
+            // cats eating gets set to 3 so that cat's can no longer access bowl
+            // as only 2 can eat at a time
             if(cats_currently_eating == 0 || cats_currently_eating >= 3) {
-                // First mouse
-                // if 0 cats, then make it three
+               
+                
                 cats_currently_eating = (cats_currently_eating == 0) ? 3 :
                     (cats_currently_eating + 1);
+                    
                 lock_release(cat_mouse_lock);
+                
                 try_eat_some_bowl("mouse", mousenumber, i);
 
-                // Finished eating, decrease cats_currently_eating
+                // finished eating
                 lock_acquire(cat_mouse_lock);
+                
                 cats_currently_eating = (cats_currently_eating == 3) ? 0 :
                     (cats_currently_eating - 1);
+                    
                 lock_release(cat_mouse_lock);
 
-                // increase iterator
                 ++i;
             }
+            
             else {
+            
                 lock_release(cat_mouse_lock);
+                
             }
+            
             thread_yield();
         }
 
-        // mouse is Finished
+        // mouse is finished
         lock_acquire(finished_count_lock);
         ++num_finished;
         lock_release(finished_count_lock);
@@ -243,8 +240,8 @@ mouselock(void * unusedpointer,
 
 int
 catmouselock(int nargs,
-             char ** args)
-{
+             char ** args) {
+             
         int index, error;
 
         /*
@@ -253,21 +250,23 @@ catmouselock(int nargs,
         (void) nargs;
         (void) args;
 
-        // Create the locks
+        // initialize locks
         cat_mouse_lock = lock_create("cat_mouse_lock");
         assert(cat_mouse_lock != NULL);
+        
         finished_count_lock = lock_create("finished_count_lock");
         assert(finished_count_lock != NULL);
+        
+        
         for (index = 0; index < NFOODBOWLS; ++index) {
             bowl_lock[index] = lock_create("bowl_lock");
             assert(bowl_lock[index] != NULL);
         }
+        
         cats_currently_eating = 0;
         num_finished = 0;
 
-        /*
-         * Start NCATS catlock() threads.
-         */
+        // start catlock threads
         for (index = 0; index < NCATS; index++) {
 
                 error = thread_fork("catlock thread",
@@ -289,10 +288,7 @@ catmouselock(int nargs,
                 }
         }
 
-        /*
-         * Start NMICE mouselock() threads.
-         */
-
+        // start mouselock threads
         for (index = 0; index < NMICE; index++) {
 
                 error = thread_fork("mouselock thread",
