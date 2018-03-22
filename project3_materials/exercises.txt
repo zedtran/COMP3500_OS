@@ -1,5 +1,5 @@
 1. Explain how each of your solutions avoid starvation.
-
+------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------
 FOR catsem.c:
 
@@ -28,12 +28,23 @@ struct semaphore *sim_count;
 
 "sim_count" is likely the most inconspicous semaphore, but it helps to validate the number of cats and mice (combined) were able to perform the specified number of "play and eat" scenarios. This ultimately helps to corroborate that starvation is avoided. Additionally, this prevents the range of sleeping threads to not go over an unrestricted domain.
 ------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
+FOR catlock.c:
 
-
+There are multiple locks used throughout catlock. Each of these take advantage of "lock" functions such as lock_acquire, lock_destroy, lock_release, and lock_do_i_hold. Some of the locks created are cat_mouse_lock, bowl_lock, and finished_count_lock. Each of these locks "hold" a thread. All of these locks and functions have checks to make sure the process is actually running/doing something. For example, each checks whether the lock is null, each makes sure interrupts are turned off, and correctly puts threads to sleep while the thread is "locked". The basic functions of lock prevent starvation as a lock can only be held by one thread, and the checks make sure the thread isn't frozen/doing nothing.
+------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
 2. Comment on the relative ease of implementation under the two schemes. Can you derive any principles about the use of these different synchronization primitives?
-
+------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------
 FOR catsem.c: 
 
 Once we determined how to implement the acquiring and releasing of resources, we assessed what synchs would be needed to maintain synchronization for each thread. The difficulty with semaphore implementation is choosing what synchs to use, such that we eliminated conditions which would cause logical errors during runtime. We believe it to be a relatively simple approach, but accounting for all possible conditions took multiple stages of trial and error. We knew that cats would enter the kitchen initially, so we tested with multiple iterations, changing different aspects like "play" time (our random time) and the number of times each cat and mouse were permitted to eat. One observation we made was that correct usage of semaphores does not depend on a particular queueing strategy for the semaphore lists. This made semaphores somewhat easy to implement because we didn't have to worry about any underlying queue data structures, provided we correctly initialized the integer values for our semaphores. Through the use of multiple synch values, and by limiting critical section logic, the critical section is almost never occupied, and busy waiting occurs rarely, and then for only a short time. 
+------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
+FOR catlock.c
+
+The lock implementation was more simple as it abstractly represents a real-world solution that is easy to grasp. Only one thread can "hold" a lock at once, a thread can't "get" a lock if it's already held, etc. Because of this simplicity, this made the code much easier to write and think about. 
+The functions within the lock structure make them very easy to use and work with in general. Locks are a more "objective" or "real-world" way to view the problem at hand with process threads.
+
 ------------------------------------------------------------------------------------------------------------------------------
